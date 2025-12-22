@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ポプラ館珈琲</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="logo-group">
+                    <h1 class="logo">ポプラ館珈琲</h1>
+                    <span class="logo-subtitle">本の読める店</span>
+                </div>
+                <button class="menu-toggle" id="menuToggle" aria-label="メニュー">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#story">Our Story</a></li>
+                    <li><a href="#gallery">ギャラリー</a></li>
+                    <li><a href="#menu">メニュー</a></li>
+                    <li><a href="#shop">Shop</a></li>
+                    <li><a href="#info">店舗情報</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-container">
+                <div class="hero-side-text">
+                    <h2 class="hero-title-vertical">ポプラ館珈琲</h2>
+                </div>
+                <div class="hero-images">
+                    <div class="hero-image active" style="background-image: url('images/hero1.jpg');"></div>
+                    <div class="hero-image" style="background-image: url('images/hero2.jpg');"></div>
+                    <div class="hero-image" style="background-image: url('images/hero3.jpg');"></div>
+                </div>
+            </div>
+            <div class="hero-bottom">
+                <a href="#info" class="hero-info-button">
+                    <span class="info-text">営業案内</span>
+                    <span class="info-date">2025.12.22 更新</span>
+                    <span class="info-arrow">></span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Our Story Section -->
+        <section id="story" class="story-section">
+            <div class="container">
+                <h2 class="section-title">Our Story</h2>
+                <div class="story-wrapper">
+                    <div class="story-images" id="storyImages">
+                        <!-- 写真はJavaScriptで動的に生成 -->
+                    </div>
+                    <div class="story-content">
+                        <p class="story-text">
+                            厚木で約30年にわたり愛されてきた「ポプラ館珈琲」。<br>
+                            その味と想いを受け継ぎ、復活から7年目を迎えました。<br>
+                            当時のマスターが今も現役でカウンターに立ち、<br>
+                            自家焙煎の珈琲豆で、一杯一杯丁寧にお淹れしています。
+                        </p>
+                        <p class="story-text">
+                            郊外型の喫茶店として、ゆったりとした時間をお過ごしいただける空間です。<br>
+                            駐車場も12〜13台完備しており、お車でのお越しも便利です。
+                        </p>
+                        <p class="story-text">
+                            本厚木駅から徒歩20分、車で5分の場所にあります。<br>
+                            古くから続く地域に根ざした喫茶店として、<br>
+                            多くのお客様に愛されてきました。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Photo Gallery Section -->
+        <section id="gallery" class="gallery-section">
+            <div class="container">
+                <h2 class="section-title">店内の様子</h2>
+                <div class="gallery-grid" id="galleryGrid">
+                    <!-- 写真はJavaScriptで動的に生成 -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Full Width Image Section -->
+        <section class="full-width-image-section">
+            <div class="full-width-image" style="background-image: url('images/full-width.jpg');">
+                <!-- 画像は背景として表示 -->
+            </div>
+        </section>
+
+        <!-- Menu Section -->
+        <section id="menu" class="menu-section">
+            <div class="container">
+                <h2 class="section-title">メニューの一例</h2>
+                <div class="menu-grid" id="menuGrid">
+                    <!-- メニューアイテムはJavaScriptで動的に生成 -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Shop Section -->
+        <section id="shop" class="shop-section">
+            <div class="container">
+                <h2 class="section-title">Shop</h2>
+                <p class="section-subtitle">写真をタップするとデリバリーページに遷移します</p>
+                <div class="shop-grid" id="shopGrid">
+                    <!-- ShopアイテムはJavaScriptで動的に生成 -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Store Info Section -->
+        <section id="info" class="info-section">
+            <div class="container">
+                <h2 class="section-title">店舗情報</h2>
+                
+                <div class="info-wrapper">
+                    <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3247.123456789!2d139.3456789!3d35.4567890!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDI3JzI0LjQiTiAxMznCsDIwJzQ0LjQiRQ!5e0!3m2!1sja!2sjp!4v1234567890123!5m2!1sja!2sjp" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    </div>
+
+                    <div class="info-content">
+                        <div class="info-item">
+                            <h3>住所</h3>
+                            <p>〒243-0032<br>神奈川県厚木市恩名３丁目２４−１４</p>
+                        </div>
+
+                        <div class="info-item">
+                            <h3>電話番号</h3>
+                            <p>046-204-7058</p>
+                        </div>
+
+                        <div class="info-item">
+                            <h3>営業時間</h3>
+                            <p>月曜日 〜 金曜日<br>9時00分 ～ 17時00分</p>
+                        </div>
+
+                        <div class="info-item">
+                            <h3>定休日</h3>
+                            <p>土曜日・日曜日</p>
+                        </div>
+
+                        <div class="info-item">
+                            <h3>アクセス</h3>
+                            <p>
+                                本厚木駅から徒歩20分 車5分<br>
+                                駐車場：12〜13台
+                            </p>
+                        </div>
+
+                        <div class="info-actions">
+                            <a href="https://www.google.com/maps/search/?api=1&query=神奈川県厚木市恩名３丁目２４−１４" target="_blank" class="info-button">
+                                Googleマップでみる
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 ポプラ館珈琲 All rights reserved</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

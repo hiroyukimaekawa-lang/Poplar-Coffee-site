@@ -70,39 +70,39 @@ document.addEventListener('DOMContentLoaded', async function() {
                 title: "ベイクドチーズケーキとコーヒー",
                 description: "OBSCURA COFFEE ROASTERSのお豆を使ったコーヒーのおともは、バニラの風味がアクセントになったギュギュッとおいしいベイクドチーズケーキで。コーヒー豆は販売もしています。",
                 price: "",
-                image: "images/menu-cheesecake.jpg"
+                image: "images/IMG_4400.JPG"
             },
             {
                 title: "お味噌汁の定食",
                 description: "じっくり丁寧に取った出汁で煮込んだ具沢山のお味噌汁と、色鮮やかで優しい味のおかずが並ぶ定食です。",
                 price: "",
-                image: "images/menu-miso.jpg"
+                image: "images/IMG_4402.JPG"
             },
             {
                 title: "ゴルゴンゾーラ等のチーズのトーストにはちみつと胡椒とレモンスカッシュ",
                 description: "トーストやサンドイッチも用意しています。レモンスカッシュには国産減農薬レモンでつくるシロップを使用。ジンジャーシロップのドリンクも人気です。",
                 price: "",
-                image: "images/menu-toast.jpg"
+                image: "images/IMG_4403.JPG"
             },
             {
                 title: "ピスコサワーとミックスナッツ",
                 description: "カクテル、ウイスキー、ビールもあれこれあります。写真はラテンアメリカ文学好きが高じてお出ししているペルーのカクテル「ピスコサワー」です。",
                 price: "",
-                image: "images/menu-pisco.jpg"
+                image: "images/IMG_4404.JPG"
             }
         ];
     }
 
-    // Shop Data (実際のデータはGoogleドライブから取得する想定)
+    // Shop Data
     const shopData = [
         {
             title: "コーヒー豆",
-            image: "images/shop-beans.jpg",
+            image: "images/IMG_4406.JPG",
             deliveryUrl: "#" // デリバリーページのURL
         },
         {
             title: "オリジナルグッズ",
-            image: "images/shop-goods.jpg",
+            image: "images/IMG_4408.JPG",
             deliveryUrl: "#"
         }
     ];
@@ -156,13 +156,13 @@ document.addEventListener('DOMContentLoaded', async function() {
     // Story Images - Random Photo Collage
     const storyImagesContainer = document.getElementById('storyImages');
     if (storyImagesContainer) {
-        // 店舗の写真データ（実際の画像パスに置き換えてください）
+        // 店舗の写真データ
         const storyImages = [
-            { src: 'images/story1.jpg', width: 280, height: 200, rotation: -3, x: 50, y: 20 },
-            { src: 'images/story2.jpg', width: 240, height: 320, rotation: 2, x: 200, y: 100 },
-            { src: 'images/story3.jpg', width: 300, height: 220, rotation: -2, x: 80, y: 250 },
-            { src: 'images/story4.jpg', width: 260, height: 280, rotation: 1.5, x: 250, y: 180 },
-            { src: 'images/story5.jpg', width: 220, height: 240, rotation: -1.5, x: 120, y: 350 },
+            { src: 'images/IMG_4404.JPG', width: 280, height: 200, rotation: -3, x: 50, y: 20 },
+            { src: 'images/IMG_4406.JPG', width: 240, height: 320, rotation: 2, x: 200, y: 100 },
+            { src: 'images/IMG_4408.JPG', width: 300, height: 220, rotation: -2, x: 80, y: 250 },
+            { src: 'images/IMG_4419.JPG', width: 260, height: 280, rotation: 1.5, x: 250, y: 180 },
+            { src: 'images/IMG_4400.JPG', width: 220, height: 240, rotation: -1.5, x: 120, y: 350 },
         ];
 
         // 写真を配置
@@ -200,29 +200,30 @@ document.addEventListener('DOMContentLoaded', async function() {
     // Gallery Images
     const galleryGrid = document.getElementById('galleryGrid');
     if (galleryGrid) {
-        // ギャラリーの写真データ（実際の画像パスに置き換えてください）
-        // 2列レイアウト用：左列と右列で異なるオフセットを設定
+        // ギャラリーの写真データ
         const galleryImages = [
-            // 左列（上から下へ）
-            { src: 'images/gallery1.jpg', alt: '店内の様子 1', rotation: -2, offsetX: -15, offsetY: 10 },
-            { src: 'images/gallery3.jpg', alt: '店内の様子 3', rotation: 1.5, offsetX: -10, offsetY: -8 },
-            { src: 'images/gallery5.jpg', alt: '店内の様子 5', rotation: -2.5, offsetX: -12, offsetY: 12 },
-            // 右列（上から下へ）
-            { src: 'images/gallery2.jpg', alt: '店内の様子 2', rotation: 3, offsetX: 15, offsetY: -10 },
-            { src: 'images/gallery4.jpg', alt: '店内の様子 4', rotation: -1.5, offsetX: 10, offsetY: 8 },
-            { src: 'images/gallery6.jpg', alt: '店内の様子 6', rotation: 2, offsetX: 12, offsetY: -12 },
+            { src: 'images/IMG_4400.JPG', alt: '店内の様子 1' },
+            { src: 'images/IMG_4402.JPG', alt: '店内の様子 2' },
+            { src: 'images/IMG_4403.JPG', alt: '店内の様子 3' },
+            { src: 'images/IMG_4404.JPG', alt: '店内の様子 4' },
+            { src: 'images/IMG_4406.JPG', alt: '店内の様子 5' },
+            { src: 'images/IMG_4408.JPG', alt: '店内の様子 6' },
         ];
 
         galleryImages.forEach((imageData, index) => {
             const galleryItem = document.createElement('div');
-            galleryItem.className = 'gallery-item';
             
-            // ランダムな回転とオフセットを適用
-            const rotation = imageData.rotation || (Math.random() * 6 - 3); // -3度から3度
-            const offsetX = imageData.offsetX || (Math.random() * 20 - 10); // -10pxから10px
-            const offsetY = imageData.offsetY || (Math.random() * 20 - 10); // -10pxから10px
+            // 左右で異なるクラスを適用（非対称）
+            if (index % 2 === 0) {
+                // 左列（偶数インデックス）
+                galleryItem.className = 'gallery-item left-column';
+            } else {
+                // 右列（奇数インデックス）
+                galleryItem.className = 'gallery-item right-column';
+            }
             
-            galleryItem.style.transform = `translate(${offsetX}px, ${offsetY}px) rotate(${rotation}deg)`;
+            // 回転とオフセットなし（水平垂直）
+            galleryItem.style.transform = 'none';
             
             const img = document.createElement('img');
             img.src = imageData.src;

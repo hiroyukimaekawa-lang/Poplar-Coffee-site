@@ -1,3 +1,20 @@
+// ============================================
+// 写真の位置設定（Storyセクション）
+// ============================================
+// 以下の配列で写真の位置を調整できます
+// - x: 左からの位置（ピクセル）
+// - y: 上からの位置（ピクセル）
+// - width: 写真の幅（ピクセル）
+// - height: 写真の高さ（ピクセル）
+// - rotation: 回転角度（度、正の値は時計回り、負の値は反時計回り）
+const STORY_IMAGES_CONFIG = [
+    { src: 'images/menu1.JPG', width: 280, height: 200, rotation: -3, x: 50, y: 20 },
+    { src: 'images/menu2.JPG', width: 240, height: 320, rotation: 2, x: 200, y: 100 },
+    { src: 'images/menu3.JPG', width: 300, height: 220, rotation: -2, x: 80, y: 250 },
+    { src: 'images/product1.JPG', width: 260, height: 280, rotation: 1.5, x: 250, y: 180 },
+    { src: 'images/store-photo.JPG', width: 220, height: 240, rotation: -1.5, x: 120, y: 350 },
+];
+
 // Googleスプレッドシートからメニューデータを取得
 // スプレッドシートID: 1oUBUpAm4sbv8lh5U7-AONGaJjNidvIfb
 // シートID: 1236346293
@@ -67,28 +84,29 @@ document.addEventListener('DOMContentLoaded', async function() {
     if (!menuData || menuData.length === 0) {
         menuData = [
             {
-                title: "ベイクドチーズケーキとコーヒー",
-                description: "OBSCURA COFFEE ROASTERSのお豆を使ったコーヒーのおともは、バニラの風味がアクセントになったギュギュッとおいしいベイクドチーズケーキで。コーヒー豆は販売もしています。",
-                price: "",
-                image: "images/IMG_4400.JPG"
+                title: "オリジナルブレンド焙煎豆　100g",
+                description: "当店自慢のオリジナルブレンド。コクと香りのバランスが良く、毎日飲んでも飽きのこない味わいです。ブラックでもミルクでもおすすめ。",
+                price: "テイクアウト: ¥660 / 店内: ¥930",
+                image: "images/coffee-beans-both.JPG"
             },
             {
-                title: "お味噌汁の定食",
-                description: "じっくり丁寧に取った出汁で煮込んだ具沢山のお味噌汁と、色鮮やかで優しい味のおかずが並ぶ定食です。",
-                price: "",
-                image: "images/IMG_4402.JPG"
+                title: "オリジナルブレンド焙煎豆　200g",
+                description: "当店自慢のオリジナルブレンド。コクと香りのバランスが良く、毎日飲んでも飽きのこない味わいです。ブラックでもミルクでもおすすめ。",
+                price: "テイクアウト: ¥1,320 / 店内: ¥1,850",
+                image: "images/coffee-beans-both.JPG"
+            },
+ 
+            {
+                title: "自家製プリン",
+                description: "毎日店内で仕込む、なめらか食感の自家製プリン。卵のコクとやさしい甘さ、ほろ苦カラメルが絶妙なバランスです。",
+                price: "テイクアウト: ¥330 / 店内: ¥460",
+                image: "images/menu2.JPG"
             },
             {
-                title: "ゴルゴンゾーラ等のチーズのトーストにはちみつと胡椒とレモンスカッシュ",
-                description: "トーストやサンドイッチも用意しています。レモンスカッシュには国産減農薬レモンでつくるシロップを使用。ジンジャーシロップのドリンクも人気です。",
-                price: "",
-                image: "images/IMG_4403.JPG"
-            },
-            {
-                title: "ピスコサワーとミックスナッツ",
-                description: "カクテル、ウイスキー、ビールもあれこれあります。写真はラテンアメリカ文学好きが高じてお出ししているペルーのカクテル「ピスコサワー」です。",
-                price: "",
-                image: "images/IMG_4404.JPG"
+                title: "珈琲ゼリー",
+                description: "香り高い珈琲を使用した、手作り珈琲ゼリー。つるんとした食感と、ほろ苦さが広がる大人のデザートです。",
+                price: "テイクアウト: ¥660 / 店内: ¥930",
+                image: "images/menu3.JPG"
             }
         ];
     }
@@ -96,13 +114,27 @@ document.addEventListener('DOMContentLoaded', async function() {
     // Shop Data
     const shopData = [
         {
-            title: "コーヒー豆",
-            image: "images/IMG_4406.JPG",
+            title: "珈琲のメニュー",
+            image: "images/coffee-beans-both.JPG",
+            linkText: "珈琲のメニューへ",
             deliveryUrl: "#" // デリバリーページのURL
         },
         {
-            title: "オリジナルグッズ",
-            image: "images/IMG_4408.JPG",
+            title: "珈琲のメニュー",
+            image: "images/coffee-beans1.JPG",
+            linkText: "珈琲のメニューへ",
+            deliveryUrl: "#"
+        },
+        {
+            title: "食事のメニュー",
+            image: "images/menu1.JPG",
+            linkText: "食事のメニューへ",
+            deliveryUrl: "#"
+        },
+        {
+            title: "食事のメニュー",
+            image: "images/menu2.JPG",
+            linkText: "食事のメニューへ",
             deliveryUrl: "#"
         }
     ];
@@ -130,13 +162,13 @@ document.addEventListener('DOMContentLoaded', async function() {
     const shopGrid = document.getElementById('shopGrid');
     if (shopGrid) {
         shopData.forEach(item => {
+            const shopItemContainer = document.createElement('div');
+            shopItemContainer.className = 'shop-item-container';
+            
             const shopItem = document.createElement('div');
             shopItem.className = 'shop-item';
             shopItem.innerHTML = `
                 <img src="${item.image}" alt="${item.title}" class="shop-item-image" onerror="this.src='https://via.placeholder.com/400x300?text=${encodeURIComponent(item.title)}'">
-                <div class="shop-item-overlay">
-                    <h3 class="shop-item-title">${item.title}</h3>
-                </div>
             `;
             
             // クリックでデリバリーページに遷移
@@ -149,94 +181,29 @@ document.addEventListener('DOMContentLoaded', async function() {
                 }
             });
             
-            shopGrid.appendChild(shopItem);
+            // リンクを追加
+            const shopLink = document.createElement('a');
+            shopLink.href = item.deliveryUrl !== '#' ? item.deliveryUrl : '#';
+            shopLink.className = 'shop-item-link';
+            shopLink.textContent = item.linkText;
+            shopLink.addEventListener('click', function(e) {
+                if (item.deliveryUrl === '#') {
+                    e.preventDefault();
+                    alert('デリバリーページの準備中です。');
+                }
+            });
+            
+            shopItemContainer.appendChild(shopItem);
+            shopItemContainer.appendChild(shopLink);
+            shopGrid.appendChild(shopItemContainer);
         });
     }
 
-    // Story Images - Random Photo Collage
-    const storyImagesContainer = document.getElementById('storyImages');
-    if (storyImagesContainer) {
-        // 店舗の写真データ
-        const storyImages = [
-            { src: 'images/IMG_4404.JPG', width: 280, height: 200, rotation: -3, x: 50, y: 20 },
-            { src: 'images/IMG_4406.JPG', width: 240, height: 320, rotation: 2, x: 200, y: 100 },
-            { src: 'images/IMG_4408.JPG', width: 300, height: 220, rotation: -2, x: 80, y: 250 },
-            { src: 'images/IMG_4419.JPG', width: 260, height: 280, rotation: 1.5, x: 250, y: 180 },
-            { src: 'images/IMG_4400.JPG', width: 220, height: 240, rotation: -1.5, x: 120, y: 350 },
-        ];
+    // Story Images - 4方向基準配置システム
+    setupRandomPositioning('storyImages', STORY_IMAGES_CONFIG, ['top', 'right', 'bottom', 'left', 'top']);
 
-        // 写真を配置
-        storyImages.forEach((imageData, index) => {
-            const imgItem = document.createElement('div');
-            imgItem.className = 'story-image-item';
-            
-            // 位置とサイズを設定
-            const x = imageData.x || Math.random() * 300;
-            const y = imageData.y || Math.random() * 400;
-            
-            // z-indexを設定（後ろの写真ほど低い値）
-            const zIndex = storyImages.length - index;
-            
-            imgItem.style.width = imageData.width + 'px';
-            imgItem.style.height = imageData.height + 'px';
-            imgItem.style.left = x + 'px';
-            imgItem.style.top = y + 'px';
-            imgItem.style.transform = `rotate(${imageData.rotation}deg)`;
-            imgItem.style.zIndex = zIndex;
-            
-            const img = document.createElement('img');
-            img.src = imageData.src;
-            img.alt = `ポプラ館珈琲 ${index + 1}`;
-            img.onerror = function() {
-                // 画像が読み込めない場合はプレースホルダーを使用
-                this.src = `https://via.placeholder.com/${imageData.width}x${imageData.height}?text=店舗写真${index + 1}`;
-            };
-            
-            imgItem.appendChild(img);
-            storyImagesContainer.appendChild(imgItem);
-        });
-    }
-
-    // Gallery Images
-    const galleryGrid = document.getElementById('galleryGrid');
-    if (galleryGrid) {
-        // ギャラリーの写真データ
-        const galleryImages = [
-            { src: 'images/IMG_4400.JPG', alt: '店内の様子 1' },
-            { src: 'images/IMG_4402.JPG', alt: '店内の様子 2' },
-            { src: 'images/IMG_4403.JPG', alt: '店内の様子 3' },
-            { src: 'images/IMG_4404.JPG', alt: '店内の様子 4' },
-            { src: 'images/IMG_4406.JPG', alt: '店内の様子 5' },
-            { src: 'images/IMG_4408.JPG', alt: '店内の様子 6' },
-        ];
-
-        galleryImages.forEach((imageData, index) => {
-            const galleryItem = document.createElement('div');
-            
-            // 左右で異なるクラスを適用（非対称）
-            if (index % 2 === 0) {
-                // 左列（偶数インデックス）
-                galleryItem.className = 'gallery-item left-column';
-            } else {
-                // 右列（奇数インデックス）
-                galleryItem.className = 'gallery-item right-column';
-            }
-            
-            // 回転とオフセットなし（水平垂直）
-            galleryItem.style.transform = 'none';
-            
-            const img = document.createElement('img');
-            img.src = imageData.src;
-            img.alt = imageData.alt;
-            img.onerror = function() {
-                // 画像が読み込めない場合はプレースホルダーを使用
-                this.src = 'https://via.placeholder.com/400x300?text=店内写真';
-            };
-            
-            galleryItem.appendChild(img);
-            galleryGrid.appendChild(galleryItem);
-        });
-    }
+    // Gallery Images - 4方向基準配置システム
+    setupRandomPositioning('galleryGrid', GALLERY_IMAGES_CONFIG, ['top', 'right', 'bottom', 'left', 'top', 'right']);
 
     // Mobile Menu Toggle
     const menuToggle = document.getElementById('menuToggle');

@@ -257,7 +257,7 @@ section {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 60px;
-    align-items: start;
+    align-items: center;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -275,27 +275,65 @@ section {
 }
 
 .story-images {
-    position: relative;
-    min-height: 600px;
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 20px;
+    width: 60%;
+    margin-left: auto;
 }
 
 .story-image-item {
-    position: absolute;
     border-radius: 4px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease, z-index 0.3s ease;
+    transition: transform 0.3s ease;
+    max-width: 480px;
+    max-height: 320px;
 }
 
 .story-image-item:hover {
-    transform: scale(1.05);
-    z-index: 10;
+    transform: scale(1.02);
 }
 
 .story-image-item img {
     width: 100%;
-    height: 100%;
+    height: auto;
+    max-width: 480px;
+    max-height: 320px;
+    object-fit: cover;
+    display: block;
+}
+
+.story-images-bottom {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 60px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.story-image-item-bottom {
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+    max-width: 480px;
+    max-height: 320px;
+}
+
+.story-image-item-bottom:hover {
+    transform: scale(1.02);
+}
+
+.story-image-item-bottom img {
+    width: 100%;
+    height: auto;
+    max-width: 480px;
+    max-height: 320px;
     object-fit: cover;
     display: block;
 }
@@ -350,7 +388,7 @@ section {
     height: 100%;
     object-fit: cover;
     display: block;
-    border-radius: 2px;
+    border-radius: 4px;
 }
 
 /* Full Width Image Section */
@@ -435,56 +473,43 @@ section {
 
 /* Shop Section */
 .shop-section {
-    background-color: var(--white);
+    background-color: var(--light-gray);
 }
 
-.shop-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+.shop-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
     gap: 30px;
-    margin-top: 40px;
 }
 
-.shop-item {
-    position: relative;
-    cursor: pointer;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
+.shop-text {
+    font-size: 16px;
+    line-height: 2;
+    color: var(--text-color);
+    font-weight: 300;
+    margin: 0;
 }
 
-.shop-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+.shop-link {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: var(--light-gray);
+    border: 1px solid var(--text-color);
+    color: var(--text-color);
+    text-decoration: none;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 300;
+    transition: background-color 0.3s ease;
+    border-radius: 0;
+    margin: 0 auto;
 }
 
-.shop-item-image {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    display: block;
-}
-
-.shop-item-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
-    padding: 20px;
-    color: var(--white);
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-.shop-item:hover .shop-item-overlay {
-    opacity: 1;
-}
-
-.shop-item-title {
-    font-size: 18px;
-    font-weight: 400;
+.shop-link:hover {
+    background-color: rgba(0, 0, 0, 0.05);
 }
 
 /* Info Section */
@@ -733,18 +758,15 @@ section {
     }
 
     .story-images {
-        min-height: 400px;
-        max-height: 600px;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-bottom: 40px;
     }
 
-    .story-image-item {
-        position: relative;
-        margin-bottom: 20px;
-        transform: none !important;
-    }
-
-    .story-image-item:hover {
-        transform: scale(1.02) !important;
+    .story-images-bottom {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-top: 40px;
     }
 
     .gallery-grid {

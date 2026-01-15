@@ -1,19 +1,3 @@
-// ============================================
-// 写真の位置設定（Storyセクション）
-// ============================================
-// 以下の配列で写真の位置を調整できます
-// - x: 左からの位置（ピクセル）
-// - y: 上からの位置（ピクセル）
-// - width: 写真の幅（ピクセル）
-// - height: 写真の高さ（ピクセル）
-// - rotation: 回転角度（度、正の値は時計回り、負の値は反時計回り）
-const STORY_IMAGES_CONFIG = [
-    { src: 'images/menu1.JPG', width: 280, height: 200, rotation: -3, x: 50, y: 20 },
-    { src: 'images/menu2.JPG', width: 240, height: 320, rotation: 2, x: 200, y: 100 },
-    { src: 'images/menu3.JPG', width: 300, height: 220, rotation: -2, x: 80, y: 250 },
-    { src: 'images/product1.JPG', width: 260, height: 280, rotation: 1.5, x: 250, y: 180 },
-    { src: 'images/store-photo.JPG', width: 220, height: 240, rotation: -1.5, x: 120, y: 350 },
-];
 
 // Googleスプレッドシートからメニューデータを取得
 // スプレッドシートID: 1oUBUpAm4sbv8lh5U7-AONGaJjNidvIfb
@@ -85,28 +69,28 @@ document.addEventListener('DOMContentLoaded', async function() {
         menuData = [
             {
                 title: "オリジナルブレンド焙煎豆　100g",
-                description: "当店自慢のオリジナルブレンド。コクと香りのバランスが良く、毎日飲んでも飽きのこない味わいです。ブラックでもミルクでもおすすめ。",
-                price: "テイクアウト: ¥660 / 店内: ¥930",
-                image: "images/coffee-beans-both.JPG"
+                description: "当店自慢のオリジナルブレンド。<br>コクと香りのバランスが良く、<br>毎日飲んでも飽きのこない味わいです。<br>ブラックでもミルクでもおすすめ。",
+                price: "¥600",
+                image: "./images/coffee-beans.JPG"
             },
             {
-                title: "オリジナルブレンド焙煎豆　200g",
-                description: "当店自慢のオリジナルブレンド。コクと香りのバランスが良く、毎日飲んでも飽きのこない味わいです。ブラックでもミルクでもおすすめ。",
-                price: "テイクアウト: ¥1,320 / 店内: ¥1,850",
-                image: "images/coffee-beans-both.JPG"
+                title: "各種コーヒー",
+                description: "コロンビア、ブラジル、イエメン等<br>幅広い種類のコーヒーを<br>取り揃えております",
+                price: "100g：¥600~",
+                image: "./images/menu-coffee2.jpg"
             },
  
             {
                 title: "自家製プリン",
-                description: "毎日店内で仕込む、なめらか食感の自家製プリン。卵のコクとやさしい甘さ、ほろ苦カラメルが絶妙なバランスです。",
-                price: "テイクアウト: ¥330 / 店内: ¥460",
-                image: "images/menu2.JPG"
+                description: "毎日店内で仕込む、<br>なめらか食感の自家製プリン。<br>卵のコクとやさしい甘さ、<br>ほろ苦カラメルが絶妙なバランスです。",
+                price: "¥300",
+                image: "./images/menu-puding1.jpg"
             },
             {
-                title: "珈琲ゼリー",
-                description: "香り高い珈琲を使用した、手作り珈琲ゼリー。つるんとした食感と、ほろ苦さが広がる大人のデザートです。",
-                price: "テイクアウト: ¥660 / 店内: ¥930",
-                image: "images/menu3.JPG"
+                title: "クロワッサンプレート",
+                description: "バターの香り豊かな<br>手作りクロワッサン。<br>サクサクとした食感と、<br>ほんのりとした甘さが楽しめます。",
+                price: "単品: ¥600 / ブレンドコーヒー付き: ¥900",
+                image: "./images/menu-croissant.jpg"
             }
         ];
     }
@@ -199,12 +183,6 @@ document.addEventListener('DOMContentLoaded', async function() {
         });
     }
 
-    // Story Images - 4方向基準配置システム
-    setupRandomPositioning('storyImages', STORY_IMAGES_CONFIG, ['top', 'right', 'bottom', 'left', 'top']);
-
-    // Gallery Images - 4方向基準配置システム
-    setupRandomPositioning('galleryGrid', GALLERY_IMAGES_CONFIG, ['top', 'right', 'bottom', 'left', 'top', 'right']);
-
     // Mobile Menu Toggle
     const menuToggle = document.getElementById('menuToggle');
     const navMenu = document.getElementById('navMenu');
@@ -251,3 +229,91 @@ document.addEventListener('DOMContentLoaded', async function() {
     });
 });
 
+// ============================================
+// ローディングアニメーション制御
+// ============================================
+window.onload = function() {
+    const loadingOverlay = document.getElementById('loadingOverlay');
+    
+    if (loadingOverlay) {
+        // ページ読み込み完了後、0.6秒フェードアウト
+        setTimeout(function() {
+            loadingOverlay.classList.add('hidden');
+        }, 600);
+    }
+};
+
+// ============================================
+// スクロールインジケーター制御（スマホ表示のみ）
+// ============================================
+(function() {
+    const scrollIndicator = document.getElementById('scrollIndicator');
+    
+    if (!scrollIndicator) return;
+    
+    // スマホ表示時のみ動作
+    function handleScroll() {
+        // 画面幅が768px以下の場合のみ処理
+        if (window.innerWidth > 768) {
+            scrollIndicator.classList.add('hidden');
+            return;
+        }
+        
+        const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+        
+        // スクロール量が100pxを超えたらフェードアウト
+        if (scrollY > 100) {
+            scrollIndicator.classList.add('hidden');
+        } else {
+            scrollIndicator.classList.remove('hidden');
+        }
+    }
+    
+    // スクロールイベント監視
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    // リサイズ時も確認
+    window.addEventListener('resize', handleScroll, { passive: true });
+    
+    // 初期状態を確認
+    handleScroll();
+})();
+
+// ============================================
+// セクションタイトル（背景画像付き）: スクロールフェードイン
+// ============================================
+(function() {
+    // 対象要素を取得
+    const sectionTitleBgElements = document.querySelectorAll('.section-title-bg');
+    
+    // 要素が存在しない場合は処理を終了
+    if (sectionTitleBgElements.length === 0) return;
+    
+    // IntersectionObserverのオプション設定
+    const observerOptions = {
+        root: null, // ビューポートを基準にする
+        rootMargin: '0px', // マージンなし
+        threshold: 0.2 // 要素が20%表示されたら発火
+    };
+    
+    // IntersectionObserverのコールバック関数
+    const observerCallback = (entries, observer) => {
+        entries.forEach(entry => {
+            // 要素が画面に入ったら
+            if (entry.isIntersecting) {
+                // is-visibleクラスを追加してフェードイン表示
+                entry.target.classList.add('is-visible');
+                // 一度だけ再生するため、監視を解除
+                observer.unobserve(entry.target);
+            }
+        });
+    };
+    
+    // IntersectionObserverインスタンスを作成
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    
+    // 各要素を監視対象に追加
+    sectionTitleBgElements.forEach(element => {
+        observer.observe(element);
+    });
+})();

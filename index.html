@@ -1,258 +1,332 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ポプラ館珈琲</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <!-- ローディングオーバーレイ -->
-    <div class="loading-overlay" id="loadingOverlay">
-        <div class="loading-content">
-            <div class="spinner"></div>
-            <p class="loading-text">ポプラ館珈琲</p>
-        </div>
-    </div>
+    <title>ポプラ珈琲館 | Poplar Coffee House</title>
+    <meta name="description" content="一杯の贅沢、受け継がれる味。ポプラ珈琲館。">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&family=Noto+Serif+JP:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Top Page Specific Styles for Fuzkue + Full Content Mix */
 
-    <header class="header">
-        <nav class="nav">
-            <div class="nav-container">
-                <div class="logo-group">
-                    <h1 class="logo">ポプラ館珈琲</h1>
-                    <span class="logo-subtitle">オリジナル焙煎豆の珈琲店</span>
-                </div>
-                <button class="menu-toggle" id="menuToggle" aria-label="メニュー">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <ul class="nav-menu" id="navMenu">
-                    <li><a href="#story">Our Story</a></li>
-                    <li><a href="#menu">メニュー</a></li>
-                    <li><a href="#info">店舗情報</a></li>
-                </ul>
-            </div>
-        </nav>
+        .hero-section {
+            height: 80vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            /* Fustkue vibe: slightly muted/darkened for text pop */
+            filter: brightness(0.9);
+        }
+
+        .hero-overlay {
+            position: relative;
+            z-index: 2;
+            color: var(--color-white);
+            text-align: center;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-family: var(--font-serif);
+            letter-spacing: 0.1em;
+        }
+
+        .hero-catchphrase {
+            font-size: 1.2rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: var(--color-text);
+            padding: 1rem 2rem;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Information Section Card */
+        .info-card-container {
+            background-color: var(--color-white);
+            border: 1px solid #ddd;
+            padding: 2.5rem;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+            text-align: center;
+        }
+
+        .info-item {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            border-bottom: 1px dashed #eee;
+            padding-bottom: 0.5rem;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Master & Story Section */
+        .story-block {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .story-block:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .story-image {
+            flex: 1;
+            height: 350px;
+            object-fit: cover;
+            box-shadow: 5px 5px 0px var(--color-wood);
+            /* Offset border effect */
+        }
+
+        .story-content {
+            flex: 1;
+        }
+
+        .story-text {
+            line-height: 2;
+            text-align: justify;
+            margin-bottom: 1.5rem;
+            word-break: break-all;
+        }
+
+        /* Menu Highlights */
+        .menu-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .highlight-item {
+            text-align: center;
+            background: var(--color-white);
+            padding: 1.5rem;
+            border: 1px solid #eee;
+            transition: transform 0.3s;
+        }
+
+        .highlight-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .highlight-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+
+        .view-menu-btn {
+            display: inline-block;
+            background-color: var(--color-wood);
+            color: var(--color-white);
+            padding: 1rem 3rem;
+            font-size: 1.1rem;
+            font-family: var(--font-serif);
+            letter-spacing: 0.05em;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .view-menu-btn:hover {
+            background-color: var(--color-text);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+
+            .story-block,
+            .story-block:nth-child(even) {
+                flex-direction: column;
+                gap: 1.5rem;
+                margin-bottom: 3rem;
+            }
+
+            .story-image {
+                height: auto;
+                max-height: 300px;
+                width: 100%;
+            }
+
+            .story-content {
+                width: 100%;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-section {
+                height: 60vh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 1. Hero Section -->
+    <header class="hero-section">
+        <img src="images/hero_interior.png" alt="店内風景" class="hero-image">
+        <div class="hero-overlay">
+            <h1 class="hero-title">ポプラ珈琲館</h1>
+            <p class="hero-catchphrase">一杯の贅沢、受け継がれる味。</p>
+        </div>
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-container">
-                <div class="hero-side-text">
-                    <h2 class="hero-title-vertical">ポプラ館珈琲</h2>
-                </div>
-                <div class="hero-images">
-                    <div class="hero-image active" style="background-image: url('./images/top-store-design.jpg');"></div>
-                    <div class="hero-image" style="background-image: url('./images/top-store-design2.jpg');"></div>
-                    <div class="hero-image" style="background-image: url('./images/top-store-design3.jpg');"></div>
-                </div>
-            </div>
-            <div class="hero-bottom">
-                <a href="#info" class="hero-info-button">
-                    <span class="info-text">営業案内</span>
-                    <!-- <span class="info-date">2025.12.22 更新</span> -->
-                    <span class="info-arrow">></span>
-                </a>
-            </div>
-        </section>
 
-        <!-- Our Story Section -->
-        <section id="story" class="story-section">
+        <!-- 2. Information Section -->
+        <section class="section">
             <div class="container">
-                <h2 class="section-title">Our Story</h2>
-                <div class="story-wrapper">
-                    <div class="story-top-section">
-                        <div class="story-images-left">
-                            <img src="./images/story-photo9.jpg" alt="ポプラ館珈琲 1">
-                            <img src="./images/background-1.jpg" alt="ポプラ館珈琲 2">
-                        </div>
-                        <div class="story-content">
-                            <!-- PC用の文章 -->
-                            <p class="story-text story-text-pc">
-                                厚木で約30年にわたり愛されてきた「ポプラ館珈琲」<br>
-                                その味と想いを受け継ぎ、復活から7年目を迎えました<br>
-                                当時のマスターが今も現役でカウンターに立ち<br>
-                                自家焙煎の珈琲豆で、一杯一杯丁寧にお淹れしています
-                            </p>
-                            <!-- レスポンシブ用の文章 -->
-                            <p class="story-text story-text-sp">
-                                厚木で約30年にわたり<br>
-                                愛されてきた「ポプラ館珈琲」<br>
-                                その味と想いを受け継ぎ<br>
-                                復活から7年目を迎えました<br>
-                                当時のマスターが今も現役で<br>
-                                カウンターに立ち<br>
-                                自家焙煎の珈琲豆で、<br>
-                                一杯一杯丁寧にお淹れしています。
-                            </p>
-                            
-                            <!-- PC用の文章 -->
-                            <p class="story-text story-text-pc">
-                                郊外型の喫茶店として、ゆったりとした時間をお過ごしいただける空間です。<br>
-                                駐車場も12〜13台完備しており、お車でのお越しも便利です。
-                            </p>
-                            <!-- レスポンシブ用の文章 -->
-                            <p class="story-text story-text-sp">
-                                郊外型の喫茶店として、<br>
-                                ゆったりとした時間を<br>
-                                お過ごしいただける空間です。<br>
-                                駐車場も12〜13台完備しており、<br>
-                                お車でのお越しも便利です。
-                            </p>
-                            
-                            <!-- PC用の文章 -->
-                            <p class="story-text story-text-pc">
-                                本厚木駅から徒歩20分、車で5分の場所にあります。<br>
-                                古くから続く地域に根ざした喫茶店として、<br>
-                                多くのお客様に愛されてきました。
-                            </p>
-                            <!-- レスポンシブ用の文章 -->
-                            <p class="story-text story-text-sp">
-                                本厚木駅から徒歩20分、<br>
-                                車で5分の場所にあります。<br>
-                                古くから続く地域に根ざした<br>
-                                喫茶店として、<br>
-                                多くのお客様に愛されてきました。
-                            </p>
-                        </div>
+                <h2 class="section-title">Information</h2>
+                <div class="info-card-container">
+                    <div class="info-item">
+                        <strong><i class="fa-solid fa-location-dot"></i> 住所</strong><br>
+                        〒000-0000 東京都〇〇区〇〇 1-2-3
                     </div>
-                    <!-- Photo Gallery Section -->
-                    <!-- <div class="gallery-grid" id="galleryGrid">
-                        <div class="gallery-item offset-1">
-                            <img src="./images/story-photo3.jpg" alt="店内の様子 1">
-                        </div>
-                        <div class="gallery-item offset-2">
-                            <img src="./images/story-photo4.jpg" alt="店内の様子 2">
-                        </div>
-                        <div class="gallery-item offset-3">
-                            <img src="./images/story-photo5.jpg" alt="店内の様子 3">
-                        </div>
-                        <div class="gallery-item offset-4">
-                            <img src="./images/story-photo6.jpg" alt="店内の様子 4">
-                        </div>
-                        <div class="gallery-item offset-5">
-                            <img src="./images/story-photo7.jpg" alt="店内の様子 5">
-                        </div>
-                        <div class="gallery-item offset-6">
-                            <img src="./images/story-photo8.jpg" alt="店内の様子 6">
-                        </div>
-                    </div> -->
-                </div>
-                </div>
-            </div>
-        </section>
-        <!-- Full Width Image Section -->
-        <section class="full-width-image-section">
-            <div class="full-width-image" style="background-image: url('/images/story-photo10.jpg');">
-                <!-- 画像は背景として表示 -->
-            </div>
-        </section>
-
-        <!-- Menu Section -->
-        <section id="menu" class="menu-section">
-            <div class="container">
-                <h2 class="section-title">メニュー</h2>
-                <div class="menu-grid" id="menuGrid">
-                    <!-- メニューアイテムはJavaScriptで動的に生成 -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Shop Section -->
-        <!-- <section id="shop" class="shop-section">
-            <div class="container">
-                <h2 class="section-title">Shop</h2>
-                <div class="shop-content">
-                    <p class="shop-text">厚木で約30年にわたり愛されてきた「ポプラ館珈琲」。
-                        その味と想いを受け継ぎ、復活から7年目を迎えました。
-                        当時のマスターが今も現役でカウンターに立ち、自家焙煎の珈琲豆で、一杯一杯丁寧にお淹れしています。</p>
-                    <a href="https://maps.app.goo.gl/m7oiDjHB41QGCQSc6" class="shop-link">ポプラ館珈琲の案内書きへ</a>
-                </div>
-            </div>
-        </section> -->
-
-        <!-- Store Info Section -->
-        <section id="info" class="info-section">
-            <div class="container">
-                <h2 class="section-title">店舗情報</h2>
-                
-                <div class="info-wrapper">
-                    <div class="map-container">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3250.6188518310782!2d139.35008349999998!3d35.4394707!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6019ab4dba6ef4e5%3A0x64e07a89710004f6!2z44Od44OX44Op6aSo54-I55Cy!5e0!3m2!1sja!2sjp!4v1768444714575!5m2!1sja!2sjp" 
-                        width="600" 
-                        height="450" 
-                        style="border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
+                    <div class="info-item">
+                        <strong><i class="fa-solid fa-phone"></i> 電話番号</strong><br>
+                        03-0000-0000
                     </div>
-
-                    <div class="info-content">
-                        <div class="info-item">
-                            <h3>住所</h3>
-                            <!-- PC用の文章 -->
-                            <p class="info-text-pc">〒243-0032<br>神奈川県厚木市恩名３丁目２４−１４</p>
-                            <!-- レスポンシブ用の文章 -->
-                            <p class="info-text-sp">〒243-0032<br>神奈川県厚木市<br>恩名３丁目２４−１４</p>
-                        </div>
-
-                        <div class="info-item">
-                            <h3>電話番号</h3>
-                            <p>046-204-7058</p>
-                        </div>
-
-                        <div class="info-item">
-                            <h3>営業時間</h3>
-                            <p>月曜日 〜 金曜日<br>9時00分 ～ 17時00分</p>
-                        </div>
-
-                        <div class="info-item">
-                            <h3>定休日</h3>
-                            <p>土曜日・日曜日</p>
-                        </div>
-
-                        <div class="info-item">
-                            <h3>アクセス</h3>
-                            <!-- PC用の文章 -->
-                            <p class="info-text-pc">
-                                本厚木駅から徒歩20分 車5分<br>
-                                駐車場：12〜13台
-                            </p>
-                            <!-- レスポンシブ用の文章 -->
-                            <p class="info-text-sp">
-                                本厚木駅から<br>
-                                徒歩20分 車5分<br>
-                                駐車場：12〜13台
-                            </p>
-                        </div>
-
-                        <div class="info-actions">
-                            <a href="https://maps.app.goo.gl/m7oiDjHB41QGCQSc6" target="_blank" class="info-button">
-                                Googleマップでみる
-                            </a>
-                        </div>
+                    <div class="info-item">
+                        <strong><i class="fa-regular fa-clock"></i> 営業時間</strong><br>
+                        10:00 - 20:00 (L.O. 19:30)
+                    </div>
+                    <div class="info-item">
+                        <strong><i class="fa-solid fa-store"></i> 定休日</strong><br>
+                        毎週木曜日
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- 3 & 4. Master's Passion & Story -->
+        <section class="section" style="background-color: #fff;">
+            <div class="container">
+                <!-- Master's Passion -->
+                <div class="story-block">
+                    <img src="images/master_pouring.png" alt="マスター" class="story-image">
+                    <div class="story-content">
+                        <h2 class="section-title"
+                            style="text-align: left; margin-left: 0; left: 0; transform: none; border-bottom: 1px solid var(--color-wood); display: inline-block;">
+                            Our Master's Passion</h2>
+                        <p class="story-text">
+                            「一杯の珈琲には、人の心をほどく力がある」<br>
+                            そう信じて、半世紀。豆の選別から焙煎、抽出に至るまで、<br>
+                            一切の妥協を許さず、ただひたすらに美味しい一杯を追求してきました。<br>
+                            忙しい日常の中で、ホッと一息つける場所でありたい。<br>
+                            それが、私の変わらぬ願いです。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Our Story -->
+                <div class="story-block">
+                    <img src="images/hero_interior.png" alt="創業当時" class="story-image">
+                    <!-- Reusing interior for story context -->
+                    <div class="story-content">
+                        <h2 class="section-title"
+                            style="text-align: left; margin-left: 0; left: 0; transform: none; border-bottom: 1px solid var(--color-wood); display: inline-block;">
+                            Our Story & Commitment</h2>
+                        <p class="story-text">
+                            創業から変わらない、木の温もりを感じる空間。<br>
+                            ポプラ珈琲館は、地域の皆様に愛され、歴史を刻んできました。<br>
+                            厳選された生豆を独自の直火焙煎で焼き上げ、<br>
+                            香り高く、深いコクのある味わいを引き出しています。<br>
+                            時代が変わっても、変わらない「本物」の味をお届けします。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Menu Section -->
+        <section class="section">
+            <div class="container" style="text-align: center;">
+                <h2 class="section-title">Menu</h2>
+
+                <div class="menu-highlights">
+                    <!-- Coffee -->
+                    <div class="highlight-item">
+                        <img src="images/menu_coffee.png" alt="ブレンドコーヒー" class="highlight-img">
+                        <h4>オリジナルブレンド</h4>
+                        <p>コクと香りのバランスが絶妙な看板ブレンド。</p>
+                    </div>
+
+                    <!-- Dessert -->
+                    <div class="highlight-item">
+                        <img src="images/menu-pudding.jpg" alt="自家製プリン" class="highlight-img">
+                        <h4>自家製プリン</h4>
+                        <p>昔ながらの固めで濃厚なカスタードプリン。</p>
+                    </div>
+
+                    <!-- Snack -->
+                    <div class="highlight-item">
+                        <img src="images/menu-waffle-sandwich.jpg" alt="ワッフル" class="highlight-img">
+                        <h4>ワッフルサンド</h4>
+                        <p>外はサクッ、中はフワッとした焼きたてワッフル。</p>
+                    </div>
+                </div>
+
+                <a href="menu.html" class="view-menu-btn">全メニューを見る</a>
+            </div>
+        </section>
+
+        <!-- 6. SNS & Delivery -->
+        <section class="section" style="background-color: #eefebe;">
+            <div class="container" style="text-align: center;">
+                <h2 class="section-title" style="border-bottom: none;">Follow Us & Order</h2>
+                <div class="sns-links" style="justify-content: center; gap: 2rem; margin-top: 1rem;">
+                    <a href="#" class="view-menu-btn"
+                        style="background-color: transparent; border: 1px solid var(--color-text); color: var(--color-text);"><i
+                            class="fa-brands fa-instagram"></i> Instagram</a>
+                    <a href="#" class="view-menu-btn"
+                        style="background-color: transparent; border: 1px solid var(--color-text); color: var(--color-text);"><i
+                            class="fa-solid fa-truck"></i> UberEats</a>
+                </div>
+            </div>
+        </section>
+
     </main>
 
-    <footer class="footer">
+    <footer>
         <div class="container">
-            <p>&copy; 2026 ポプラ館珈琲 All rights reserved</p>
+            <p>&copy; 2024 Poplar Coffee House. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <!-- スクロールインジケーター（スマホ表示のみ） -->
-    <div class="scroll-indicator" id="scrollIndicator">
-        <span class="scroll-text">SCROLL</span>
-        <div class="scroll-line"></div>
-    </div>
-
-    <script src="script.js"></script>
 </body>
-</html>
 
+</html>

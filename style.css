@@ -526,6 +526,7 @@ footer {
 @media (max-width: 768px) {
     .menu-grid-list {
         grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
     }
 
     .logo {
@@ -540,6 +541,9 @@ footer {
 /* Small Mobile (approx < 480px) -> 1 Column */
 @media (max-width: 480px) {
     .menu-grid-list {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
     }
+
+    /* Removed 3-col specific font-size reductions */
 }

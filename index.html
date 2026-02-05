@@ -107,8 +107,17 @@
             padding-bottom: 0.5rem;
         }
 
+        .info-item a {
+            white-space: normal;
+            word-break: break-all;
+        }
+
         .info-item:last-child {
             border-bottom: none;
+        }
+
+        .info-card-container a {
+            color: #000;
         }
 
         /* Master & Story Section */
@@ -122,6 +131,7 @@
         .story-block:nth-child(even) {
             flex-direction: row-reverse;
         }
+
 
         .story-image {
             flex: 1;
@@ -141,6 +151,7 @@
             margin-bottom: 1.5rem;
             word-break: break-all;
         }
+
 
         /* Menu Highlights */
         .menu-highlights {
@@ -168,6 +179,12 @@
             height: 200px;
             object-fit: cover;
             margin-bottom: 1rem;
+        }
+
+        @media (min-width: 769px) {
+            .highlight-img {
+                height: 260px;
+            }
         }
 
         .view-menu-btn {
@@ -209,6 +226,10 @@
                 align-self: center;
             }
 
+            .hero-catchphrase {
+                white-space: nowrap;
+            }
+
             .sp-text {
                 display: block;
             }
@@ -232,6 +253,15 @@
 
             .story-content {
                 width: 100%;
+            }
+
+            .story-content .section-title {
+                font-size: 1.2rem;
+                white-space: nowrap;
+            }
+
+            .story-section-custom::before {
+                background-size: 140%;
             }
 
             .hero-section {
@@ -264,6 +294,12 @@
                 margin-bottom: 0.5rem;
             }
         }
+
+        @media (max-width: 480px) {
+            .info-item a {
+                font-size: 0.9rem;
+            }
+        }
     </style>
 </head>
 
@@ -271,12 +307,12 @@
 
     <!-- 1. Hero Section -->
     <header class="hero-section">
-        <img src="./images/interior.jpg" alt="店内風景" class="hero-image">
+        <img src="images/story.jpg" alt="店内風景" class="hero-image">
         <div class="hero-overlay">
             <h1 class="hero-title">ポプラ館珈琲</h1>
             <div class="hero-catchphrase-container">
                 <p class="hero-catchphrase pc-text">一杯の贅沢、受け継がれる味。</p>
-                <p class="hero-catchphrase sp-text">一杯の贅沢、<br>受け継がれる味。</p>
+                <p class="hero-catchphrase sp-text">一杯の贅沢 受け継がれる味</p>
             </div>
         </div>
     </header>
@@ -290,7 +326,7 @@
                 <div class="info-card-container">
                     <div class="info-item">
                         <strong><i class="fa-solid fa-location-dot"></i> 住所</strong><br>
-                        〒243-0032 神奈川県厚木市恩名３丁目２４−１４
+                        <a href="https://maps.app.goo.gl/AWXe2oHPHbFjMXfD7">〒243-0032<br>神奈川県厚木市恩名３丁目２４−１４</a>
                     </div>
                     <div class="info-item">
                         <strong><i class="fa-solid fa-phone"></i> 電話番号</strong><br>
@@ -309,7 +345,7 @@
         </section>
 
         <!-- 3 & 4. Master's Passion & Story -->
-        <section class="section" style="background-color: #fff;">
+        <section class="section story-section-custom">
             <div class="container">
                 <!-- Master's Passion -->
                 <div class="story-block">
@@ -337,7 +373,7 @@
 
                 <!-- Our Story -->
                 <div class="story-block">
-                    <img src="./images/story.jpg" alt="創業当時" class="story-image">
+                    <img src="images/story-mill.png" alt="創業当時" class="story-image">
                     <!-- Reusing interior for story context -->
                     <div class="story-content">
                         <h2 class="section-title"
@@ -345,12 +381,14 @@
                             Our Story & Commitment</h2>
                         <p class="story-text pc-text">
                             厚木で約30年にわたり愛されてきた「ポプラ館珈琲」<br>
-                            その味と想いを受け継ぎ、復活から7年目を迎えました<br>
+                            その味と想いを残し守り続け<br>
                             当時のマスターが今も現役でカウンターに立ち<br>
                             自家焙煎の珈琲豆で、一杯一杯丁寧にお淹れしています<br>
                         </p>
                         <p class="story-text sp-text">
-                            ~厚木で約30年にわたり愛されてきた~<br>ポプラ館珈琲その味と想いを受け継ぎ、復活から7年目を迎えました。当時のマスターが今も現役でカウンターに立ち、自家焙煎の珈琲豆で、一杯一杯丁寧にお淹れしています。<br>
+                            厚木で約30年にわたり愛されてきた「ポプラ館珈琲」。<br>
+                            その味と想いを残し守り続け、当時のマスターが今も現役でカウンターに立ち、
+                            自家焙煎の珈琲豆で、一杯一杯丁寧にお淹れしています。<br>
                         </p>
                     </div>
                 </div>
@@ -372,9 +410,9 @@
 
                     <!-- Dessert -->
                     <div class="highlight-item">
-                        <img src="images/pudding.jpg" alt="自家製プリン" class="highlight-img">
-                        <h4>自家製プリン</h4>
-                        <p>昔ながらの固めで濃厚なカスタードプリン。</p>
+                        <img src="images/croissant.png" alt="クロワッサンプレート" class="highlight-img">
+                        <h4>クロワッサンプレート</h4>
+                        <p>バターの香り豊かなクロワッサン。外サク中しっとり。</p>
                     </div>
 
                     <!-- Snack -->
@@ -398,6 +436,9 @@
                         <i class="fa-brands fa-instagram"></i> Instagram
                     </a>
                     <a href="#" class="btn-sns-rocket" target="_blank">
+                        <i class="fa-solid fa-bag-shopping"></i> Uber Eats
+                    </a>
+                    <a href="#" class="btn-sns-rocket" target="_blank">
                         <i class="fa-solid fa-rocket"></i> Rocket Now
                     </a>
                 </div>
@@ -408,7 +449,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Poplar Coffee House. All Rights Reserved.</p>
+            <p>&copy; 2026 Poplar Coffee House. All Rights Reserved.</p>
         </div>
     </footer>
 

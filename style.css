@@ -449,6 +449,11 @@ section {
     object-fit: cover;
 }
 
+#coffee-section .card-image img.shop-card-image {
+    max-width: 70%;
+    max-height: 70%;
+}
+
 /* Food images cover fully */
 .food-card-image img {
     width: 100%;

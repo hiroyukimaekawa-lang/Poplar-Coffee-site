@@ -120,6 +120,24 @@
             color: #000;
         }
 
+        .info-map-link {
+            display: inline-block;
+            margin-top: 0.6rem;
+            padding: 0.7rem 1.4rem;
+            border: 1px solid var(--color-wood);
+            background-color: var(--color-white);
+            color: var(--color-wood);
+            font-family: var(--font-serif);
+            text-decoration: none;
+            border-radius: 2px;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .info-map-link:hover {
+            background-color: var(--color-wood);
+            color: var(--color-white);
+        }
+
         /* Master & Story Section */
         .story-block {
             display: flex;
@@ -326,7 +344,8 @@
                 <div class="info-card-container">
                     <div class="info-item">
                         <strong><i class="fa-solid fa-location-dot"></i> 住所</strong><br>
-                        <a href="https://maps.app.goo.gl/AWXe2oHPHbFjMXfD7">〒243-0032<br>神奈川県厚木市恩名３丁目２４−１４</a>
+                        <a href="https://maps.app.goo.gl/AWXe2oHPHbFjMXfD7">〒243-0032<br>神奈川県厚木市恩名３丁目２４−１４</a><br>
+                        <a class="info-map-link" href="https://maps.app.goo.gl/AWXe2oHPHbFjMXfD7">Googleマップはこちら</a>
                     </div>
                     <div class="info-item">
                         <strong><i class="fa-solid fa-phone"></i> 電話番号</strong><br>

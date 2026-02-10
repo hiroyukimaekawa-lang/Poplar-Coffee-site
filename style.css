@@ -684,6 +684,11 @@ footer {
         gap: 1rem;
     }
 
+    #coffee-section .card-image img.shop-card-image {
+        max-width: 90%;
+        max-height: 90%;
+    }
+
     .logo {
         font-size: 1.5rem;
     }

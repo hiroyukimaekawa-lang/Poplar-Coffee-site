@@ -138,6 +138,55 @@
             color: var(--color-white);
         }
 
+        .news-card {
+            max-width: 760px;
+            margin: 0 auto;
+            background-color: var(--color-white);
+            border: 1px solid #ddd;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+        }
+
+        .news-item {
+            padding: 1rem 0;
+            border-bottom: 1px dashed #e8e8e8;
+        }
+
+        .news-item:first-child {
+            padding-top: 0;
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .news-date {
+            display: inline-block;
+            font-size: 0.85rem;
+            color: #6d5c58;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-link {
+            display: inline-block;
+            color: var(--color-text);
+            font-family: var(--font-serif);
+            border-bottom: 1px solid rgba(93, 64, 55, 0.35);
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .news-link:hover {
+            color: var(--color-wood);
+            border-color: var(--color-wood);
+        }
+
+        .news-description {
+            margin-top: 0.6rem;
+            font-size: 0.95rem;
+            color: #5e514d;
+        }
+
         /* Master & Story Section */
         .story-block {
             display: flex;
@@ -359,6 +408,27 @@
                         <strong><i class="fa-solid fa-store"></i> 定休日</strong><br>
                         土曜日・日曜日
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">News</h2>
+                <div class="news-card">
+                    <article class="news-item">
+                        <span class="news-date">2026.02.16</span><br>
+                        <a class="news-link" href="https://note.com/happy_eagle5103" target="_blank" rel="noopener noreferrer">
+                            note「ポプラ館珈琲」最新情報
+                        </a>
+                        <p class="news-description">
+                            最新のお知らせはnoteで更新しています。新メニューや営業情報は下記リンクからご確認ください。
+                        </p>
+                    </article>
+                    <article class="news-item">
+                        <span class="news-date">RSS Last Build Date</span><br>
+                        Mon, 16 Feb 2026 13:45:43 +0900
+                    </article>
                 </div>
             </div>
         </section>

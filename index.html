@@ -130,32 +130,11 @@
             color: var(--brand-gold);
             z-index: 1;
             box-shadow: 0 6px 14px rgba(0, 0, 0, 0.28);
-            clip-path: polygon(0% 0%, 100% 0%, 100% 78%, 76% 86%, 50% 100%, 24% 86%, 0% 78%);
         }
 
         .hero-ribbon::before,
         .hero-ribbon::after {
-            content: '';
-            position: absolute;
-            top: 4px;
-            width: 42px;
-            height: 30px;
-            border: 2px solid var(--brand-gold);
-            background: rgba(0, 0, 0, 0.15);
-            z-index: -1;
-            border-radius: 999px;
-        }
-
-        .hero-ribbon::before {
-            left: -30px;
-            transform: rotate(-20deg);
-            clip-path: polygon(0% 0%, 100% 0%, 82% 100%, 0% 100%);
-        }
-
-        .hero-ribbon::after {
-            right: -30px;
-            transform: rotate(20deg);
-            clip-path: polygon(18% 0%, 100% 0%, 100% 100%, 0% 100%);
+            display: none;
         }
 
         .hero-catchphrase {
@@ -661,21 +640,6 @@
                 min-width: 220px;
                 font-size: 0.9rem;
                 height: 38px;
-            }
-
-            .hero-ribbon::before,
-            .hero-ribbon::after {
-                width: 34px;
-                height: 34px;
-                top: 1px;
-            }
-
-            .hero-ribbon::before {
-                left: -27px;
-            }
-
-            .hero-ribbon::after {
-                right: -27px;
             }
 
             .hero-catchphrase-container {

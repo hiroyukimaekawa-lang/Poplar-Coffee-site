@@ -90,11 +90,11 @@
             font-family: 'Noto Serif JP', serif;
             font-size: clamp(2.3rem, 6vw, 3.9rem);
             font-weight: 700;
-            letter-spacing: 0.08em;
-            margin: 0 0 0.25rem;
-            line-height: 1.08;
+            letter-spacing: 0.1em;
+            margin: 0 0 0.35rem;
+            line-height: 1.1;
             color: var(--brand-gold);
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
         }
 
         .hero-subtitle {
@@ -102,9 +102,9 @@
             font-size: clamp(1.6rem, 4vw, 2.7rem);
             font-weight: 400;
             margin: 0;
-            line-height: 1.05;
+            line-height: 1.08;
             color: var(--brand-gold);
-            letter-spacing: 0.02em;
+            letter-spacing: 0.04em;
         }
 
         .hero-ribbon-wrap {
@@ -295,13 +295,24 @@
             border-bottom-color: rgba(243, 231, 211, 0.6);
         }
 
-        .roast-lead {
+        .roast-copy {
+            text-align: center;
             max-width: 860px;
             margin: 0 auto 1.8rem;
-            text-align: center;
+        }
+
+        .roast-lead {
             font-size: 1rem;
             line-height: 1.9;
             color: #efe2cc;
+            margin-bottom: 1rem;
+        }
+
+        .roast-copy .roast-p {
+            font-size: 1rem;
+            line-height: 1.9;
+            color: #efe2cc;
+            margin-bottom: 1rem;
         }
 
         .roast-gallery {
@@ -422,6 +433,208 @@
 
         .view-menu-btn:hover {
             background-color: var(--color-text);
+        }
+
+        /* スペシャル珈琲（商品カード形式） */
+        .special-coffee {
+            margin-top: 2.5rem;
+            margin-bottom: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .special-coffee-title {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--color-text);
+        }
+
+        .special-coffee-sub {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.35rem;
+        }
+
+        .special-coffee-note {
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 1.25rem;
+        }
+
+        .special-coffee-carousel-wrap {
+            position: relative;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .special-coffee-arrow {
+            display: none;
+        }
+
+        .special-coffee-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .special-coffee-card {
+            background: var(--color-white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(94, 81, 77, 0.08);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* メニュー.html同様：コーヒー豆背景 + 中央に国旗 */
+        .special-coffee-card-img {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 5 / 3;
+            overflow: hidden;
+            background-image: url('images/back-coffee-beans.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .special-coffee-card-img::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.25);
+            z-index: 0;
+        }
+
+        .special-coffee-card-img .special-coffee-card-flag {
+            position: relative;
+            z-index: 1;
+            width: 50%;
+            height: 50%;
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        .special-coffee-card-body {
+            padding: 1.1rem 1rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .special-coffee-card-body .product-name {
+            font-family: var(--font-serif);
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--color-text);
+            line-height: 1.45;
+            margin-bottom: 0.25rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .special-coffee-card-body .roast-months {
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .special-coffee-card-body .product-desc {
+            font-size: 0.8rem;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 0.75rem;
+            flex: 1;
+        }
+
+        .special-coffee-card-body .price {
+            font-size: 0.9rem;
+            color: var(--color-wood);
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            /* スペシャル珈琲：レスポンシブ時カルーセル */
+            .special-coffee-list {
+                display: flex;
+                grid-template-columns: unset;
+                gap: 1rem;
+                max-width: 100%;
+                margin-left: 0;
+                margin-right: 0;
+                overflow-x: auto;
+                overflow-y: hidden;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: thin;
+                padding: 0.25rem 2% 1rem;
+            }
+
+            .special-coffee-list::-webkit-scrollbar {
+                height: 6px;
+            }
+
+            .special-coffee-list::-webkit-scrollbar-thumb {
+                background: rgba(0, 0, 0, 0.2);
+                border-radius: 3px;
+            }
+
+            .special-coffee-card {
+                flex: 0 0 auto;
+                min-width: 85%;
+                max-width: 85%;
+                scroll-snap-align: center;
+                scroll-snap-stop: always;
+            }
+
+            .special-coffee-carousel-wrap {
+                max-width: 100%;
+            }
+
+            .special-coffee-arrow {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 40px;
+                height: 40px;
+                border: none;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.95);
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+                color: var(--color-text);
+                font-size: 1.1rem;
+                z-index: 10;
+                cursor: pointer;
+                -webkit-tap-highlight-color: transparent;
+            }
+
+            .special-coffee-arrow:active {
+                background: rgba(243, 231, 211, 0.98);
+            }
+
+            .special-coffee-arrow-prev {
+                left: 4px;
+            }
+
+            .special-coffee-arrow-next {
+                right: 4px;
+            }
         }
 
         /* Responsive adjustments */
@@ -572,7 +785,7 @@
             <div class="hero-brand-wrap">
                 <div class="hero-brand-card">
                 <h1 class="hero-title">ポプラ館珈琲</h1>
-                <p class="hero-subtitle">popura-kan Coffee</p>
+                <p class="hero-subtitle">Popura-kan Coffee</p>
                     <div class="hero-ribbon-wrap">
                         <div class="hero-ribbon">since 1974</div>
                     </div>
@@ -637,17 +850,25 @@
         <section class="section roast-section">
             <div class="container">
                 <h2 class="section-title roast-title">こだわりの焙煎</h2>
-                <p class="roast-lead">
-                    コーヒーの命は焙煎。豆の状態を見極め、香りが立ちのぼる一瞬を逃さず、
-                    火力と時間を丁寧に重ねながら、ポプラ館珈琲の一杯をつくり上げています。
-                </p>
+                <div class="roast-copy">
+                    <p class="roast-lead">焙煎が、珈琲の味を決める</p>
+                    <p class="roast-p pc-text">日本の「自家焙煎」を創り上げてきた矜持。</p>
+                    <p class="roast-p sp-text">日本の「自家焙煎」を創り上げてきた矜持。</p>
+                    <p class="roast-p pc-text">日本の珈琲史において、「自家焙煎」という文化を形作ってきたマスターが培ってきた焙煎の技術をお届けします。</p>
+                    <p class="roast-p sp-text">日本の珈琲史において、「自家焙煎」という<br>文化を形作ってきたマスターが培ってきた<br>焙煎の技術をお届けします。</p>
+                    <p class="roast-p pc-text">当店の自慢は、今なお現役で鼓動を続ける「10kg焙煎機の第1号機」。</p>
+                    <p class="roast-p sp-text">当店の自慢は、今なお現役で鼓動を続ける「10kg焙煎機の第1号機」。</p>
+                    <p class="roast-p pc-text">40年以上の歳月を経て、鋳物の隅々にまで熱が馴染んだこの機体は、<br>最新鋭のデジタル機では決して出せない、深く、優しく、それでいて力強い火力を豆に届けます。</p>
+                    <p class="roast-p sp-text">40年以上の歳月を経て、鋳物の隅々にまで熱が馴染んだこの機体は、最新鋭のデジタル機では決して出せない、深く、優しく、それでいて<br>力強い火力を豆に届けます。</p>
+                    <p class="roast-p pc-text">本物のコーヒーの味をご提供します。</p>
+                    <p class="roast-p sp-text">本物のコーヒーの味をご提供します。</p>
+                </div>
                 <div class="roast-gallery">
                     <figure class="roast-item roast-item-main">
-                        <img src="images/roast/roast.jpg" alt="焙煎機で豆を仕上げる様子">
-                    </figure>
-                    <figure class="roast-item roast-item-sub">
                         <img src="images/roast/S__47874072_0.jpg" alt="焙煎中に立ちのぼる煙">
                     </figure>
+                    <figure class="roast-item roast-item-sub">
+                        <img src="images/roast/roast.jpg" alt="焙煎機で豆を仕上げる様子">                      </figure>
                     <figure class="roast-item roast-item-sub">
                         <img src="images/roast/S__47874070_0.jpg" alt="焙煎豆の状態確認">
                     </figure>
@@ -740,6 +961,52 @@
                     </div> -->
                 </div>
 
+                <div class="special-coffee">
+                    <h3 class="special-coffee-title">スペシャル珈琲</h3>
+                    <p class="special-coffee-sub">一杯 ¥1,500(税別)</p>
+                    <p class="special-coffee-note">※珈琲豆には限りがあります。お問合せください</p>
+                    <div class="special-coffee-carousel-wrap">
+                        <button type="button" class="special-coffee-arrow special-coffee-arrow-prev" aria-label="前のカードへ">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+                        <ul class="special-coffee-list" id="special-coffee-list">
+                        <li class="special-coffee-card">
+                            <div class="special-coffee-card-img">
+                                <img src="images/flag_jamaica.svg" alt="ジャマイカ" class="special-coffee-card-flag">
+                            </div>
+                            <div class="special-coffee-card-body">
+                                <div class="product-name">ジャマイカ ブルーマウンテン<br>クライスデールNo.1</div>
+                                <p class="product-desc">月に一度のスペシャル豆。華やかな香りとまろやかな味わい。</p>
+                                <div class="price">Beans ¥3,800(税別)</div>
+                            </div>
+                        </li>
+                        <li class="special-coffee-card">
+                            <div class="special-coffee-card-img">
+                                <img src="images/flag_panama.svg" alt="パナマ" class="special-coffee-card-flag">
+                            </div>
+                            <div class="special-coffee-card-body">
+                                <div class="product-name">パナマ ゲイシャ ハートマン農園</div>
+                                <p class="product-desc">フローラルな香りと透明感のある味わいが特徴のゲイシャ。</p>
+                                <div class="price">Beans ¥3,300(税別)</div>
+                            </div>
+                        </li>
+                        <li class="special-coffee-card">
+                            <div class="special-coffee-card-img">
+                                <img src="images/flag_hawaii.svg" alt="ハワイ" class="special-coffee-card-flag">
+                            </div>
+                            <div class="special-coffee-card-body">
+                                <div class="product-name">ハワイ コナ100 エクストラファンシー <br>ハワイアンクイーン農園</div>
+                                <p class="product-desc">100%コナ。甘みと酸味のバランスがとれたエクストラファンシー。</p>
+                                <div class="price">Beans ¥3,300(税別)</div>
+                            </div>
+                        </li>
+                    </ul>
+                        <button type="button" class="special-coffee-arrow special-coffee-arrow-next" aria-label="次のカードへ">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+
                 <a href="menu.html" class="view-menu-btn">全メニューを見る</a>
             </div>
         </section>
@@ -786,6 +1053,28 @@
                 current = (current + 1) % slides.length;
                 slides[current].classList.add('is-active');
             }, intervalMs);
+        })();
+
+        (function () {
+            const list = document.getElementById('special-coffee-list');
+            const prevBtn = document.querySelector('.special-coffee-arrow-prev');
+            const nextBtn = document.querySelector('.special-coffee-arrow-next');
+            if (!list || !prevBtn || !nextBtn) return;
+
+            function getScrollAmount() {
+                const card = list.querySelector('.special-coffee-card');
+                if (!card) return list.offsetWidth * 0.85;
+                const style = getComputedStyle(list);
+                const gap = parseFloat(style.gap) || 16;
+                return card.offsetWidth + gap;
+            }
+
+            prevBtn.addEventListener('click', function () {
+                list.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+            });
+            nextBtn.addEventListener('click', function () {
+                list.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+            });
         })();
     </script>
 

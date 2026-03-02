@@ -330,6 +330,19 @@
             min-height: 205px;
         }
 
+        .roast-video {
+            grid-column: 1 / -1;
+            overflow: hidden;
+            background-color: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 240, 220, 0.18);
+        }
+
+        .roast-video video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
         /* Master & Story Section */
         .story-block {
             display: flex;
@@ -562,6 +575,7 @@
         }
 
         @media (max-width: 768px) {
+
             /* スペシャル珈琲：レスポンシブ時カルーセル */
             .special-coffee-list {
                 display: flex;
@@ -764,8 +778,8 @@
         <div class="hero-overlay">
             <div class="hero-brand-wrap">
                 <div class="hero-brand-card">
-                <h1 class="hero-title">ポプラ館珈琲</h1>
-                <p class="hero-subtitle">Popura-kan Coffee</p>
+                    <h1 class="hero-title">ポプラ館珈琲</h1>
+                    <p class="hero-subtitle">Popura-kan Coffee</p>
                     <div class="hero-ribbon-wrap">
                         <div class="hero-ribbon">since 1974</div>
                     </div>
@@ -812,7 +826,8 @@
                 <div class="news-card">
                     <article class="news-item">
                         <span class="news-date">2026.02.16</span><br>
-                        <a class="news-link" href="https://note.com/happy_eagle5103" target="_blank" rel="noopener noreferrer">
+                        <a class="news-link" href="https://note.com/happy_eagle5103" target="_blank"
+                            rel="noopener noreferrer">
                             note「ポプラ館珈琲」最新情報
                         </a>
                         <p class="news-description">
@@ -838,26 +853,19 @@
                     <p class="roast-p sp-text">日本の珈琲史において、「自家焙煎」という<br>文化を形作ってきたマスターが培ってきた<br>焙煎の技術をお届けします。</p>
                     <p class="roast-p pc-text">当店の自慢は、今なお現役で鼓動を続ける「10kg焙煎機の第1号機」。</p>
                     <p class="roast-p sp-text">当店の自慢は、今なお現役で鼓動を続ける「10kg焙煎機の第1号機」。</p>
-                    <p class="roast-p pc-text">40年以上の歳月を経て、鋳物の隅々にまで熱が馴染んだこの機体は、<br>最新鋭のデジタル機では決して出せない、深く、優しく、それでいて力強い火力を豆に届けます。</p>
-                    <p class="roast-p sp-text">40年以上の歳月を経て、鋳物の隅々にまで熱が馴染んだこの機体は、最新鋭のデジタル機では決して出せない、深く、優しく、それでいて<br>力強い火力を豆に届けます。</p>
+                    <p class="roast-p pc-text">
+                        40年以上の歳月を経て、鋳物の隅々にまで熱が馴染んだこの機体は、<br>最新鋭のデジタル機では決して出せない、深く、優しく、それでいて力強い火力を豆に届けます。</p>
+                    <p class="roast-p sp-text">
+                        40年以上の歳月を経て、鋳物の隅々にまで熱が馴染んだこの機体は、最新鋭のデジタル機では決して出せない、深く、優しく、それでいて<br>力強い火力を豆に届けます。</p>
                     <p class="roast-p pc-text">本物のコーヒーの味をご提供します。</p>
                     <p class="roast-p sp-text">本物のコーヒーの味をご提供します。</p>
                 </div>
                 <div class="roast-gallery">
-                    <figure class="roast-item roast-item-main">
-                        <img src="images/roast/S__47874072_0.jpg" alt="焙煎中に立ちのぼる煙">
-                    </figure>
-                    <figure class="roast-item roast-item-sub">
-                        <img src="images/roast/roast.jpg" alt="焙煎機で豆を仕上げる様子">                      </figure>
-                    <figure class="roast-item roast-item-sub">
-                        <img src="images/roast/S__47874070_0.jpg" alt="焙煎豆の状態確認">
-                    </figure>
-                    <figure class="roast-item roast-item-sub">
-                        <img src="images/roast/S__47874061_0.jpg" alt="焙煎機のディテール">
-                    </figure>
-                    <figure class="roast-item roast-item-sub">
-                        <img src="images/roast/roast2.jpg" alt="仕上げ直前の焙煎豆">
-                    </figure>
+                    <div class="roast-video">
+                        <video controls playsinline preload="metadata">
+                            <source src="images/video/baisen-syhort.mp4" type="video/mp4">
+                        </video>
+                    </div>
                 </div>
             </div>
         </section>
@@ -867,7 +875,7 @@
             <div class="container">
                 <!-- Master's Passion -->
                 <div class="story-block">
-                    <img src="./images/master.jpg" alt="マスター" class="story-image">
+                    <img src="images/story-photo.jpg" alt="マスター" class="story-image">
                     <div class="story-content">
                         <h2 class="section-title"
                             style="text-align: left; margin-left: 0; left: 0; transform: none; border-bottom: 1px solid var(--color-wood); display: inline-block;">
@@ -948,45 +956,47 @@
                     <p class="special-coffee-sub">一杯 ¥1,500(税別)</p>
                     <p class="special-coffee-note">※ 数量限定・店頭販売のみ。一期一会の味をぜひ店頭でお確かめください。</p>
                     <div class="special-coffee-carousel-wrap">
-                        <button type="button" class="special-coffee-arrow special-coffee-arrow-prev" aria-label="前のカードへ">
+                        <button type="button" class="special-coffee-arrow special-coffee-arrow-prev"
+                            aria-label="前のカードへ">
                             <i class="fa-solid fa-chevron-left"></i>
                         </button>
                         <ul class="special-coffee-list" id="special-coffee-list">
-                        <li class="special-coffee-card">
-                            <div class="special-coffee-card-img">
-                                <img src="images/flag_jamaica.svg" alt="ジャマイカ" class="special-coffee-card-flag">
-                            </div>
-                            <div class="special-coffee-card-body">
-                                <div class="product-name">ジャマイカ ブルーマウンテン<br>クライスデールNo.1</div>
-                                <div class="roast-months">1月・4月・7月・10月焙煎</div>
-                                <p class="product-desc">月に一度のスペシャル豆。華やかな香りとまろやかな味わい。</p>
-                                <div class="price">Beans ¥3,800(税別)</div>
-                            </div>
-                        </li>
-                        <li class="special-coffee-card">
-                            <div class="special-coffee-card-img">
-                                <img src="images/flag_panama.svg" alt="パナマ" class="special-coffee-card-flag">
-                            </div>
-                            <div class="special-coffee-card-body">
-                                <div class="product-name">パナマ ゲイシャ<br>ハートマン農園</div>
-                                <div class="roast-months">2月・5月・8月・11月焙煎</div>
-                                <p class="product-desc">フローラルな香りと透明感のある味わいが特徴のゲイシャ。</p>
-                                <div class="price">Beans ¥3,300(税別)</div>
-                            </div>
-                        </li>
-                        <li class="special-coffee-card">
-                            <div class="special-coffee-card-img">
-                                <img src="images/flag_hawaii.svg" alt="ハワイ" class="special-coffee-card-flag">
-                            </div>
-                            <div class="special-coffee-card-body">
-                                <div class="product-name">ハワイ コナ100 エクストラファンシー <br>ハワイアンクイーン農園</div>
-                                <div class="roast-months">3月・6月・9月・12月焙煎</div>
-                                <p class="product-desc">100%コナ。甘みと酸味のバランスがとれたエクストラファンシー。</p>
-                                <div class="price">Beans ¥3,300(税別)</div>
-                            </div>
-                        </li>
-                    </ul>
-                        <button type="button" class="special-coffee-arrow special-coffee-arrow-next" aria-label="次のカードへ">
+                            <li class="special-coffee-card">
+                                <div class="special-coffee-card-img">
+                                    <img src="images/flag_jamaica.svg" alt="ジャマイカ" class="special-coffee-card-flag">
+                                </div>
+                                <div class="special-coffee-card-body">
+                                    <div class="product-name">ジャマイカ ブルーマウンテン<br>クライスデールNo.1</div>
+                                    <div class="roast-months">1月・4月・7月・10月焙煎</div>
+                                    <p class="product-desc">月に一度のスペシャル豆。華やかな香りとまろやかな味わい。</p>
+                                    <div class="price">Beans ¥3,800(税別)</div>
+                                </div>
+                            </li>
+                            <li class="special-coffee-card">
+                                <div class="special-coffee-card-img">
+                                    <img src="images/flag_panama.svg" alt="パナマ" class="special-coffee-card-flag">
+                                </div>
+                                <div class="special-coffee-card-body">
+                                    <div class="product-name">パナマ ゲイシャ<br>ハートマン農園</div>
+                                    <div class="roast-months">2月・5月・8月・11月焙煎</div>
+                                    <p class="product-desc">フローラルな香りと透明感のある味わいが特徴のゲイシャ。</p>
+                                    <div class="price">Beans ¥3,300(税別)</div>
+                                </div>
+                            </li>
+                            <li class="special-coffee-card">
+                                <div class="special-coffee-card-img">
+                                    <img src="images/flag_hawaii.svg" alt="ハワイ" class="special-coffee-card-flag">
+                                </div>
+                                <div class="special-coffee-card-body">
+                                    <div class="product-name">ハワイ コナ100 エクストラファンシー <br>ハワイアンクイーン農園</div>
+                                    <div class="roast-months">3月・6月・9月・12月焙煎</div>
+                                    <p class="product-desc">100%コナ。甘みと酸味のバランスがとれたエクストラファンシー。</p>
+                                    <div class="price">Beans ¥3,300(税別)</div>
+                                </div>
+                            </li>
+                        </ul>
+                        <button type="button" class="special-coffee-arrow special-coffee-arrow-next"
+                            aria-label="次のカードへ">
                             <i class="fa-solid fa-chevron-right"></i>
                         </button>
                     </div>

@@ -477,6 +477,7 @@ section {
     color: var(--color-text);
     min-height: 2.4em;
     /* Ensure about 2 lines text aligns */
+    flex-grow: 1;
 }
 
 .card-desc {

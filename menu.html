@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="menu-page">
     <header>
         <div class="container">
             <h1><a href="index.html" class="logo-link">ポプラ館珈琲</a></h1>
@@ -43,151 +43,84 @@
                 <!-- Coffee Section -->
                 <div id="coffee-section" class="menu-content active">
                     <h3 class="menu-category-title"><i class="fa-solid fa-mug-hot"></i>自家焙煎豆</h3>
-                    <div class="menu-grid-list">
-                        <!-- Original Blend 100g -->
-                        <div class="menu-card">
-                            <div class="card-image">
-                                <img src="images/shop-card.png" alt="オリジナルブレンド" class="shop-card-image">
-                            </div>
-                            <div class="card-details">
-                                <h4 class="card-title">オリジナルブレンド焙煎豆 100g</h4>
-                                <div class="card-price">
-                                    <span>店内販売: ¥600</span>
-                                </div>
-                            </div>
+                    <div class="menu-item-slideshow coffee-label-slideshow" data-menu-slider aria-label="自家焙煎豆の画像スライドショー">
+                        <div class="menu-item-slide coffee-label-slide is-active">
+                            <img src="menu/original.webp" alt="オリジナルブレンド 焙煎豆 100g 店内販売 ¥600">
                         </div>
-
-
-                        <!-- Mexico 100g -->
-                        <div class="menu-card">
-                            <div class="card-image">
-                                <img src="images/flag_mexico.png" alt="メキシコ">
-                            </div>
-                            <div class="card-details">
-                                <h4 class="card-title">メキシコ アルツーラ·プルマ クルスグランデ農園 焙煎豆 100g</h4>
-                                <div class="card-price">
-                                    <span>店内販売: ¥600</span>
-                                </div>
-                            </div>
+                        <div class="menu-item-slide coffee-label-slide">
+                            <img src="menu/mexico.webp" alt="メキシコ アルツーラ・プルマ クルスグランデ農園 焙煎豆 100g 店内販売 ¥600">
                         </div>
-
-
-                        <!-- Colombia 100g -->
-                        <div class="menu-card">
-                            <div class="card-image">
-                                <img src="images/flag_colombia.png" alt="コロンビア">
-                            </div>
-                            <div class="card-details">
-                                <h4 class="card-title">コロンビア スプレモS18 焙煎豆 100g</h4>
-                                <div class="card-price">
-                                    <span>店内販売: ¥600</span>
-                                </div>
-                            </div>
+                        <div class="menu-item-slide coffee-label-slide">
+                            <img src="menu/colombia.webp" alt="コロンビア スプレモS18 焙煎豆 100g 店内販売 ¥600">
                         </div>
-
-
-                        <!-- Brazil 100g -->
-                        <div class="menu-card">
-                            <div class="card-image">
-                                <img src="images/flag_brazil.png" alt="ブラジル">
-                            </div>
-                            <div class="card-details">
-                                <h4 class="card-title">ブラジル サントスNo.2 焙煎豆 100g</h4>
-                                <div class="card-price">
-                                    <span>店内販売: ¥600</span>
-                                </div>
-                            </div>
+                        <div class="menu-item-slide coffee-label-slide">
+                            <img src="menu/brazil.webp" alt="ブラジル サントスNo.2 焙煎豆 100g 店内販売 ¥600">
                         </div>
-
-
-                        <!-- Yemen 100g -->
-                        <div class="menu-card">
-                            <div class="card-image">
-                                <img src="images/flag_yemen.png" alt="イエメン">
-                            </div>
-                            <div class="card-details">
-                                <h4 class="card-title">イエメン モカ·マタリ No.9 焙煎豆 100g</h4>
-                                <div class="card-price">
-                                    <span>店内販売: ¥1,100</span>
-                                </div>
-                            </div>
+                        <div class="menu-item-slide coffee-label-slide">
+                            <img src="menu/yemen.webp" alt="イエメン モカ・マタリ No.9 焙煎豆 100g 店内販売 ¥1,100">
                         </div>
-
-
-                        <!-- PNG 100g -->
-                        <div class="menu-card">
-                            <div class="card-image">
-                                <img src="images/flag_papua_new_guinea.png" alt="パプアニューギニア">
-                            </div>
-                            <div class="card-details">
-                                <h4 class="card-title">パプアニューギニア シグリ 焙煎豆 100g</h4>
-                                <div class="card-price">
-                                    <span>店内販売: ¥1,100</span>
-                                </div>
-                            </div>
+                        <div class="menu-item-slide coffee-label-slide">
+                            <img src="menu/papuanewguinea.webp" alt="パプアニューギニア シグリ 焙煎豆 100g 店内販売 ¥1,100">
                         </div>
-
-
-                        <!-- Indonesia 100g -->
-                        <div class="menu-card">
-                            <div class="card-image">
-                                <img src="images/flag_indonesia.png" alt="インドネシア">
-                            </div>
-                            <div class="card-details">
-                                <h4 class="card-title">インドネシア マンデリンビンダンリマ 焙煎豆 100g</h4>
-                                <div class="card-price">
-                                    <span>店内販売: ¥1,000</span>
-                                </div>
-                            </div>
+                        <div class="menu-item-slide coffee-label-slide">
+                            <img src="menu/indonesia.webp" alt="インドネシア マンデリンビンダンリマ 焙煎豆 100g 店内販売 ¥1,000">
                         </div>
-
-
+                        <button type="button" class="menu-item-nav menu-item-prev" aria-label="前の焙煎豆を表示">
+                            <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" class="menu-item-nav menu-item-next" aria-label="次の焙煎豆を表示">
+                            <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                        </button>
+                        <div class="menu-item-dots" aria-label="焙煎豆スライド切り替え">
+                            <button type="button" class="is-active" aria-label="オリジナルブレンドを表示"></button>
+                            <button type="button" aria-label="メキシコを表示"></button>
+                            <button type="button" aria-label="コロンビアを表示"></button>
+                            <button type="button" aria-label="ブラジルを表示"></button>
+                            <button type="button" aria-label="イエメンを表示"></button>
+                            <button type="button" aria-label="パプアニューギニアを表示"></button>
+                            <button type="button" aria-label="インドネシアを表示"></button>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Food Section -->
                 <div id="food-section" class="menu-content">
                     <h3 class="menu-category-title"><i class="fa-solid fa-mug-hot"></i> ドリンク</h3>
-                    <div class="menu-grid-list">
-                        <!-- Blend Coffee -->
-                        <div class="menu-card">
-                            <div class="card-image food-card-image">
-                                <img src="images/menu_coffee.png" alt="ブレンド珈琲">
-                            </div>
-                            <div class="card-details">
-                                <h4 class="card-title">ブレンド珈琲</h4>
-                                <div class="card-price">
-                                    <span>店内飲食: ¥800</span>
-                                </div>
+                    <div class="menu-item-slideshow" data-menu-slider aria-label="ドリンクの写真スライドショー">
+                        <div class="menu-item-slide is-active">
+                            <img src="images/menu_coffee.webp" alt="ブレンド珈琲">
+                            <div class="menu-item-slide-info">
+                                <h4>ブレンド珈琲</h4>
+                                <p>店内飲食: ¥800</p>
                             </div>
                         </div>
-
-
-                        <!-- Ice Coffee -->
-                        <div class="menu-card">
-                            <div class="card-image food-card-image">
-                                <img src="images/ice-coffee.jpeg" alt="アイスコーヒー">
-                            </div>
-                            <div class="card-details">
-                                <h4 class="card-title">アイスコーヒー</h4>
-                                <div class="card-price">
-                                    <span>店内飲食: ¥800</span>
-                                </div>
+                        <div class="menu-item-slide">
+                            <img src="images/ice-coffee.webp" alt="アイスコーヒー">
+                            <div class="menu-item-slide-info">
+                                <h4>アイスコーヒー</h4>
+                                <p>店内飲食: ¥800</p>
                             </div>
                         </div>
-
-                        <!-- Lemon Squash -->
-                        <div class="menu-card">
-                            <div class="card-image food-card-image">
-                                <img src="images/lemon_squash.png" alt="レモンスカッシュ">
-                            </div>
-                            <div class="card-details">
-                                <h4 class="card-title">生レモンスカッシュ</h4>
-                                <div class="card-price">
-                                    <span>店内飲食: ¥800</span>
-                                </div>
+                        <div class="menu-item-slide">
+                            <img src="images/lemon_squash.webp" alt="レモンスカッシュ">
+                            <div class="menu-item-slide-info">
+                                <h4>生レモンスカッシュ</h4>
+                                <p>店内飲食: ¥800</p>
                             </div>
                         </div>
+                        <button type="button" class="menu-item-nav menu-item-prev" aria-label="前のメニューを表示">
+                            <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" class="menu-item-nav menu-item-next" aria-label="次のメニューを表示">
+                            <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                        </button>
+                        <div class="menu-item-dots" aria-label="スライド切り替え">
+                            <button type="button" class="is-active" aria-label="ブレンド珈琲を表示"></button>
+                            <button type="button" aria-label="アイスコーヒーを表示"></button>
+                            <button type="button" aria-label="生レモンスカッシュを表示"></button>
+                        </div>
+                    </div>
+                    <div class="menu-grid-list menu-details-grid">
                         <!-- Regular Menu (Collapsible Text Only) -->
                         <details class="menu-details">
                             <summary class="menu-details-btn">その他のコーヒー</summary>
@@ -204,98 +137,71 @@
                     </div>
 
                     <h3 class="menu-category-title"><i class="fa-solid fa-utensils"></i> フード & デザート</h3>
-                    <div class="menu-grid-list">
-                        <!-- Croissant -->
-                        <div class="menu-card">
-                            <div class="card-image food-card-image">
-                                <img src="images/croissant4.jpeg" alt="クロワッサン">
-                            </div>
-                            <div class="card-details">
-                                <h4 class="card-title croissant-title">クロワッサンプレート</h4>
-                                <div class="card-price">
-                                    <span>店内飲食: ¥600</span>
-                                </div>
+                    <div class="menu-item-slideshow" data-menu-slider aria-label="フードとデザートの写真スライドショー">
+                        <div class="menu-item-slide is-active">
+                            <img src="images/croissant4.webp" alt="クロワッサンプレート">
+                            <div class="menu-item-slide-info">
+                                <h4>クロワッサンプレート</h4>
+                                <p>店内飲食: ¥600</p>
                             </div>
                         </div>
-
-                        <!-- Toast -->
-                        <div class="menu-card">
-                            <div class="card-image food-card-image">
-                                <img src="images/toast.png" alt="トースター">
-                            </div>
-                            <div class="card-details">
-                                <h4 class="card-title toast-title">トースト<span class="toast-break">（モーニングサービス）</span></h4>
-                                <div class="card-price">
-                                    <span>店内飲食: ¥400</span>
-                                </div>
+                        <div class="menu-item-slide">
+                            <img src="images/toast.webp" alt="トースト">
+                            <div class="menu-item-slide-info">
+                                <h4>トースト<span>（モーニングサービス）</span></h4>
+                                <p>店内飲食: ¥400</p>
                             </div>
                         </div>
-
-                        <!-- Waffle -->
-                        <div class="menu-card">
-                            <div class="card-image food-card-image">
-                                <img src="images/wafful.jpg" alt="ワッフル">
-                            </div>
-                            <div class="card-details">
-                                <h4 class="card-title">ワッフル</h4>
-                                <div class="card-price">
-                                    <span>店内飲食: ¥800</span>
-                                </div>
+                        <div class="menu-item-slide">
+                            <img src="images/wafful.webp" alt="ワッフル">
+                            <div class="menu-item-slide-info">
+                                <h4>ワッフル</h4>
+                                <p>店内飲食: ¥800</p>
                             </div>
                         </div>
-
-                        <!-- Pudding -->
-                        <div class="menu-card">
-                            <div class="card-image food-card-image">
-                                <img src="./images/pudding.jpg" alt="自家製プリン">
-                            </div>
-                            <div class="card-details">
-                                <h4 class="card-title">自家製プリン</h4>
-                                <div class="card-price">
-                                    <span>店内飲食: ¥300</span>
-                                </div>
+                        <div class="menu-item-slide">
+                            <img src="./images/pudding.webp" alt="自家製プリン">
+                            <div class="menu-item-slide-info">
+                                <h4>自家製プリン</h4>
+                                <p>店内飲食: ¥300</p>
                             </div>
                         </div>
-
-                        <!-- Coffee Jelly -->
-                        <div class="menu-card">
-                            <div class="card-image food-card-image">
-                                <img src="./images/coffee-zelly.png" alt="珈琲ゼリー">
-                            </div>
-                            <div class="card-details">
-                                <h4 class="card-title">珈琲ゼリー</h4>
-                                <div class="card-price">
-                                    <span>店内飲食: ¥600</span>
-                                </div>
+                        <div class="menu-item-slide">
+                            <img src="./images/coffee-zelly.webp" alt="珈琲ゼリー">
+                            <div class="menu-item-slide-info">
+                                <h4>珈琲ゼリー</h4>
+                                <p>店内飲食: ¥600</p>
                             </div>
                         </div>
-
-                        <!-- Coffee Zenzai -->
-                        <div class="menu-card">
-                            <div class="card-image food-card-image">
-                                <img src="images/coffee-zenzai1.png" alt="珈琲ぜんざい">
-                            </div>
-                            <div class="card-details">
-                                <h4 class="card-title">珈琲ぜんざい</h4>
-                                <div class="card-price">
-                                    <span>店内飲食: ¥800</span>
-                                </div>
+                        <div class="menu-item-slide">
+                            <img src="images/coffee-zenzai1.webp" alt="珈琲ぜんざい">
+                            <div class="menu-item-slide-info">
+                                <h4>珈琲ぜんざい</h4>
+                                <p>店内飲食: ¥800</p>
                             </div>
                         </div>
-
-                        <!-- Pancake -->
-                        <div class="menu-card">
-                            <div class="card-image food-card-image">
-                                <img src="images/pancake_no_mark.png" alt="パンケーキ">
-                            </div>
-                            <div class="card-details">
-                                <h4 class="card-title">パンケーキ</h4>
-                                <div class="card-price">
-                                    <span>店内飲食: ¥2,500</span>
-                                </div>
+                        <div class="menu-item-slide">
+                            <img src="images/pancake_no_mark.webp" alt="パンケーキ">
+                            <div class="menu-item-slide-info">
+                                <h4>パンケーキ</h4>
+                                <p>店内飲食: ¥2,500</p>
                             </div>
                         </div>
-
+                        <button type="button" class="menu-item-nav menu-item-prev" aria-label="前のメニューを表示">
+                            <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" class="menu-item-nav menu-item-next" aria-label="次のメニューを表示">
+                            <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                        </button>
+                        <div class="menu-item-dots" aria-label="スライド切り替え">
+                            <button type="button" class="is-active" aria-label="クロワッサンプレートを表示"></button>
+                            <button type="button" aria-label="トーストを表示"></button>
+                            <button type="button" aria-label="ワッフルを表示"></button>
+                            <button type="button" aria-label="自家製プリンを表示"></button>
+                            <button type="button" aria-label="珈琲ゼリーを表示"></button>
+                            <button type="button" aria-label="珈琲ぜんざいを表示"></button>
+                            <button type="button" aria-label="パンケーキを表示"></button>
+                        </div>
                     </div>
                 </div>
 
@@ -316,6 +222,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             const tabs = document.querySelectorAll('.tab-btn');
             const contents = document.querySelectorAll('.menu-content');
+            const menuSliders = document.querySelectorAll('[data-menu-slider]');
 
             tabs.forEach(tab => {
                 tab.addEventListener('click', () => {
@@ -330,6 +237,77 @@
                     contents.forEach(c => c.classList.remove('active'));
                     // Show target section
                     document.getElementById(target).classList.add('active');
+                });
+            });
+
+            menuSliders.forEach(slider => {
+                const slides = slider.querySelectorAll('.menu-item-slide');
+                const dots = slider.querySelectorAll('.menu-item-dots button');
+                const prev = slider.querySelector('.menu-item-prev');
+                const next = slider.querySelector('.menu-item-next');
+                let slideIndex = 0;
+                let swipeStartX = 0;
+                let swipeStartY = 0;
+                let isSwiping = false;
+
+                function showSlide(index) {
+                    if (!slides.length) return;
+                    slideIndex = (index + slides.length) % slides.length;
+                    slides.forEach((slide, currentIndex) => {
+                        slide.classList.toggle('is-active', currentIndex === slideIndex);
+                    });
+                    dots.forEach((dot, currentIndex) => {
+                        dot.classList.toggle('is-active', currentIndex === slideIndex);
+                    });
+                }
+
+                dots.forEach((dot, dotIndex) => {
+                    dot.addEventListener('click', () => {
+                        showSlide(dotIndex);
+                    });
+                });
+
+                if (prev) {
+                    prev.addEventListener('click', () => {
+                        showSlide(slideIndex - 1);
+                    });
+                }
+
+                if (next) {
+                    next.addEventListener('click', () => {
+                        showSlide(slideIndex + 1);
+                    });
+                }
+
+                function handleSwipeEnd(endX, endY) {
+                    const diffX = endX - swipeStartX;
+                    const diffY = endY - swipeStartY;
+
+                    if (Math.abs(diffX) < 42 || Math.abs(diffX) < Math.abs(diffY) * 1.2) return;
+                    showSlide(diffX < 0 ? slideIndex + 1 : slideIndex - 1);
+                }
+
+                slider.addEventListener('pointerdown', (event) => {
+                    if (event.target.closest('button')) return;
+                    swipeStartX = event.clientX;
+                    swipeStartY = event.clientY;
+                    isSwiping = true;
+                    slider.setPointerCapture?.(event.pointerId);
+                });
+
+                slider.addEventListener('pointerup', (event) => {
+                    if (!isSwiping) return;
+                    isSwiping = false;
+                    handleSwipeEnd(event.clientX, event.clientY);
+                    slider.releasePointerCapture?.(event.pointerId);
+                });
+
+                slider.addEventListener('pointercancel', () => {
+                    isSwiping = false;
+                });
+
+                slider.addEventListener('dragstart', (event) => {
+                    event.preventDefault();
                 });
             });
         });

@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&family=Noto+Serif+JP:wght@400;600;700&family=Pirata+One&family=Shippori+Mincho:wght@500;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;600;700&family=Pirata+One&family=Shippori+Mincho:wght@500;700&family=Yuji+Syuku&family=Zen+Old+Mincho:wght@400;500;700&display=swap"
         rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -18,11 +18,13 @@
     <style>
         /* Top Page Specific Styles for Fuzkue + Full Content Mix */
         :root {
-            --font-kissa: 'Shippori Mincho', 'Noto Serif JP', 'Yu Mincho', 'Hiragino Mincho ProN', serif;
+            --font-kissa: 'Kaisei Decol', 'Shippori Mincho', 'Noto Serif JP', 'Yu Mincho', 'Hiragino Mincho ProN', serif;
+            --font-retro-body: 'Zen Old Mincho', 'Noto Serif JP', 'Yu Mincho', 'Hiragino Mincho ProN', serif;
         }
 
         body {
-            font-family: var(--font-kissa);
+            font-family: var(--font-retro-body);
+            font-weight: 500;
         }
 
         .hero-section {
@@ -95,10 +97,10 @@
         }
 
         .hero-title {
-            font-family: var(--font-kissa);
+            font-family: 'Yuji Syuku', 'Kaisei Decol', 'Yu Mincho', 'Hiragino Mincho ProN', serif;
             font-size: clamp(2.3rem, 6vw, 3.9rem);
-            font-weight: 700;
-            letter-spacing: 0.1em;
+            font-weight: 400;
+            letter-spacing: 0.04em;
             margin: 0 0 0.35rem;
             line-height: 1.1;
             color: var(--brand-gold);
@@ -106,13 +108,13 @@
         }
 
         .hero-subtitle {
-            font-family: var(--font-kissa);
+            font-family: 'Pirata One', 'Times New Roman', serif;
             font-size: clamp(1.35rem, 3.2vw, 2.2rem);
             font-weight: 700;
             margin: 0;
             line-height: 1.08;
             color: var(--brand-gold);
-            letter-spacing: 0.12em;
+            letter-spacing: 0.02em;
         }
 
         .hero-ribbon-wrap {
@@ -149,7 +151,7 @@
             font-family: var(--font-kissa);
             font-size: 1.2rem;
             font-weight: 700;
-            letter-spacing: 0.15em;
+            letter-spacing: 0.12em;
             /* background-color: rgba(255, 255, 255, 0.9); REMOVED per request */
             color: var(--color-white);
             /* Changed to white for better contrast with blur/shadow/dark-overlay */
@@ -195,12 +197,29 @@
         }
 
         .scroll-fixed-logo {
+            display: inline-flex;
+            align-items: center;
+            flex-shrink: 0;
             font-family: var(--font-kissa);
             font-size: 1.1rem;
             font-weight: 700;
             letter-spacing: 0.08em;
             color: #e6d2a3;
             white-space: nowrap;
+        }
+
+        .scroll-fixed-logo-text {
+            display: none;
+        }
+
+        .scroll-fixed-logo-img {
+            display: block;
+            width: 118px;
+            height: 62px;
+            object-fit: contain;
+            background: transparent;
+            border: none;
+            box-shadow: none;
         }
 
         .scroll-fixed-links {
@@ -234,6 +253,20 @@
         .scroll-fixed-links a:hover::after {
             transform: scaleX(1);
             transform-origin: left;
+        }
+
+        .scroll-menu-toggle {
+            display: none;
+            width: 42px;
+            height: 42px;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(230, 210, 163, 0.55);
+            background: rgba(255, 248, 229, 0.08);
+            color: #e6d2a3;
+            border-radius: 2px;
+            font-size: 1.25rem;
+            cursor: pointer;
         }
 
         [data-scroll-reveal] {
@@ -292,14 +325,14 @@
             z-index: 1;
         }
 
-        main > .section:not(.roast-section):not(.story-section-custom) {
+        main > .section:not(.roast-section):not(.story-section-custom):not(.news-section) {
             background:
                 linear-gradient(90deg, transparent 0, transparent calc(50% - 1px), rgba(93, 64, 55, 0.08) calc(50% - 1px), rgba(93, 64, 55, 0.08) calc(50% + 1px), transparent calc(50% + 1px)),
                 linear-gradient(180deg, rgba(255, 252, 244, 0.42), rgba(224, 207, 177, 0.36));
         }
 
         #menu {
-            background: url('images/menu/menu-terrace-background.png') center / cover no-repeat;
+            background: url('images/menu/menu-terrace-background.webp') center / cover no-repeat;
             color: var(--color-white);
             font-family: var(--font-kissa);
         }
@@ -325,7 +358,7 @@
             color: var(--color-text);
         }
 
-        main > .section:not(.roast-section):not(.story-section-custom)::before,
+        main > .section:not(.roast-section):not(.story-section-custom):not(.news-section)::before,
         .site-footer::before {
             content: '';
             display: block;
@@ -342,16 +375,18 @@
         }
 
         .section-title {
+            font-family: var(--font-kissa);
             color: #3f241a;
             border-bottom-color: rgba(84, 54, 40, 0.68);
             text-shadow: 0 1px 0 rgba(255, 252, 244, 0.75);
+            letter-spacing: 0.08em;
         }
 
         .site-footer {
             position: relative;
             overflow: hidden;
             background:
-                url('images/info/info-wallpaper-background.png') center / cover no-repeat;
+                url('images/info/info-wallpaper-background.webp') center / cover no-repeat;
             color: var(--color-text);
             padding: 4rem 0 0;
             text-align: center;
@@ -375,7 +410,16 @@
         }
 
         .site-footer .section-title {
+            display: inline-block;
             margin-bottom: 2rem;
+            padding: 0.15rem 1.1rem 0.3rem;
+            color: #fff8ec;
+            border-bottom-color: rgba(255, 248, 236, 0.82);
+            background: rgba(35, 20, 12, 0.34);
+            text-shadow:
+                0 2px 2px rgba(0, 0, 0, 0.92),
+                0 0 12px rgba(0, 0, 0, 0.82),
+                0 0 24px rgba(0, 0, 0, 0.55);
         }
 
         .footer-copy {
@@ -490,11 +534,135 @@
             color: var(--color-white);
         }
 
+        .news-card {
+            position: relative;
+            z-index: 1;
+            max-width: 760px;
+            margin: 0 auto;
+            background:
+                linear-gradient(180deg, rgba(255, 252, 244, 0.68), rgba(245, 236, 218, 0.58));
+            border: 1px solid rgba(255, 252, 244, 0.62);
+            padding: 2rem;
+            box-shadow: 0 18px 34px rgba(20, 12, 8, 0.32), inset 0 0 0 5px rgba(255, 255, 255, 0.16);
+            text-align: left;
+            color: #2b1911;
+            font-family: var(--font-retro-body);
+            text-shadow: 0 1px 2px rgba(255, 252, 244, 0.78);
+            backdrop-filter: blur(1px);
+        }
+
+        .news-section {
+            position: relative;
+            overflow: hidden;
+            background-color: #24150e;
+            color: var(--color-text);
+        }
+
+        .news-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(rgba(30, 18, 12, 0.24), rgba(30, 18, 12, 0.34)),
+                radial-gradient(circle at center, transparent 38%, rgba(20, 12, 8, 0.38) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .news-section .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .news-section .section-title {
+            color: var(--color-white);
+            border-bottom-color: rgba(255, 255, 255, 0.72);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .news-bg-video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            filter: saturate(0.92) contrast(1.02);
+            pointer-events: none;
+        }
+
+        .news-item {
+            padding: 1rem 0;
+            border-bottom: 1px dashed rgba(93, 64, 55, 0.22);
+        }
+
+        .news-item:first-child {
+            padding-top: 0;
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .news-date {
+            display: inline-block;
+            font-size: 0.85rem;
+            color: #4a3025;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .news-link {
+            display: inline-block;
+            color: #23130d;
+            font-family: var(--font-kissa);
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            border-bottom: 1px solid rgba(55, 31, 21, 0.42);
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .news-link:hover {
+            color: var(--color-wood);
+            border-color: var(--color-wood);
+        }
+
+        .news-description {
+            margin-top: 0.6rem;
+            font-size: 0.95rem;
+            color: #2f1e17;
+            font-weight: 600;
+        }
+
+        .news-instagram-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            margin-top: 0.75rem;
+            padding: 0.68rem 1rem;
+            background: rgba(62, 39, 35, 0.9);
+            color: var(--color-white);
+            border: 1px solid rgba(230, 210, 163, 0.42);
+            border-radius: 2px;
+            font-family: var(--font-kissa);
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-shadow: none;
+            box-shadow: 0 8px 16px rgba(20, 12, 8, 0.22);
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .news-instagram-link:hover {
+            transform: translateY(-2px);
+            background: rgba(92, 54, 47, 0.95);
+        }
+
         .roast-section {
             position: relative;
             overflow: hidden;
             background:
-                url('images/roast/roast-cafe-background.png') center / cover no-repeat;
+                url('images/roast/roast-cafe-background.webp') center / cover no-repeat;
             color: var(--color-white);
             font-family: var(--font-kissa);
             background-color: #24150e;
@@ -560,60 +728,9 @@
             margin-bottom: 1rem;
         }
 
-        .roast-gallery {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 0.9rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .roast-item {
-            overflow: hidden;
-            background-color: rgba(255, 252, 244, 0.06);
-            border: 1px solid rgba(230, 210, 163, 0.28);
-            box-shadow: 0 18px 32px rgba(0, 0, 0, 0.22);
-        }
-
-        .roast-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            filter: contrast(1.03) saturate(1.03);
-            transition: transform 0.5s ease;
-        }
-
-        .roast-item:hover img {
-            transform: scale(1.03);
-        }
-
-        .roast-item-main {
-            grid-row: span 2;
-            min-height: 420px;
-        }
-
-        .roast-item-sub {
-            min-height: 205px;
-        }
-
-        .roast-video {
-            grid-column: 1 / -1;
-            overflow: hidden;
-            background-color: rgba(255, 252, 244, 0.06);
-            border: 1px solid rgba(230, 210, 163, 0.28);
-            box-shadow: 0 18px 32px rgba(0, 0, 0, 0.22);
-        }
-
-        .roast-video video {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
         .story-section-custom {
             background:
-                url('images/menu/menu-cafe-background.png') center / cover no-repeat;
+                url('images/menu/menu-cafe-background.webp') center / cover no-repeat;
             color: var(--color-white);
             font-family: var(--font-kissa);
         }
@@ -661,7 +778,7 @@
 
         .story-text {
             color: var(--color-white);
-            font-family: var(--font-kissa);
+            font-family: var(--font-retro-body);
             font-weight: 700;
             line-height: 2;
             text-align: justify;
@@ -691,6 +808,7 @@
         }
 
         .highlight-item {
+            font-family: var(--font-retro-body);
             text-align: center;
             background:
                 linear-gradient(180deg, rgba(255, 252, 244, 0.97), rgba(241, 230, 208, 0.97));
@@ -727,7 +845,7 @@
             font-size: 1.1rem;
             font-family: var(--font-kissa);
             font-weight: 700;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.08em;
             transition: background 0.3s;
             border: 1px solid rgba(230, 210, 163, 0.38);
             cursor: pointer;
@@ -746,7 +864,7 @@
             align-items: center;
             background:
                 linear-gradient(rgba(45, 28, 20, 0.44), rgba(45, 28, 20, 0.5)),
-                url('images/menu/menu-cafe-background.png') center / cover no-repeat;
+                url('images/menu/menu-cafe-background.webp') center / cover no-repeat;
             color: var(--color-white);
             font-family: var(--font-kissa);
             text-align: center;
@@ -773,81 +891,43 @@
             text-shadow: none;
         }
 
-        .sns-footer-logo {
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.35rem;
-            margin-bottom: 1.4rem;
-            color: var(--color-white);
-            font-family: var(--font-kissa);
-            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.42);
-        }
-
-        .sns-footer-logo-main {
-            font-size: clamp(1.55rem, 4vw, 2.35rem);
-            letter-spacing: 0.08em;
-            line-height: 1;
-        }
-
-        .sns-footer-logo-sub {
-            font-size: 0.78rem;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-        }
-
-        .sns-footer-nav {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 0.85rem 1.9rem;
-            max-width: 720px;
-            margin: 0 auto 1.4rem;
-        }
-
-        .sns-footer-nav a {
-            color: var(--color-white);
-            font-family: var(--font-kissa);
-            font-size: clamp(1rem, 2.8vw, 1.35rem);
-            font-weight: 700;
-            letter-spacing: 0.04em;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.48);
-        }
-
         .sns-footer-actions {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 1rem;
+            gap: 0.9rem;
+            max-width: 960px;
             margin: 0 auto 1.3rem;
         }
 
         .sns-footer-action {
-            width: 64px;
-            height: 64px;
+            min-width: 220px;
+            min-height: 58px;
+            padding: 0.95rem 1.4rem;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            border-radius: 50%;
-            background: rgba(255, 250, 239, 0.96);
-            color: #3f241a;
-            font-size: 1.85rem;
-            box-shadow: 0 9px 18px rgba(0, 0, 0, 0.26);
-            transition: transform 0.24s ease, box-shadow 0.24s ease;
+            gap: 0.55rem;
+            border-radius: 0;
+            background: linear-gradient(180deg, #4b2f23 0%, #2d1d16 100%);
+            color: var(--color-white);
+            border: 1px solid rgba(230, 210, 163, 0.38);
+            font-family: var(--font-kissa);
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            box-shadow: 0 8px 18px rgba(64, 34, 15, 0.28);
+            transition: transform 0.24s ease, box-shadow 0.24s ease, background 0.24s ease;
         }
 
         .sns-footer-action:hover {
             transform: translateY(-3px);
             box-shadow: 0 13px 24px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(180deg, #2f5a49 0%, #203f34 100%);
         }
 
-        .sns-footer-action.instagram {
-            color: #e4405f;
-        }
-
-        .sns-footer-action.uber,
-        .sns-footer-action.rocket {
-            color: #111;
+        .sns-footer-action i {
+            font-size: 1.05rem;
         }
 
         .sns-footer-copy {
@@ -868,43 +948,336 @@
         .special-coffee {
             margin-top: 2.5rem;
             margin-bottom: 2.5rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            padding: 1.45rem 1.2rem 1.7rem;
+            background: rgba(24, 13, 8, 0.66);
+            border: 1px solid rgba(230, 210, 163, 0.28);
+            box-shadow: 0 18px 34px rgba(0, 0, 0, 0.24);
+            backdrop-filter: blur(2px);
         }
 
         .special-coffee-title {
-            font-family: var(--font-serif);
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--color-text);
+            font-family: var(--font-kissa);
+            font-size: clamp(1.75rem, 4.4vw, 3rem);
+            font-weight: 700;
+            letter-spacing: 0.09em;
+            line-height: 1.35;
+            margin-bottom: 0.65rem;
+            color: #fff8ec;
+            text-shadow: 0 3px 12px rgba(0, 0, 0, 0.78);
         }
 
         .special-coffee-en {
-            font-family: var(--font-serif);
-            font-size: 1rem;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            color: #555;
-            margin-bottom: 0.1rem;
+            font-family: var(--font-kissa);
+            font-size: clamp(1.15rem, 2.7vw, 1.55rem);
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: #e6d2a3;
+            margin-bottom: 0.6rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
         }
 
         .special-coffee-tagline {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 0.1rem;
+            font-family: var(--font-retro-body);
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fff8ec;
+            line-height: 1.8;
+            margin-bottom: 0.2rem;
+            text-shadow: 0 2px 9px rgba(0, 0, 0, 0.78);
         }
 
         .special-coffee-sub {
-            font-size: 0.9rem;
-            color: #666;
+            display: inline-block;
+            margin-top: 0.25rem;
+            padding: 0.38rem 0.9rem;
+            background: rgba(255, 248, 229, 0.94);
+            border: 1px solid rgba(230, 210, 163, 0.55);
+            font-family: var(--font-kissa);
+            font-size: 1rem;
+            font-weight: 700;
+            color: #3e2723;
             margin-bottom: 0.35rem;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.22);
         }
 
         .special-coffee-note {
-            font-size: 0.8rem;
-            color: #888;
+            max-width: 860px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 0.92rem;
+            font-weight: 700;
+            line-height: 1.7;
+            color: #fff8ec;
             margin-bottom: 1.25rem;
+            text-shadow: 0 2px 9px rgba(0, 0, 0, 0.82);
+        }
+
+        .special-coffee-months {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+            gap: 0.9rem 0.75rem;
+            max-width: 860px;
+            margin: 1.15rem auto 1.65rem;
+            padding-bottom: 0.25rem;
+        }
+
+        .special-coffee-month {
+            position: relative;
+            min-height: 106px;
+            border: none;
+            background: transparent;
+            color: #fff7e8;
+            font-family: var(--font-kissa);
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            cursor: pointer;
+            filter: drop-shadow(0 9px 13px rgba(0, 0, 0, 0.28));
+            transition: opacity 0.28s ease, transform 0.28s ease, filter 0.2s ease;
+            -webkit-tap-highlight-color: transparent;
+            isolation: isolate;
+        }
+
+        .special-coffee-month::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: 150px;
+            height: 110px;
+            background: center / contain no-repeat url('images/kurikkubotan%20(1).webp?v=20260511');
+            transform: translateX(-50%);
+            z-index: 0;
+            transition: filter 0.2s ease;
+        }
+
+        .special-coffee-month::after {
+            display: none;
+        }
+
+        .special-coffee-month .month-label {
+            position: relative;
+            z-index: 1;
+            display: inline-flex;
+            width: 54px;
+            height: 32px;
+            align-items: center;
+            justify-content: center;
+            margin-top: 61px;
+            padding-left: 0.08em;
+            transform: translateX(5px);
+            text-shadow:
+                0 2px 4px rgba(0, 0, 0, 0.8),
+                0 0 7px rgba(255, 224, 174, 0.24);
+        }
+
+        .special-coffee-month .month-label::before,
+        .special-coffee-month .month-label::after {
+            display: none;
+        }
+
+        .special-coffee-month .coffee-pour {
+            position: absolute;
+            left: calc(50% - 60px);
+            top: 79px;
+            width: 100px;
+            height: 0;
+            background: transparent;
+            box-shadow: none;
+            opacity: 0;
+            transform: translate(0, 0) scaleX(0.86);
+            transform-origin: top;
+            z-index: 2;
+            pointer-events: none;
+            filter:
+                drop-shadow(0 3px 4px rgba(16, 4, 1, 0.8)) drop-shadow(0 0 9px rgba(108, 50, 18, 0.58));
+            overflow: hidden;
+            mix-blend-mode: multiply;
+        }
+
+        .special-coffee-month .coffee-pour::before,
+        .special-coffee-month .coffee-pour::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            pointer-events: none;
+        }
+
+        .special-coffee-month .coffee-pour::before {
+            top: 0;
+            width: 100px;
+            height: 232px;
+            background: center top / 100px 232px no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='232' viewBox='0 0 100 232'%3E%3Cdefs%3E%3ClinearGradient id='coffeeBody' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%230b0200'/%3E%3Cstop offset='.32' stop-color='%23300d03'/%3E%3Cstop offset='.66' stop-color='%23783a16'/%3E%3Cstop offset='1' stop-color='%23130400'/%3E%3C/linearGradient%3E%3ClinearGradient id='coffeeGlow' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23f0a45a' stop-opacity='.66'/%3E%3Cstop offset='.45' stop-color='%23a55724' stop-opacity='.42'/%3E%3Cstop offset='1' stop-color='%23fff0c2' stop-opacity='.12'/%3E%3C/linearGradient%3E%3Cfilter id='liquidEdge' x='-30%25' y='-8%25' width='160%25' height='116%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.018 .09' numOctaves='2' seed='6' result='noise'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='noise' scale='2.2' xChannelSelector='R' yChannelSelector='G'/%3E%3C/filter%3E%3C/defs%3E%3Cpath d='M25 0 C30 54 61 82 54 122 C48 157 64 194 64 232' fill='none' stroke='%23070100' stroke-width='29' stroke-linecap='round' opacity='.86' filter='url(%23liquidEdge)'/%3E%3Cpath d='M25 0 C30 54 61 82 54 122 C48 157 64 194 64 232' fill='none' stroke='url(%23coffeeBody)' stroke-width='23' stroke-linecap='round' filter='url(%23liquidEdge)'/%3E%3Cpath d='M21 5 C27 55 53 86 48 124 C43 158 55 193 58 227' fill='none' stroke='url(%23coffeeGlow)' stroke-width='10' stroke-linecap='round' opacity='.88'/%3E%3Cpath d='M18 14 C26 58 47 88 43 124 C39 157 48 190 54 217' fill='none' stroke='%23ffd28c' stroke-width='3' stroke-linecap='round' opacity='.48'/%3E%3Cpath d='M33 23 C39 67 62 92 55 127 C51 154 61 185 64 211' fill='none' stroke='%23100000' stroke-width='5' stroke-linecap='round' opacity='.35'/%3E%3C/svg%3E");
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        .special-coffee-month .coffee-pour::after {
+            bottom: -13px;
+            width: 68px;
+            height: 22px;
+            background:
+                radial-gradient(ellipse at 50% 52%, rgba(18, 3, 0, 0.78) 0 25%, rgba(87, 34, 10, 0.58) 38%, transparent 70%),
+                radial-gradient(circle at 24% 38%, rgba(255, 212, 138, 0.36) 0 8%, transparent 18%),
+                radial-gradient(circle at 76% 42%, rgba(255, 180, 88, 0.28) 0 7%, transparent 17%);
+            filter:
+                blur(0.15px) drop-shadow(0 0 4px rgba(96, 41, 15, 0.55));
+            opacity: 0;
+            transform: translateX(-50%);
+        }
+
+        .special-coffee-month:hover {
+            transform: translateY(-2px);
+            color: #fff8ec;
+            filter: drop-shadow(0 12px 16px rgba(0, 0, 0, 0.34));
+        }
+
+        .special-coffee-month:hover::before {
+            filter:
+                brightness(1.12) saturate(1.08) drop-shadow(0 0 10px rgba(255, 215, 160, 0.7));
+        }
+
+        .special-coffee-months.is-focusing {
+            min-height: 178px;
+        }
+
+        .special-coffee-months.is-focusing .special-coffee-month {
+            pointer-events: none;
+        }
+
+        .special-coffee-month.is-hidden-during-pour {
+            opacity: 0;
+            transform: scale(0.92);
+            visibility: hidden;
+        }
+
+        .special-coffee-month.is-focus-target {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: min(180px, 48vw);
+            transform: translate(-50%, -50%) scale(1.16);
+            z-index: 20;
+            opacity: 1;
+            visibility: visible;
+            filter:
+                drop-shadow(0 20px 24px rgba(0, 0, 0, 0.42)) drop-shadow(0 0 16px rgba(255, 215, 160, 0.38));
+        }
+
+        .special-coffee-month.is-focus-target::before {
+            width: 178px;
+            height: 130px;
+            filter: brightness(1.08) saturate(1.08);
+        }
+
+        .special-coffee-month.is-focus-target .coffee-pour {
+            left: calc(50% - 64px);
+            top: 98px;
+        }
+
+        .special-coffee-months.is-restoring .special-coffee-month {
+            animation: monthButtonFadeIn 0.42s ease both;
+        }
+
+        .special-coffee-month.is-pouring .coffee-pour {
+            animation: coffeePour 0.92s cubic-bezier(0.2, 0.65, 0.24, 1) both;
+        }
+
+        .special-coffee-month.is-pouring .coffee-pour::after {
+            animation: coffeeDrops 0.92s ease-out both;
+        }
+
+        .special-coffee-month.is-pouring::before {
+            animation: coffeePotTilt 0.92s cubic-bezier(0.2, 0.65, 0.24, 1) both;
+        }
+
+        @keyframes coffeePotTilt {
+            0% {
+                transform: translateX(-50%) rotate(0deg);
+            }
+
+            18% {
+                transform: translateX(-50%) rotate(-13deg);
+            }
+
+            58% {
+                transform: translateX(-50%) rotate(-24deg);
+            }
+
+            100% {
+                transform: translateX(-50%) rotate(0deg);
+            }
+        }
+
+        @keyframes coffeePour {
+            0% {
+                height: 0;
+                opacity: 0;
+                transform: translate(0, 0) scaleX(0.62);
+            }
+
+            18% {
+                opacity: 1;
+                transform: translate(2px, 0) scaleX(0.9);
+            }
+
+            36% {
+                transform: translate(-2px, 1px) scaleX(1);
+            }
+
+            58% {
+                height: 218px;
+                opacity: 1;
+                transform: translate(3px, 2px) scaleX(1.04);
+            }
+
+            78% {
+                height: 206px;
+                opacity: 0.92;
+                transform: translate(-1px, 14px) scaleX(0.96);
+            }
+
+            100% {
+                height: 116px;
+                opacity: 0;
+                transform: translate(0, 38px) scaleX(0.7);
+            }
+        }
+
+        @keyframes coffeeDrops {
+            0%,
+            16% {
+                opacity: 0;
+                transform: translate(-50%, -4px) scaleX(0.22);
+            }
+
+            42% {
+                opacity: 0.82;
+                transform: translate(-50%, 4px) scaleX(0.82);
+            }
+
+            74% {
+                opacity: 0.62;
+                transform: translate(-50%, 8px) scaleX(1);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translate(-50%, 10px) scaleX(0.38);
+            }
+        }
+
+        @keyframes monthButtonFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(8px) scale(0.96);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
         }
 
         .special-coffee-carousel-wrap {
@@ -928,90 +1301,208 @@
         }
 
         .special-coffee-card {
-            background: linear-gradient(180deg, rgba(255, 252, 244, 0.97), rgba(241, 230, 208, 0.97));
-            border-radius: 6px;
+            background: transparent;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 14px 28px rgba(64, 34, 15, 0.14), inset 0 0 0 5px rgba(255, 255, 255, 0.22);
-            border: 1px solid rgba(91, 57, 43, 0.22);
+            box-shadow: 0 18px 32px rgba(0, 0, 0, 0.28);
+            border: 1px solid rgba(230, 210, 163, 0.36);
             display: flex;
             flex-direction: column;
         }
 
-        /* メニュー.html同様：コーヒー豆背景 + 中央に国旗 */
+        /* スペシャル珈琲：完成画像をそのまま表示 */
         .special-coffee-card-img {
             position: relative;
             width: 100%;
-            aspect-ratio: 5 / 3;
+            aspect-ratio: 1 / 1;
             overflow: hidden;
-            background-image: url('images/back-coffee-beans.png');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background: transparent;
+            filter: drop-shadow(0 22px 28px rgba(0, 0, 0, 0.38));
         }
 
-        .special-coffee-card-img::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.25);
-            z-index: 0;
-        }
-
-        .special-coffee-card-img .special-coffee-card-flag {
+        .special-coffee-product-img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center center;
             position: relative;
             z-index: 1;
-            width: 50%;
-            height: 50%;
-            max-width: 90%;
-            max-height: 90%;
-            object-fit: contain;
+            transform: scaleX(1.22) scaleY(1.38);
         }
 
-        .special-coffee-card-body {
-            padding: 1.1rem 1rem;
-            flex: 1;
+        .special-coffee-month-mode .special-coffee-carousel-wrap {
+            max-width: min(560px, 94vw);
+        }
+
+        .special-coffee-month-mode .special-coffee-arrow {
+            display: none;
+        }
+
+        .special-coffee-month-mode .special-coffee-list {
+            display: block;
+        }
+
+        .special-coffee-month-mode .special-coffee-card {
+            display: none;
+            opacity: 0;
+            transform: translateY(24px) scale(0.98);
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            overflow: visible;
+        }
+
+        .special-coffee-month-mode .special-coffee-card.is-active {
             display: flex;
-            flex-direction: column;
-            text-align: left;
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            animation: beanCardRise 0.56s ease both;
         }
 
-        .special-coffee-card-body .product-name {
-            font-family: var(--font-serif);
-            font-weight: 600;
-            font-size: 1rem;
-            color: var(--color-text);
-            line-height: 1.45;
-            margin-bottom: 0.25rem;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
+        .special-coffee-month-mode .special-coffee-card.is-active.is-slow-reveal {
+            animation: coffeeCardSlowRise 3s ease both;
         }
 
-        .special-coffee-card-body .roast-months {
-            font-size: 0.8rem;
-            color: #666;
-            margin-bottom: 0.5rem;
+        .special-coffee-month-mode .special-coffee-card.is-revealing .special-coffee-card-img::before,
+        .special-coffee-month-mode .special-coffee-card.is-revealing .special-coffee-card-img::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 7%;
+            width: 10px;
+            height: 15px;
+            border-radius: 50%;
+            background: #5a321e;
+            box-shadow:
+                -58px -22px 0 #3b2115,
+                -36px 9px 0 #8b5935,
+                -13px -34px 0 #6c3f25,
+                24px -14px 0 #4a2718,
+                52px 4px 0 #7a4a2d;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 2;
+            animation: beanPop 0.64s ease both;
         }
 
-        .special-coffee-card-body .product-desc {
-            font-size: 0.8rem;
-            color: #555;
-            line-height: 1.6;
-            margin-bottom: 0.75rem;
-            flex: 1;
+        .special-coffee-month-mode .special-coffee-card.is-revealing .special-coffee-card-img::after {
+            bottom: 15%;
+            transform: scale(0.78);
+            animation-delay: 0.08s;
         }
 
-        .special-coffee-card-body .price {
-            font-size: 0.9rem;
-            color: var(--color-wood);
-            font-weight: 600;
+        @keyframes beanCardRise {
+            from {
+                opacity: 0;
+                transform: translateY(24px) scale(0.98);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes coffeeCardSlowRise {
+            0% {
+                opacity: 1;
+                clip-path: inset(100% 0 0 0);
+            }
+
+            28% {
+                clip-path: inset(62% 0 0 0);
+            }
+
+            100% {
+                opacity: 1;
+                clip-path: inset(0 0 0 0);
+            }
+        }
+
+        @keyframes beanPop {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, 18px) scale(0.72) rotate(-8deg);
+            }
+
+            42% {
+                opacity: 0.95;
+            }
+
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -42px) scale(1) rotate(10deg);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .special-coffee-month.is-pouring .coffee-pour,
+            .special-coffee-month-mode .special-coffee-card.is-active,
+            .special-coffee-month-mode .special-coffee-card.is-revealing .special-coffee-card-img::before,
+            .special-coffee-month-mode .special-coffee-card.is-revealing .special-coffee-card-img::after {
+                animation: none;
+            }
         }
 
         @media (max-width: 768px) {
+
+            .special-coffee-months {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 0.95rem 0.55rem;
+            }
+
+            .special-coffee-months.is-focusing {
+                min-height: 158px;
+            }
+
+            .special-coffee-month {
+                min-height: 98px;
+                font-size: 0.84rem;
+            }
+
+            .special-coffee-month::before {
+                top: 0;
+                width: 136px;
+                height: 100px;
+            }
+
+            .special-coffee-month::after {
+                display: none;
+            }
+
+            .special-coffee-month .month-label {
+                width: 50px;
+                height: 30px;
+                margin-top: 56px;
+                transform: translateX(7px);
+            }
+
+            .special-coffee-month .month-label::before,
+            .special-coffee-month .month-label::after {
+                display: none;
+            }
+
+            .special-coffee-month .coffee-pour {
+                left: calc(50% - 55px);
+                top: 74px;
+            }
+
+            .special-coffee-month.is-focus-target {
+                width: min(160px, 62vw);
+                transform: translate(-50%, -50%) scale(1.08);
+            }
+
+            .special-coffee-month.is-focus-target::before {
+                width: 154px;
+                height: 114px;
+            }
+
+            .special-coffee-month.is-focus-target .coffee-pour {
+                left: calc(50% - 68px);
+                top: 88px;
+            }
 
             /* スペシャル珈琲：レスポンシブ時カルーセル */
             .special-coffee-list {
@@ -1029,6 +1520,12 @@
                 padding: 0.25rem 2% 1rem;
             }
 
+            .special-coffee-month-mode .special-coffee-list {
+                display: block;
+                overflow: visible;
+                padding: 0;
+            }
+
             .special-coffee-list::-webkit-scrollbar {
                 height: 6px;
             }
@@ -1044,6 +1541,11 @@
                 max-width: 85%;
                 scroll-snap-align: center;
                 scroll-snap-stop: always;
+            }
+
+            .special-coffee-month-mode .special-coffee-card {
+                min-width: 0;
+                max-width: none;
             }
 
             .special-coffee-carousel-wrap {
@@ -1087,7 +1589,8 @@
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .scroll-fixed-nav-inner {
-                min-height: 58px;
+                position: relative;
+                min-height: 96px;
                 width: 94%;
                 gap: 0.8rem;
             }
@@ -1096,18 +1599,62 @@
                 font-size: 0.9rem;
             }
 
-            .scroll-fixed-links {
-                gap: 0.75rem;
-                overflow-x: auto;
-                scrollbar-width: none;
-            }
-
-            .scroll-fixed-links::-webkit-scrollbar {
+            .scroll-fixed-logo-text {
                 display: none;
             }
 
+            .scroll-fixed-logo-img {
+                display: block;
+                width: 154px;
+                height: 90px;
+                object-fit: contain;
+                background: transparent;
+                border: none;
+                box-shadow: none;
+            }
+
+            .scroll-fixed-links {
+                position: absolute;
+                top: calc(100% + 0.45rem);
+                right: 0;
+                width: min(250px, 86vw);
+                padding: 0.45rem 0;
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                background: rgba(58, 35, 27, 0.97);
+                border: 1px solid rgba(230, 210, 163, 0.34);
+                box-shadow: 0 14px 28px rgba(0, 0, 0, 0.28);
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-0.4rem);
+                transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease;
+                overflow: hidden;
+            }
+
+            .scroll-fixed-nav.is-menu-open .scroll-fixed-links {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+
             .scroll-fixed-links a {
-                font-size: 0.78rem;
+                padding: 0.82rem 1rem;
+                font-size: 0.92rem;
+                border-bottom: 1px solid rgba(230, 210, 163, 0.16);
+            }
+
+            .scroll-fixed-links a:last-child {
+                border-bottom: none;
+            }
+
+            .scroll-fixed-links a::after {
+                display: none;
+            }
+
+            .scroll-menu-toggle {
+                display: inline-flex;
             }
 
             .info-card-container {
@@ -1167,19 +1714,6 @@
                 flex-direction: column;
                 gap: 1.5rem;
                 margin-bottom: 3rem;
-            }
-
-            .roast-gallery {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .roast-item-main {
-                grid-column: span 2;
-                min-height: 300px;
-            }
-
-            .roast-item-sub {
-                min-height: 180px;
             }
 
             .story-image {
@@ -1242,6 +1776,17 @@
                 /* Smaller image height for mobile */
                 margin-bottom: 0.5rem;
             }
+
+            .sns-footer-actions {
+                flex-direction: column;
+                align-items: stretch;
+                width: min(320px, 92vw);
+            }
+
+            .sns-footer-action {
+                min-width: 0;
+                width: 100%;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1256,9 +1801,17 @@
 
     <nav class="scroll-fixed-nav" aria-label="固定ナビゲーション">
         <div class="scroll-fixed-nav-inner">
-            <a class="scroll-fixed-logo" href="#">ポプラ館珈琲</a>
-            <div class="scroll-fixed-links">
+            <a class="scroll-fixed-logo" href="#">
+                <span class="scroll-fixed-logo-text">ポプラ館珈琲</span>
+                <img class="scroll-fixed-logo-img" src="images/rogo.webp" alt="ポプラ館珈琲">
+            </a>
+            <button class="scroll-menu-toggle" type="button" aria-label="メニューを開く" aria-expanded="false"
+                aria-controls="scroll-fixed-links">
+                <i class="fa-solid fa-bars" aria-hidden="true"></i>
+            </button>
+            <div class="scroll-fixed-links" id="scroll-fixed-links">
                 <a href="#information">Information</a>
+                <a href="#news">News</a>
                 <a href="#roast">Roast</a>
                 <a href="#story">Story</a>
                 <a href="#menu">Menu</a>
@@ -1268,15 +1821,15 @@
 
     <!-- 1. Hero Section -->
     <header class="hero-section">
-        <img src="images/top.jpg" alt="店内風景 1" class="hero-image is-active">
-        <img src="images/top2.jpg" alt="店内風景 2" class="hero-image">
-        <img src="images/top3.jpg" alt="店内風景 3" class="hero-image">
-        <img src="images/top4.jpg" alt="店内風景 4" class="hero-image">
-        <img src="images/top5.jpg" alt="店内風景 5" class="hero-image">
+        <img src="images/top.webp" alt="店内風景 1" class="hero-image is-active">
+        <img src="images/top2.webp" alt="店内風景 2" class="hero-image">
+        <img src="images/top3.webp" alt="店内風景 3" class="hero-image">
+        <img src="images/top4.webp" alt="店内風景 4" class="hero-image">
+        <img src="images/top5.webp" alt="店内風景 5" class="hero-image">
         <div class="hero-overlay">
             <div class="hero-brand-wrap">
                 <div class="hero-brand-card">
-                    <h1 class="hero-title">ポプラ館珈琲</h1>
+                    <h1 class="hero-title">ポプラ館 珈琲</h1>
                     <p class="hero-subtitle">Popura-kan Coffee</p>
                     <div class="hero-ribbon-wrap">
                         <div class="hero-ribbon">since 1974</div>
@@ -1291,6 +1844,41 @@
     </header>
 
     <main>
+
+        <section class="section news-section" id="news" data-scroll-reveal>
+            <video class="news-bg-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+                <source src="images/video/baisen-syhort.mp4" type="video/mp4">
+            </video>
+            <div class="container">
+                <h2 class="section-title">News</h2>
+                <div class="news-card">
+                    <article class="news-item">
+                        <span class="news-date">2026.02.16</span><br>
+                        <a class="news-link" href="https://note.com/happy_eagle5103" target="_blank"
+                            rel="noopener noreferrer">
+                            note「ポプラ館珈琲」最新情報
+                        </a>
+                        <p class="news-description">
+                            最新のお知らせはnoteで更新しています。新メニューや営業情報は下記リンクからご確認ください。
+                        </p>
+                    </article>
+                    <article class="news-item">
+                        <span class="news-date">Instagram</span><br>
+                        <a class="news-link" href="https://www.instagram.com/popurakancoffee/" target="_blank"
+                            rel="noopener noreferrer">
+                            ポプラ館珈琲のInstagram
+                        </a>
+                        <p class="news-description">
+                            日々のお知らせや新メニュー、店内の様子はこちらでも発信しています。
+                        </p>
+                        <a class="news-instagram-link" href="https://www.instagram.com/popurakancoffee/"
+                            target="_blank" rel="noopener noreferrer">
+                            <i class="fa-brands fa-instagram"></i> Instagramを見る
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
 
         <section class="section roast-section" id="roast" data-scroll-reveal>
             <div class="container">
@@ -1310,13 +1898,6 @@
                     <p class="roast-p pc-text">本物のコーヒーの味をご提供します。</p>
                     <p class="roast-p sp-text">本物のコーヒーの味をご提供します。</p>
                 </div>
-                <div class="roast-gallery">
-                    <div class="roast-video">
-                        <video controls playsinline preload="metadata">
-                            <source src="images/video/baisen-syhort.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -1325,7 +1906,7 @@
             <div class="container">
                 <!-- Master's Passion -->
                 <div class="story-block" data-scroll-reveal>
-                    <img src="images/story-photo.jpg" alt="マスター" class="story-image">
+                    <img src="images/story-photo.webp" alt="マスター" class="story-image">
                     <div class="story-content">
                         <h2 class="section-title"
                             style="text-align: left; margin-left: 0; left: 0; transform: none; border-bottom: 1px solid var(--color-wood); display: inline-block;">
@@ -1349,7 +1930,7 @@
 
                 <!-- Our Story -->
                 <div class="story-block" data-scroll-reveal>
-                    <img src="images/mill.png" alt="創業当時" class="story-image">
+                    <img src="images/mill.webp" alt="創業当時" class="story-image">
                     <!-- Reusing interior for story context -->
                     <div class="story-content">
                         <h2 class="section-title"
@@ -1379,69 +1960,94 @@
                 <div class="menu-highlights">
                     <!-- Coffee -->
                     <div class="highlight-item">
-                        <img src="images/menu_coffee.png" alt="ブレンドコーヒー" class="highlight-img">
+                        <img src="images/menu_coffee.webp" alt="ブレンドコーヒー" class="highlight-img">
                         <h4>オリジナルブレンド</h4>
                         <p>コクと香りのバランスが絶妙な看板ブレンド。</p>
                     </div>
 
                     <!-- Dessert -->
                     <div class="highlight-item">
-                        <img src="images/croissant2.png" alt="クロワッサンプレート" class="highlight-img">
+                        <img src="images/croissant2.webp" alt="クロワッサンプレート" class="highlight-img">
                         <h4>クロワッサンプレート</h4>
                         <p>バターの香り豊かなクロワッサン。外サク中しっとり。</p>
                     </div>
 
                     <!-- Snack -->
                     <!-- <div class="highlight-item">
-                        <img src="images/wafful.jpg" alt="ワッフル" class="highlight-img">
+                        <img src="images/wafful.webp" alt="ワッフル" class="highlight-img">
                         <h4>ワッフルサンド</h4>
                         <p>外はサクッ、中はフワッとした焼きたてワッフル。</p>
                     </div> -->
                 </div>
 
-                <div class="special-coffee">
-                    <h3 class="special-coffee-title">スペシャル珈琲（スペシャルティコーヒー）</h3>
-                    <p class="special-coffee-en">Monthly Excellent Beans</p>
-                    <p class="special-coffee-tagline">月に一度のお楽しみ！</p>
+                <div class="special-coffee special-coffee-month-mode">
+                    <h3 class="special-coffee-title">スペシャリティー珈琲</h3>
+                    <p class="special-coffee-en">Rare Specialty Coffee Selection</p>
+                    <p class="special-coffee-tagline">ブルーマウンテン、ゲイシャ、コナ。<br class="pc-text">毎月変えている、特別な一杯です。</p>
                     <p class="special-coffee-sub">一杯 ¥1,500(税別)</p>
-                    <p class="special-coffee-note">※ 数量限定・店頭販売のみ。一期一会の味をぜひ店頭でお確かめください。</p>
+                    <p class="special-coffee-note">※ 数量限定・店頭販売のみ。入荷数に限りがあるため、一期一会の香りと味わいを店頭でお確かめください。</p>
+                    <div class="special-coffee-months" aria-label="月ごとのスペシャリティー珈琲">
+                        <button type="button" class="special-coffee-month is-active" data-coffee="blue-mountain"
+                            aria-pressed="true"><span class="month-label">1月</span><span class="coffee-pour"
+                                aria-hidden="true"></span></button>
+                        <button type="button" class="special-coffee-month" data-coffee="panama-geisha"
+                            aria-pressed="false"><span class="month-label">2月</span><span class="coffee-pour"
+                                aria-hidden="true"></span></button>
+                        <button type="button" class="special-coffee-month" data-coffee="hawaii-kona"
+                            aria-pressed="false"><span class="month-label">3月</span><span class="coffee-pour"
+                                aria-hidden="true"></span></button>
+                        <button type="button" class="special-coffee-month" data-coffee="blue-mountain"
+                            aria-pressed="false"><span class="month-label">4月</span><span class="coffee-pour"
+                                aria-hidden="true"></span></button>
+                        <button type="button" class="special-coffee-month" data-coffee="panama-geisha"
+                            aria-pressed="false"><span class="month-label">5月</span><span class="coffee-pour"
+                                aria-hidden="true"></span></button>
+                        <button type="button" class="special-coffee-month" data-coffee="hawaii-kona"
+                            aria-pressed="false"><span class="month-label">6月</span><span class="coffee-pour"
+                                aria-hidden="true"></span></button>
+                        <button type="button" class="special-coffee-month" data-coffee="blue-mountain"
+                            aria-pressed="false"><span class="month-label">7月</span><span class="coffee-pour"
+                                aria-hidden="true"></span></button>
+                        <button type="button" class="special-coffee-month" data-coffee="panama-geisha"
+                            aria-pressed="false"><span class="month-label">8月</span><span class="coffee-pour"
+                                aria-hidden="true"></span></button>
+                        <button type="button" class="special-coffee-month" data-coffee="hawaii-kona"
+                            aria-pressed="false"><span class="month-label">9月</span><span class="coffee-pour"
+                                aria-hidden="true"></span></button>
+                        <button type="button" class="special-coffee-month" data-coffee="blue-mountain"
+                            aria-pressed="false"><span class="month-label">10月</span><span class="coffee-pour"
+                                aria-hidden="true"></span></button>
+                        <button type="button" class="special-coffee-month" data-coffee="panama-geisha"
+                            aria-pressed="false"><span class="month-label">11月</span><span class="coffee-pour"
+                                aria-hidden="true"></span></button>
+                        <button type="button" class="special-coffee-month" data-coffee="hawaii-kona"
+                            aria-pressed="false"><span class="month-label">12月</span><span class="coffee-pour"
+                                aria-hidden="true"></span></button>
+                    </div>
                     <div class="special-coffee-carousel-wrap">
                         <button type="button" class="special-coffee-arrow special-coffee-arrow-prev"
                             aria-label="前のカードへ">
                             <i class="fa-solid fa-chevron-left"></i>
                         </button>
                         <ul class="special-coffee-list" id="special-coffee-list">
-                            <li class="special-coffee-card">
+                            <li class="special-coffee-card is-active" data-coffee-card="blue-mountain">
                                 <div class="special-coffee-card-img">
-                                    <img src="images/Flag_of_Jamaica.svg" alt="ジャマイカ" class="special-coffee-card-flag">
-                                </div>
-                                <div class="special-coffee-card-body">
-                                    <div class="product-name">ジャマイカ ブルーマウンテン<br>クライスデールNo.1</div>
-                                    <div class="roast-months">1月・4月・7月・10月焙煎</div>
-                                    <p class="product-desc">月に一度のスペシャル豆。華やかな香りとまろやかな味わい。</p>
-                                    <div class="price">Beans ¥3,800(税別)</div>
+                                    <img src="images/cupburaziru.webp"
+                                        alt="ジャマイカ ブルーマウンテン クライスデールNo.1"
+                                        class="special-coffee-product-img" loading="lazy">
                                 </div>
                             </li>
-                            <li class="special-coffee-card">
+                            <li class="special-coffee-card" data-coffee-card="panama-geisha">
                                 <div class="special-coffee-card-img">
-                                    <img src="images/Flag_of_Panama.svg.png" alt="パナマ" class="special-coffee-card-flag">
-                                </div>
-                                <div class="special-coffee-card-body">
-                                    <div class="product-name">パナマ ゲイシャ<br>ハートマン農園</div>
-                                    <div class="roast-months">2月・5月・8月・11月焙煎</div>
-                                    <p class="product-desc">フローラルな香りと透明感のある味わいが特徴のゲイシャ。</p>
-                                    <div class="price">Beans ¥3,300(税別)</div>
+                                    <img src="images/cuppapuanyuginia.webp" alt="パナマ ゲイシャ ハートマン農園"
+                                        class="special-coffee-product-img" loading="lazy">
                                 </div>
                             </li>
-                            <li class="special-coffee-card">
+                            <li class="special-coffee-card" data-coffee-card="hawaii-kona">
                                 <div class="special-coffee-card-img">
-                                    <img src="images/Flag_of_Hawaii.svg.png" alt="ハワイ" class="special-coffee-card-flag">
-                                </div>
-                                <div class="special-coffee-card-body">
-                                    <div class="product-name">ハワイ コナ100 エクストラファンシー <br>ハワイアンクイーン農園</div>
-                                    <div class="roast-months">3月・6月・9月・12月焙煎</div>
-                                    <p class="product-desc">100%コナ。甘みと酸味のバランスがとれたエクストラファンシー。</p>
-                                    <div class="price">Beans ¥3,300(税別)</div>
+                                    <img src="images/cuphawai.webp"
+                                        alt="ハワイ コナ100 エクストラファンシー ハワイアンクイーン農園"
+                                        class="special-coffee-product-img" loading="lazy">
                                 </div>
                             </li>
                         </ul>
@@ -1459,29 +2065,14 @@
         <!-- 6. SNS & Delivery -->
         <section class="section sns-order-section">
             <div class="container">
-                <a href="#" class="sns-footer-logo" aria-label="トップへ戻る">
-                    <span class="sns-footer-logo-main">ポプラ館珈琲</span>
-                    <span class="sns-footer-logo-sub">Popura-kan Coffee</span>
-                </a>
-                <nav class="sns-footer-nav" aria-label="フッターナビゲーション">
-                    <a href="#roast">ROAST</a>
-                    <a href="#story">STORY</a>
-                    <a href="#menu">MENU</a>
-                    <a href="#information">INFORMATION</a>
-                </nav>
                 <div class="sns-footer-actions">
-                    <a href="https://www.instagram.com/popurakancoffee/" class="sns-footer-action instagram"
-                        target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                        <i class="fa-brands fa-instagram"></i>
-                    </a>
-                    <a href="https://www.ubereats.com/jp/store/%E8%87%AA%E5%AE%B6%E7%84%99%E7%85%8E%E3%83%9B%E3%83%95%E3%83%A9%E9%A4%A8%E7%8F%88%E7%90%B2-popura-kan-coffee/TiprfoFyXMeE8ywwUZ3WKg?diningMode=PICKUP&pl=JTdCJTIyYWRkcmVzcyUyMiUzQSUyMiVFNSU4QSVBMCVFNSU4RiVBNCVFNSVCNyU5RCVFNSVCOCU4MiUyMiUyQyUyMnJlZmVyZW5jZSUyMiUzQSUyMkNoSUpnVU95UGVJblZUVVJuemZ1c0hMbDRqVSUyMiUyQyUyMnJlZmVyZW5jZVR5cGUlMjIlM0ElMjJnb29nbGVfcGxhY2VzJTIyJTJDJTIybGF0aXR1ZGUlMjIlM0EzNC43NTY5MTkzJTJDJTIybG9uZ2l0dWRlJTIyJTNBMTM0Ljg0MTM1OTk5OTk5OTk4JTdE&ps=1&utm_campaign=CM2508147-search-free-nonbrand-google-pas_e_all_acq_Global&utm_medium=search-free-nonbrand&utm_source=google-pas"
-                        class="sns-footer-action uber" target="_blank" rel="noopener noreferrer" aria-label="Uber Eats">
-                        <i class="fa-solid fa-bag-shopping"></i>
+                    <a href="https://popuracoffee.base.shop/" class="sns-footer-action" target="_blank"
+                        rel="noopener noreferrer">
+                        <i class="fa-solid fa-cart-shopping"></i> 珈琲豆の購入はこちら
                     </a>
                     <a href="https://customer-web.rocketnow.co.jp/share?storeId=65939&dishId&key=779db14f-e3cc-4093-94e9-91d07b6a9e77"
-                        class="sns-footer-action rocket" target="_blank" rel="noopener noreferrer"
-                        aria-label="Rocket Now">
-                        <i class="fa-solid fa-rocket"></i>
+                        class="sns-footer-action" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-solid fa-rocket"></i> ロケットナウはこちら
                     </a>
                 </div>
                 <p class="sns-footer-copy">
@@ -1537,6 +2128,16 @@
         (function () {
             const fixedNav = document.querySelector('.scroll-fixed-nav');
             if (!fixedNav) return;
+            const menuToggle = fixedNav.querySelector('.scroll-menu-toggle');
+            const menuLinks = Array.from(fixedNav.querySelectorAll('.scroll-fixed-links a'));
+
+            function closeMenu() {
+                fixedNav.classList.remove('is-menu-open');
+                if (menuToggle) {
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                    menuToggle.setAttribute('aria-label', 'メニューを開く');
+                }
+            }
 
             function updateFixedNav() {
                 fixedNav.classList.toggle('is-show', window.scrollY > 30);
@@ -1544,6 +2145,22 @@
 
             updateFixedNav();
             window.addEventListener('scroll', updateFixedNav, { passive: true });
+
+            if (menuToggle) {
+                menuToggle.addEventListener('click', function () {
+                    const isOpen = fixedNav.classList.toggle('is-menu-open');
+                    menuToggle.setAttribute('aria-expanded', String(isOpen));
+                    menuToggle.setAttribute('aria-label', isOpen ? 'メニューを閉じる' : 'メニューを開く');
+                });
+            }
+
+            menuLinks.forEach(function (link) {
+                link.addEventListener('click', closeMenu);
+            });
+
+            window.addEventListener('resize', function () {
+                if (window.innerWidth > 768) closeMenu();
+            });
         })();
 
         (function () {
@@ -1594,7 +2211,103 @@
             const list = document.getElementById('special-coffee-list');
             const prevBtn = document.querySelector('.special-coffee-arrow-prev');
             const nextBtn = document.querySelector('.special-coffee-arrow-next');
-            if (!list || !prevBtn || !nextBtn) return;
+            const monthButtons = Array.from(document.querySelectorAll('.special-coffee-month'));
+            const cards = Array.from(document.querySelectorAll('.special-coffee-card[data-coffee-card]'));
+            if (!list) return;
+            const monthGroup = document.querySelector('.special-coffee-months');
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            let pourTimer = null;
+            let revealTimer = null;
+            let restoreTimer = null;
+            let cleanupTimer = null;
+
+            function resetMonthFocus() {
+                window.clearTimeout(pourTimer);
+                window.clearTimeout(restoreTimer);
+                window.clearTimeout(cleanupTimer);
+                if (monthGroup) {
+                    monthGroup.classList.remove('is-focusing', 'is-restoring');
+                }
+                monthButtons.forEach(function (monthButton) {
+                    monthButton.classList.remove('is-pouring', 'is-focus-target', 'is-hidden-during-pour');
+                });
+            }
+
+            function showCoffee(coffeeKey, activeButton) {
+                cards.forEach(function (card) {
+                    card.classList.remove('is-revealing', 'is-slow-reveal');
+                });
+
+                cards.forEach(function (card) {
+                    const isActive = card.dataset.coffeeCard === coffeeKey;
+                    card.classList.toggle('is-active', isActive);
+                    if (isActive && !prefersReducedMotion) {
+                        card.classList.add('is-revealing');
+                        card.classList.add('is-slow-reveal');
+                    }
+                });
+
+                monthButtons.forEach(function (button) {
+                    const isActive = button === activeButton;
+                    button.classList.toggle('is-active', isActive);
+                    button.setAttribute('aria-pressed', String(isActive));
+                });
+
+                if (!prefersReducedMotion) {
+                    window.clearTimeout(revealTimer);
+                    revealTimer = window.setTimeout(function () {
+                        cards.forEach(function (card) {
+                            card.classList.remove('is-revealing');
+                        });
+                    }, 760);
+                }
+            }
+
+            monthButtons.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    resetMonthFocus();
+
+                    if (prefersReducedMotion) {
+                        showCoffee(button.dataset.coffee, button);
+                        return;
+                    }
+
+                    if (monthGroup) {
+                        monthGroup.classList.add('is-focusing');
+                    }
+
+                    monthButtons.forEach(function (monthButton) {
+                        const isTarget = monthButton === button;
+                        monthButton.classList.toggle('is-focus-target', isTarget);
+                        monthButton.classList.toggle('is-hidden-during-pour', !isTarget);
+                    });
+
+                    button.classList.add('is-pouring');
+                    pourTimer = window.setTimeout(function () {
+                        showCoffee(button.dataset.coffee, button);
+                    }, 360);
+
+                    restoreTimer = window.setTimeout(function () {
+                        button.classList.remove('is-pouring', 'is-focus-target');
+                        monthButtons.forEach(function (monthButton) {
+                            monthButton.classList.remove('is-hidden-during-pour');
+                        });
+
+                        if (monthGroup) {
+                            monthGroup.classList.remove('is-focusing');
+                            monthGroup.classList.add('is-restoring');
+                        }
+                    }, 980);
+
+                    cleanupTimer = window.setTimeout(function () {
+                        if (monthGroup) {
+                            monthGroup.classList.remove('is-restoring');
+                        }
+                    }, 1450);
+                });
+            });
+
+            if (!prevBtn || !nextBtn) return;
 
             function getScrollAmount() {
                 const card = list.querySelector('.special-coffee-card');

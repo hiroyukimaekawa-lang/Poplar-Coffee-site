@@ -1,17 +1,14 @@
 :root {
-    --color-bg: #f5f1e8;
-    /* Cream/Beige */
-    --color-text: #3e2723;
-    /* Dark Brown */
-    --color-accent: #7b1fa2;
-    /* Burgundy/Purple tone - subtle */
-    --color-accent-2: #1b5e20;
-    /* Deep Green */
-    --color-white: #ffffff;
-    --color-wood: #5d4037;
+    --color-bg: #F5EBDD;
+    --color-text: #3A2416;
+    --color-accent: #8B1E1E;
+    --color-accent-2: #2F4A38;
+    --color-white: #F5EBDD;
+    --color-wood: #5A2F1B;
+    --color-gold: #B08A4A;
 
-    --font-serif: 'Kaisei Decol', 'Noto Serif JP', serif;
-    --font-sans: 'Zen Old Mincho', 'Noto Serif JP', serif;
+    --font-serif: 'Shippori Mincho', 'Noto Serif JP', 'Yu Mincho', serif;
+    --font-sans: 'Zen Old Mincho', 'Noto Serif JP', 'Yu Mincho', serif;
 }
 
 * {
@@ -30,7 +27,9 @@ img {
 
 body {
     font-family: var(--font-sans);
-    background-color: var(--color-bg);
+    background:
+        repeating-linear-gradient(90deg, rgba(58, 36, 22, 0.035) 0 1px, transparent 1px 42px),
+        linear-gradient(180deg, #F5EBDD 0%, var(--color-bg) 46%, rgba(176, 138, 74, 0.32) 100%);
     color: var(--color-text);
     line-height: 1.6;
 }
@@ -52,10 +51,13 @@ h4 {
 
 /* Header */
 header {
-    background-color: var(--color-wood);
+    background:
+        linear-gradient(90deg, rgba(47, 74, 56, 0.55), transparent 22%, transparent 78%, rgba(139, 30, 30, 0.45)),
+        linear-gradient(180deg, #5A2F1B 0%, #3A2416 100%);
     color: var(--color-white);
     padding: 1.5rem 0;
     text-align: center;
+    border-bottom: 1px solid rgba(176, 138, 74, 0.48);
 }
 
 .logo,
@@ -108,7 +110,7 @@ section {
     text-align: center;
     font-size: 2.2rem;
     margin-bottom: 2rem;
-    border-bottom: 2px solid var(--color-wood);
+    border-bottom: 2px solid var(--color-gold);
     display: block;
     width: 100%;
     padding-bottom: 0.5rem;
@@ -220,7 +222,7 @@ section {
 
 /* Story Section */
 .story-section {
-    background-image: url('images/hero_interior.webp');
+    background-image: url('images/story-back.webp');
     background-attachment: fixed;
     background-size: cover;
     position: relative;
@@ -324,7 +326,8 @@ section {
 
 .menu-page main {
     background:
-        linear-gradient(rgba(37, 24, 18, 0.68), rgba(37, 24, 18, 0.72)),
+        linear-gradient(rgba(38, 20, 13, 0.78), rgba(29, 15, 10, 0.84)),
+        linear-gradient(90deg, rgba(25, 61, 45, 0.18), transparent 34%, rgba(111, 36, 31, 0.2)),
         url('images/menu/menu-terrace-background.webp') center / cover fixed no-repeat;
     color: var(--color-white);
     font-family: var(--font-serif);
@@ -395,17 +398,17 @@ section {
 .menu-page .tab-btn {
     min-width: 168px;
     border-color: rgba(230, 210, 163, 0.44);
-    background: rgba(255, 252, 244, 0.92);
-    color: #43281e;
+    background: rgba(255, 248, 232, 0.9);
+    color: var(--color-wood);
     border-radius: 2px;
     box-shadow: 0 10px 22px rgba(0, 0, 0, 0.24);
 }
 
 .menu-page .tab-btn.active,
 .menu-page .tab-btn:hover {
-    background: linear-gradient(180deg, #4b2f23 0%, #2d1d16 100%);
+    background: linear-gradient(180deg, var(--color-accent) 0%, #5A2F1B 100%);
     color: var(--color-white);
-    border-color: rgba(255, 248, 236, 0.78);
+    border-color: rgba(185, 147, 77, 0.82);
 }
 
 .menu-content {
@@ -449,9 +452,9 @@ section {
     min-height: 470px;
     margin: 0 auto 2rem;
     overflow: hidden;
-    border: 1px solid rgba(230, 210, 163, 0.34);
+    border: 1px solid rgba(185, 147, 77, 0.46);
     border-radius: 4px;
-    background: linear-gradient(180deg, rgba(255, 252, 244, 0.97), rgba(241, 230, 208, 0.97));
+    background: linear-gradient(180deg, rgba(255, 248, 232, 0.97), rgba(228, 209, 168, 0.97));
     box-shadow: 0 18px 32px rgba(0, 0, 0, 0.32);
     touch-action: pan-y;
     user-select: none;
@@ -479,6 +482,7 @@ section {
     display: block;
     -webkit-user-drag: none;
     user-select: none;
+    filter: sepia(0.16) saturate(0.84) contrast(1.07) brightness(0.95);
 }
 
 .menu-item-slide::after {
@@ -490,8 +494,8 @@ section {
     z-index: 1;
     min-height: 122px;
     padding: 1.05rem 4.6rem 1.2rem;
-    background: linear-gradient(180deg, rgba(255, 252, 244, 0.98), rgba(241, 230, 208, 0.98));
-    border-top: 1px solid rgba(91, 57, 43, 0.18);
+    background: linear-gradient(180deg, rgba(255, 248, 232, 0.98), rgba(225, 203, 160, 0.98));
+    border-top: 1px solid rgba(185, 147, 77, 0.36);
     box-shadow: none;
     display: flex;
     flex-direction: column;
@@ -505,7 +509,7 @@ section {
     font-size: clamp(1.45rem, 3.2vw, 2rem);
     font-weight: 700;
     letter-spacing: 0.04em;
-    color: #2f1d16;
+    color: var(--color-wood);
     line-height: 1.22;
     width: 100%;
 }
@@ -518,7 +522,7 @@ section {
 
 .menu-item-slide-info p {
     margin-top: 0.48rem;
-    color: #4b2f23;
+    color: var(--color-text);
     font-family: var(--font-serif);
     font-size: clamp(1.05rem, 2vw, 1.28rem);
     font-weight: 700;
@@ -546,7 +550,7 @@ section {
 
 .menu-item-dots button.is-active {
     width: 24px;
-    background: rgba(75, 47, 35, 0.88);
+    background: rgba(111, 36, 31, 0.9);
 }
 
 .menu-item-nav {
@@ -555,9 +559,9 @@ section {
     z-index: 3;
     width: 42px;
     height: 42px;
-    border: 1px solid rgba(255, 248, 236, 0.76);
+    border: 1px solid rgba(185, 147, 77, 0.82);
     border-radius: 999px;
-    background: rgba(35, 20, 13, 0.7);
+    background: rgba(58, 33, 24, 0.78);
     color: var(--color-white);
     display: inline-flex;
     align-items: center;
@@ -569,7 +573,7 @@ section {
 }
 
 .menu-item-nav:hover {
-    background: rgba(75, 47, 35, 0.92);
+    background: rgba(25, 61, 45, 0.94);
     transform: translateY(-50%) scale(1.04);
 }
 
@@ -649,9 +653,9 @@ section {
         overflow: hidden;
         opacity: 1;
         transform: none;
-        border: 1px solid rgba(230, 210, 163, 0.34);
+        border: 1px solid rgba(185, 147, 77, 0.46);
         border-radius: 4px;
-        background: linear-gradient(180deg, rgba(255, 252, 244, 0.97), rgba(241, 230, 208, 0.97));
+        background: linear-gradient(180deg, rgba(255, 248, 232, 0.97), rgba(228, 209, 168, 0.97));
         box-shadow: 0 16px 30px rgba(0, 0, 0, 0.28);
         transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
@@ -709,7 +713,7 @@ section {
 
 .menu-card {
     background-color: var(--color-white);
-    border: 1px solid #eee;
+    border: 1px solid rgba(185, 147, 77, 0.34);
     border-radius: 6px;
     overflow: hidden;
     display: flex;
@@ -721,8 +725,8 @@ section {
 }
 
 .menu-page .menu-card {
-    background: linear-gradient(180deg, rgba(255, 252, 244, 0.97), rgba(241, 230, 208, 0.97));
-    border: 1px solid rgba(230, 210, 163, 0.34);
+    background: linear-gradient(180deg, rgba(255, 248, 232, 0.97), rgba(228, 209, 168, 0.97));
+    border: 1px solid rgba(185, 147, 77, 0.46);
     border-radius: 4px;
     box-shadow: 0 16px 30px rgba(0, 0, 0, 0.28);
 }
@@ -1036,7 +1040,7 @@ section {
 }
 
 .menu-page .card-title {
-    color: #2f1d16;
+    color: var(--color-wood);
     font-weight: 700;
 }
 
@@ -1060,28 +1064,28 @@ section {
 }
 
 .menu-page .card-price {
-    color: #4b2f23;
+    color: var(--color-text);
 }
 
 .menu-details {
     grid-column: 1 / -1;
     background-color: var(--color-white);
-    border: 1px solid #eee;
+    border: 1px solid rgba(185, 147, 77, 0.34);
     border-radius: 6px;
     padding: 1rem 1.2rem;
     text-align: center;
 }
 
 .menu-page .menu-details {
-    background: linear-gradient(180deg, rgba(255, 252, 244, 0.96), rgba(241, 230, 208, 0.96));
-    border-color: rgba(230, 210, 163, 0.36);
+    background: linear-gradient(180deg, rgba(255, 248, 232, 0.96), rgba(228, 209, 168, 0.96));
+    border-color: rgba(185, 147, 77, 0.46);
     box-shadow: 0 16px 30px rgba(0, 0, 0, 0.24);
 }
 
 .menu-details-btn {
     list-style: none;
     cursor: pointer;
-    background-color: var(--color-wood);
+    background: linear-gradient(180deg, var(--color-accent) 0%, #5A2F1B 100%);
     color: var(--color-white);
     padding: 0.6rem 1rem;
     border-radius: 4px;

@@ -1375,7 +1375,6 @@
             aspect-ratio: 1.14 / 1;
             overflow: visible;
             background: transparent;
-            filter: drop-shadow(0 22px 28px rgba(0, 0, 0, 0.38));
         }
 
         .special-coffee-product-img {
@@ -1387,36 +1386,11 @@
             position: relative;
             z-index: 1;
             transform: none;
-        }
-
-        .special-coffee-price-label {
-            position: absolute;
-            left: 50%;
-            bottom: clamp(1.1rem, 4.2vw, 2.1rem);
-            transform: translateX(-50%);
-            z-index: 3;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-width: min(74%, 340px);
-            padding: 0.46rem 0.9rem 0.5rem;
-            border: 1px solid rgba(176, 138, 74, 0.88);
-            background: linear-gradient(180deg, rgba(58, 36, 22, 0.96), rgba(20, 10, 6, 0.96));
-            color: #f5ebdd;
-            font-family: Georgia, 'Times New Roman', var(--font-kissa), serif;
-            font-size: clamp(1.05rem, 3vw, 1.55rem);
-            font-weight: 700;
-            letter-spacing: 0.04em;
-            line-height: 1.1;
-            text-align: center;
-            text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75);
-            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
-            white-space: nowrap;
-            pointer-events: none;
+            image-rendering: -webkit-optimize-contrast;
         }
 
         .special-coffee-month-mode .special-coffee-carousel-wrap {
-            max-width: min(560px, 94vw);
+            max-width: min(700px, 96vw);
         }
 
         .special-coffee-month-mode .special-coffee-arrow {
@@ -1430,7 +1404,7 @@
         .special-coffee-month-mode .special-coffee-card {
             display: none;
             opacity: 0;
-            transform: translateY(24px) scale(0.98);
+            transform: translateY(24px);
             background: transparent;
             border: none;
             box-shadow: none;
@@ -1440,7 +1414,7 @@
         .special-coffee-month-mode .special-coffee-card.is-active {
             display: flex;
             opacity: 1;
-            transform: translateY(0) scale(1);
+            transform: translateY(0);
             animation: beanCardRise 0.56s ease both;
         }
 
@@ -1479,12 +1453,12 @@
         @keyframes beanCardRise {
             from {
                 opacity: 0;
-                transform: translateY(24px) scale(0.98);
+                transform: translateY(24px);
             }
 
             to {
                 opacity: 1;
-                transform: translateY(0) scale(1);
+                transform: translateY(0);
             }
         }
 
@@ -1632,11 +1606,11 @@
                 max-width: none;
             }
 
-            .special-coffee-price-label {
-                bottom: 0.95rem;
-                min-width: 76%;
-                padding: 0.36rem 0.62rem 0.42rem;
-                font-size: clamp(0.92rem, 5vw, 1.18rem);
+            .special-coffee-month-mode .special-coffee-carousel-wrap {
+                width: min(124vw, 760px);
+                max-width: none;
+                margin-left: 50%;
+                transform: translateX(-50%);
             }
 
             .special-coffee-carousel-wrap {
@@ -2117,28 +2091,22 @@
                         <ul class="special-coffee-list" id="special-coffee-list">
                             <li class="special-coffee-card is-active" data-coffee-card="blue-mountain">
                                 <div class="special-coffee-card-img">
-                                    <img src="images/cupburaziru.webp"
+                                    <img src="images/jamaika.png"
                                         alt="ジャマイカ ブルーマウンテン クライスデールNo.1"
                                         class="special-coffee-product-img" loading="lazy">
-                                    <span class="special-coffee-price-label" aria-hidden="true">Beans ¥3,800
-                                        (税別)</span>
                                 </div>
                             </li>
                             <li class="special-coffee-card" data-coffee-card="panama-geisha">
                                 <div class="special-coffee-card-img">
-                                    <img src="images/cuppapuanyuginia.webp" alt="パナマ ゲイシャ ハートマン農園"
+                                    <img src="images/panama.png" alt="パナマ ゲイシャ ハートマン農園"
                                         class="special-coffee-product-img" loading="lazy">
-                                    <span class="special-coffee-price-label" aria-hidden="true">Beans ¥3,300
-                                        (税別)</span>
                                 </div>
                             </li>
                             <li class="special-coffee-card" data-coffee-card="hawaii-kona">
                                 <div class="special-coffee-card-img">
-                                    <img src="images/cuphawai.webp"
+                                    <img src="images/hawai.png"
                                         alt="ハワイ コナ100 エクストラファンシー ハワイアンクイーン農園"
                                         class="special-coffee-product-img" loading="lazy">
-                                    <span class="special-coffee-price-label" aria-hidden="true">Beans ¥3,300
-                                        (税別)</span>
                                 </div>
                             </li>
                         </ul>

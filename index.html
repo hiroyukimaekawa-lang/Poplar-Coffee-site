@@ -235,6 +235,7 @@
             font-size: 0.9rem;
             letter-spacing: 0.08em;
             white-space: nowrap;
+            transition: color 0.25s ease, text-shadow 0.25s ease;
         }
 
         .scroll-fixed-links a::after {
@@ -250,7 +251,14 @@
             transition: transform 0.25s ease;
         }
 
-        .scroll-fixed-links a:hover::after {
+        .scroll-fixed-links a:hover,
+        .scroll-fixed-links a.is-active {
+            color: #fff4c9;
+            text-shadow: 0 0 12px rgba(230, 210, 163, 0.4);
+        }
+
+        .scroll-fixed-links a:hover::after,
+        .scroll-fixed-links a.is-active::after {
             transform: scaleX(1);
             transform-origin: left;
         }
@@ -428,15 +436,6 @@
             background: var(--color-text);
             color: var(--color-white);
             font-size: 0.8rem;
-        }
-
-        /* PC/SP Text Visibility */
-        .sp-text {
-            display: none;
-        }
-
-        .pc-text {
-            display: block;
         }
 
         /* Information Section Card */
@@ -726,6 +725,7 @@
             line-height: 1.9;
             color: var(--color-white);
             margin-bottom: 1rem;
+            overflow-wrap: anywhere;
         }
 
         .story-section-custom {
@@ -838,22 +838,33 @@
         }
 
         .view-menu-btn {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.65rem;
             background: linear-gradient(180deg, #4b2f23 0%, #2d1d16 100%);
             color: var(--color-white);
-            padding: 1rem 3rem;
-            font-size: 1.1rem;
+            min-width: min(360px, 92vw);
+            padding: 1.2rem 3.2rem;
+            font-size: 1.15rem;
             font-family: var(--font-kissa);
             font-weight: 700;
-            letter-spacing: 0.08em;
-            transition: background 0.3s;
-            border: 1px solid rgba(230, 210, 163, 0.38);
+            letter-spacing: 0.1em;
+            transition: background 0.3s, transform 0.25s ease, box-shadow 0.25s ease;
+            border: 1px solid rgba(230, 210, 163, 0.58);
+            border-radius: 2px;
             cursor: pointer;
-            box-shadow: 0 8px 18px rgba(64, 34, 15, 0.18);
+            box-shadow: 0 18px 32px rgba(20, 10, 6, 0.32), inset 0 0 0 1px rgba(255, 248, 229, 0.12);
         }
 
         .view-menu-btn:hover {
             background: linear-gradient(180deg, #2f5a49 0%, #203f34 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 22px 38px rgba(20, 10, 6, 0.38), inset 0 0 0 1px rgba(255, 248, 229, 0.16);
+        }
+
+        .view-menu-btn i {
+            font-size: 0.95em;
         }
 
         .sns-order-section {
@@ -1698,15 +1709,11 @@
             }
 
             .hero-catchphrase {
-                white-space: nowrap;
-            }
-
-            .sp-text {
-                display: block;
-            }
-
-            .pc-text {
-                display: none;
+                max-width: 92vw;
+                padding: 0.9rem 1.2rem;
+                font-size: 1.05rem;
+                line-height: 1.8;
+                white-space: normal;
             }
 
             .story-block,
@@ -1777,6 +1784,13 @@
                 margin-bottom: 0.5rem;
             }
 
+            .view-menu-btn {
+                min-width: 0;
+                width: min(320px, 92vw);
+                padding: 1rem 1.4rem;
+                font-size: 1rem;
+            }
+
             .sns-footer-actions {
                 flex-direction: column;
                 align-items: stretch;
@@ -1837,8 +1851,7 @@
                 </div>
             </div>
             <div class="hero-catchphrase-container">
-                <p class="hero-catchphrase pc-text">一杯の贅沢、受け継がれる味。</p>
-                <p class="hero-catchphrase sp-text">一杯の贅沢 受け継がれる味</p>
+                <p class="hero-catchphrase">一杯の贅沢、受け継がれる味。</p>
             </div>
         </div>
     </header>
@@ -1852,16 +1865,6 @@
             <div class="container">
                 <h2 class="section-title">News</h2>
                 <div class="news-card">
-                    <article class="news-item">
-                        <span class="news-date">2026.02.16</span><br>
-                        <a class="news-link" href="https://note.com/happy_eagle5103" target="_blank"
-                            rel="noopener noreferrer">
-                            note「ポプラ館珈琲」最新情報
-                        </a>
-                        <p class="news-description">
-                            最新のお知らせはnoteで更新しています。新メニューや営業情報は下記リンクからご確認ください。
-                        </p>
-                    </article>
                     <article class="news-item">
                         <span class="news-date">Instagram</span><br>
                         <a class="news-link" href="https://www.instagram.com/popurakancoffee/" target="_blank"
@@ -1885,18 +1888,11 @@
                 <h2 class="section-title roast-title">こだわりの焙煎</h2>
                 <div class="roast-copy">
                     <p class="roast-lead">焙煎が、珈琲の味を決める</p>
-                    <p class="roast-p pc-text">日本の「自家焙煎」を創り上げてきた矜持。</p>
-                    <p class="roast-p sp-text">日本の「自家焙煎」を創り上げてきた矜持。</p>
-                    <p class="roast-p pc-text">日本の珈琲史において、「自家焙煎」という文化を形作ってきたマスターが培ってきた焙煎の技術をお届けします。</p>
-                    <p class="roast-p sp-text">日本の珈琲史において、「自家焙煎」という<br>文化を形作ってきたマスターが培ってきた<br>焙煎の技術をお届けします。</p>
-                    <p class="roast-p pc-text">当店の自慢は、今なお現役で鼓動を続ける「10kg焙煎機の第1号機」。</p>
-                    <p class="roast-p sp-text">当店の自慢は、今なお現役で鼓動を続ける「10kg焙煎機の第1号機」。</p>
-                    <p class="roast-p pc-text">
-                        40年以上の歳月を経て、鋳物の隅々にまで熱が馴染んだこの機体は、<br>最新鋭のデジタル機では決して出せない、深く、優しく、それでいて力強い火力を豆に届けます。</p>
-                    <p class="roast-p sp-text">
-                        40年以上の歳月を経て、鋳物の隅々にまで熱が馴染んだこの機体は、最新鋭のデジタル機では決して出せない、深く、優しく、それでいて<br>力強い火力を豆に届けます。</p>
-                    <p class="roast-p pc-text">本物のコーヒーの味をご提供します。</p>
-                    <p class="roast-p sp-text">本物のコーヒーの味をご提供します。</p>
+                    <p class="roast-p">日本の「自家焙煎」を創り上げてきた矜持。</p>
+                    <p class="roast-p">日本の珈琲史において、「自家焙煎」という文化を形作ってきたマスターが培ってきた焙煎の技術をお届けします。</p>
+                    <p class="roast-p">当店の自慢は、今なお現役で鼓動を続ける「10kg焙煎機の第1号機」。</p>
+                    <p class="roast-p">40年以上の歳月を経て、鋳物の隅々にまで熱が馴染んだこの機体は、最新鋭のデジタル機では決して出せない、深く、優しく、それでいて力強い火力を豆に届けます。</p>
+                    <p class="roast-p">本物のコーヒーの味をご提供します。</p>
                 </div>
             </div>
         </section>
@@ -1911,19 +1907,8 @@
                         <h2 class="section-title"
                             style="text-align: left; margin-left: 0; left: 0; transform: none; border-bottom: 1px solid var(--color-wood); display: inline-block;">
                             Our Master's Passion</h2>
-                        <p class="story-text pc-text">
-                            「一杯の珈琲には、人の心をほどく力がある」<br>
-                            そう信じて、半世紀。豆の選別から焙煎、抽出に至るまで<br>
-                            一切の妥協を許さず、ただひたすらに美味しい一杯を追求してきました<br>
-                            忙しい日常の中で、ホッと一息つける場所でありたい<br>
-                            それが、私の変わらぬ願いです
-                        </p>
-                        <p class="story-text sp-text">
-                            「一杯の珈琲には、人の心をほどく力がある」<br>
-                            そう信じて、半世紀。豆の選別から焙煎、抽出に至るまで、
-                            一切の妥協を許さず、ただひたすらに美味しい一杯を追求してきました。<br>
-                            忙しい日常の中で、ホッと一息つける場所でありたい。
-                            それが、私の変わらぬ願いです。
+                        <p class="story-text">
+                            「一杯の珈琲には、人の心をほどく力がある」そう信じて、半世紀。豆の選別から焙煎、抽出に至るまで、一切の妥協を許さず、ただひたすらに美味しい一杯を追求してきました。忙しい日常の中で、ホッと一息つける場所でありたい。それが、私の変わらぬ願いです。
                         </p>
                     </div>
                 </div>
@@ -1936,16 +1921,8 @@
                         <h2 class="section-title"
                             style="text-align: left; margin-left: 0; left: 0; transform: none; border-bottom: 1px solid var(--color-wood); display: inline-block;">
                             Our Story & Commitment</h2>
-                        <p class="story-text pc-text">
-                            厚木で約30年にわたり愛されてきた「ポプラ館珈琲」<br>
-                            その味と想いを残し守り続け<br>
-                            当時のマスターが今も現役でカウンターに立ち<br>
-                            自家焙煎の珈琲豆で、一杯一杯丁寧にお淹れしています<br>
-                        </p>
-                        <p class="story-text sp-text">
-                            厚木で約30年にわたり愛されてきた「ポプラ館珈琲」。<br>
-                            その味と想いを残し守り続け、当時のマスターが今も現役でカウンターに立ち、
-                            自家焙煎の珈琲豆で、一杯一杯丁寧にお淹れしています。<br>
+                        <p class="story-text">
+                            厚木で約30年にわたり愛されてきた「ポプラ館珈琲」。その味と想いを残し守り続け、当時のマスターが今も現役でカウンターに立ち、自家焙煎の珈琲豆で、一杯一杯丁寧にお淹れしています。
                         </p>
                     </div>
                 </div>
@@ -1983,7 +1960,7 @@
                 <div class="special-coffee special-coffee-month-mode">
                     <h3 class="special-coffee-title">スペシャリティー珈琲</h3>
                     <p class="special-coffee-en">Rare Specialty Coffee Selection</p>
-                    <p class="special-coffee-tagline">ブルーマウンテン、ゲイシャ、コナ。<br class="pc-text">毎月変えている、特別な一杯です。</p>
+                    <p class="special-coffee-tagline">ブルーマウンテン、ゲイシャ、コナ。毎月変えている、特別な一杯です。</p>
                     <p class="special-coffee-sub">一杯 ¥1,500(税別)</p>
                     <p class="special-coffee-note">※ 数量限定・店頭販売のみ。入荷数に限りがあるため、一期一会の香りと味わいを店頭でお確かめください。</p>
                     <div class="special-coffee-months" aria-label="月ごとのスペシャリティー珈琲">
@@ -2058,7 +2035,7 @@
                     </div>
                 </div>
 
-                <a href="menu.html" class="view-menu-btn">全メニューを見る</a>
+                <a href="menu.html" class="view-menu-btn"><i class="fa-solid fa-utensils" aria-hidden="true"></i>全メニューを見る</a>
             </div>
         </section>
 
@@ -2130,6 +2107,15 @@
             if (!fixedNav) return;
             const menuToggle = fixedNav.querySelector('.scroll-menu-toggle');
             const menuLinks = Array.from(fixedNav.querySelectorAll('.scroll-fixed-links a'));
+            const sectionTargets = menuLinks
+                .map(function (link) {
+                    const target = document.querySelector(link.getAttribute('href'));
+                    return target ? { link: link, target: target } : null;
+                })
+                .filter(Boolean)
+                .sort(function (a, b) {
+                    return a.target.offsetTop - b.target.offsetTop;
+                });
 
             function closeMenu() {
                 fixedNav.classList.remove('is-menu-open');
@@ -2143,8 +2129,37 @@
                 fixedNav.classList.toggle('is-show', window.scrollY > 30);
             }
 
+            function setActiveNav(activeId) {
+                menuLinks.forEach(function (link) {
+                    const isActive = link.getAttribute('href') === '#' + activeId;
+                    link.classList.toggle('is-active', isActive);
+                    if (isActive) {
+                        link.setAttribute('aria-current', 'true');
+                    } else {
+                        link.removeAttribute('aria-current');
+                    }
+                });
+            }
+
+            function updateActiveNav() {
+                const navOffset = fixedNav.offsetHeight + 40;
+                let activeId = '';
+
+                sectionTargets.forEach(function (item) {
+                    if (item.target.getBoundingClientRect().top <= navOffset) {
+                        activeId = item.target.id;
+                    }
+                });
+
+                setActiveNav(activeId);
+            }
+
             updateFixedNav();
-            window.addEventListener('scroll', updateFixedNav, { passive: true });
+            updateActiveNav();
+            window.addEventListener('scroll', function () {
+                updateFixedNav();
+                updateActiveNav();
+            }, { passive: true });
 
             if (menuToggle) {
                 menuToggle.addEventListener('click', function () {
@@ -2160,6 +2175,7 @@
 
             window.addEventListener('resize', function () {
                 if (window.innerWidth > 768) closeMenu();
+                updateActiveNav();
             });
         })();
 

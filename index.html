@@ -120,7 +120,7 @@
 
         .hero-subtitle {
             font-family: 'Pirata One', 'Times New Roman', serif;
-            font-size: clamp(1.35rem, 3.2vw, 2.2rem);
+            font-size: clamp(0.9rem, 2vw, 1.25rem);
             font-weight: 700;
             margin: 0;
             line-height: 1.08;
@@ -678,11 +678,13 @@
             position: relative;
             overflow: hidden;
             background:
-                linear-gradient(rgba(38, 20, 13, 0.54), rgba(26, 13, 8, 0.62)),
-                url('images/roast/roast-cafe-background.webp') center / cover no-repeat;
+                linear-gradient(rgba(58, 36, 22, 0.38), rgba(58, 36, 22, 0.5)),
+                url('images/roast/roast-cafe-background.webp') center center / cover no-repeat;
             color: var(--color-white);
             font-family: var(--font-kissa);
             background-color: #3A2416;
+            border-top: 1px solid rgba(176, 138, 74, 0.42);
+            border-bottom: 1px solid rgba(176, 138, 74, 0.42);
         }
 
         .roast-section::before {
@@ -703,7 +705,20 @@
         }
 
         .roast-section::after {
-            display: none;
+            content: '';
+            position: absolute;
+            right: min(5vw, 4rem);
+            bottom: 2.4rem;
+            width: min(300px, 34vw);
+            aspect-ratio: 4 / 3;
+            border: 1px solid rgba(176, 138, 74, 0.7);
+            box-shadow:
+                0 0 0 7px rgba(245, 235, 221, 0.13),
+                0 18px 36px rgba(58, 36, 22, 0.42);
+            background: url('images/roast/roast-cafe-background.webp') 76% 64% / 250% no-repeat;
+            filter: sepia(0.12) saturate(1.08) contrast(1.08) brightness(1.04);
+            pointer-events: none;
+            z-index: 0;
         }
 
         .roast-section .container {
@@ -789,8 +804,21 @@
             height: 350px;
             object-fit: cover;
             filter: sepia(0.14) saturate(0.86) contrast(1.06) brightness(0.94);
-            box-shadow: 8px 8px 0 var(--kissaten-burgundy), 13px 13px 0 rgba(185, 147, 77, 0.62);
+            border: 1px solid rgba(176, 138, 74, 0.72);
+            background: #F5EBDD;
+            padding: 0.35rem;
+            box-shadow: 8px 8px 0 var(--kissaten-burgundy), 13px 13px 0 rgba(176, 138, 74, 0.62);
             /* Offset border effect */
+        }
+
+        .story-block:nth-child(even) .story-image {
+            filter: sepia(0.08) saturate(1.18) contrast(1.1) brightness(1);
+            border-color: rgba(139, 30, 30, 0.72);
+            box-shadow:
+                0 0 0 7px rgba(245, 235, 221, 0.34),
+                10px 10px 0 var(--kissaten-burgundy),
+                16px 16px 0 rgba(176, 138, 74, 0.7),
+                0 18px 32px rgba(58, 36, 22, 0.28);
         }
 
         .story-content {
@@ -851,6 +879,10 @@
             object-fit: cover;
             margin-bottom: 1rem;
             filter: sepia(0.18) saturate(0.82) contrast(1.08) brightness(0.94);
+            border: 1px solid rgba(176, 138, 74, 0.58);
+            padding: 0.28rem;
+            background: #F5EBDD;
+            box-shadow: inset 0 0 0 1px rgba(58, 36, 22, 0.08);
         }
 
         @media (min-width: 769px) {
@@ -1003,7 +1035,7 @@
 
         .special-coffee-en {
             font-family: var(--font-kissa);
-            font-size: clamp(1.15rem, 2.7vw, 1.55rem);
+            font-size: clamp(0.78rem, 1.4vw, 1rem);
             font-weight: 700;
             letter-spacing: 0.1em;
             color: var(--kissaten-gold);
@@ -1848,11 +1880,11 @@
                 <i class="fa-solid fa-bars" aria-hidden="true"></i>
             </button>
             <div class="scroll-fixed-links" id="scroll-fixed-links">
-                <a href="#information">Information</a>
-                <a href="#news">News</a>
-                <a href="#roast">Roast</a>
-                <a href="#story">Story</a>
-                <a href="#menu">Menu</a>
+                <a href="#information">店舗情報</a>
+                <a href="#news">お知らせ</a>
+                <a href="#roast">焙煎</a>
+                <a href="#story">物語</a>
+                <a href="#menu">メニュー</a>
             </div>
         </div>
     </nav>
@@ -1887,7 +1919,7 @@
                 <source src="images/video/baisen-syhort.mp4" type="video/mp4">
             </video>
             <div class="container">
-                <h2 class="section-title">News</h2>
+                <h2 class="section-title">お知らせ</h2>
                 <div class="news-card">
                     <article class="news-item">
                         <span class="news-date">Instagram</span><br>
@@ -1930,7 +1962,7 @@
                     <div class="story-content">
                         <h2 class="section-title"
                             style="text-align: left; margin-left: 0; left: 0; transform: none; border-bottom: 1px solid var(--color-wood); display: inline-block;">
-                            Our Master's Passion</h2>
+                            マスターの想い</h2>
                         <p class="story-text">
                             「一杯の珈琲には、人の心をほどく力がある」そう信じて、半世紀。豆の選別から焙煎、抽出に至るまで、一切の妥協を許さず、ただひたすらに美味しい一杯を追求してきました。忙しい日常の中で、ホッと一息つける場所でありたい。それが、私の変わらぬ願いです。
                         </p>
@@ -1944,7 +1976,7 @@
                     <div class="story-content">
                         <h2 class="section-title"
                             style="text-align: left; margin-left: 0; left: 0; transform: none; border-bottom: 1px solid var(--color-wood); display: inline-block;">
-                            Our Story & Commitment</h2>
+                            歩みとこだわり</h2>
                         <p class="story-text">
                             厚木で約30年にわたり愛されてきた「ポプラ館 珈琲」。その味と想いを残し守り続け、当時のマスターが今も現役でカウンターに立ち、自家焙煎の珈琲豆で、一杯一杯丁寧にお淹れしています。
                         </p>
@@ -1956,7 +1988,7 @@
         <!-- 5. Menu Section -->
         <section class="section" id="menu" data-scroll-reveal>
             <div class="container" style="text-align: center;">
-                <h2 class="section-title">Menu</h2>
+                <h2 class="section-title">メニュー</h2>
 
                 <div class="menu-highlights">
                     <!-- Coffee -->
@@ -2078,7 +2110,7 @@
                 </div>
                 <p class="sns-footer-copy">
                     &copy;2026 Popura-kan Coffee All Rights Reserved.<br>
-                    <a href="#information">Shop Information</a>
+                    <a href="#information">店舗情報</a>
                 </p>
             </div>
         </section>
@@ -2087,7 +2119,7 @@
 
     <footer class="site-footer" id="information" data-scroll-reveal>
         <div class="container">
-            <h2 class="section-title">Information</h2>
+            <h2 class="section-title">店舗情報</h2>
             <div class="info-card-container">
                 <div class="info-layout">
                     <div class="info-item">

@@ -40,6 +40,7 @@ h3,
 h4 {
     font-family: var(--font-serif);
     font-weight: 700;
+    letter-spacing: 0.06em;
 }
 
 .container {
@@ -117,6 +118,8 @@ section {
     position: relative;
     left: 0;
     transform: none;
+    color: var(--color-text);
+    text-shadow: 0 1px 0 rgba(245, 235, 221, 0.72);
 }
 
 /* Information Section */
@@ -483,6 +486,7 @@ section {
     -webkit-user-drag: none;
     user-select: none;
     filter: sepia(0.16) saturate(0.84) contrast(1.07) brightness(0.95);
+    border: 1px solid rgba(176, 138, 74, 0.34);
 }
 
 .menu-item-slide::after {
@@ -494,7 +498,7 @@ section {
     z-index: 1;
     min-height: 122px;
     padding: 1.05rem 4.6rem 1.2rem;
-    background: linear-gradient(180deg, rgba(255, 248, 232, 0.98), rgba(225, 203, 160, 0.98));
+    background: linear-gradient(180deg, rgba(245, 235, 221, 0.98), rgba(245, 235, 221, 0.9));
     border-top: 1px solid rgba(185, 147, 77, 0.36);
     box-shadow: none;
     display: flex;
@@ -613,7 +617,7 @@ section {
     height: auto;
     object-fit: contain;
     border-radius: 8px;
-    filter: drop-shadow(0 18px 24px rgba(0, 0, 0, 0.36));
+    filter: sepia(0.12) saturate(0.9) contrast(1.04) brightness(0.98) drop-shadow(0 18px 24px rgba(0, 0, 0, 0.36));
 }
 
 .coffee-label-slide:hover {
@@ -763,6 +767,7 @@ section {
     max-width: 95%;
     max-height: 95%;
     object-fit: contain;
+    filter: sepia(0.14) saturate(0.86) contrast(1.06) brightness(0.95);
 }
 
 /* Coffee beans (menu list) - bean-themed background */

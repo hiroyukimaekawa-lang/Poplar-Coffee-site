@@ -122,6 +122,44 @@ section {
     text-shadow: 0 1px 0 rgba(245, 235, 221, 0.72);
 }
 
+.menu-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.menu-title-row .section-title {
+    width: auto;
+    min-width: min(360px, 100%);
+    margin-bottom: 0;
+}
+
+.rocketnow-menu-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    min-height: 44px;
+    padding: 0.72rem 1rem;
+    border: 1px solid rgba(176, 138, 74, 0.68);
+    background: linear-gradient(180deg, var(--color-accent-2) 0%, var(--color-text) 100%);
+    color: var(--color-white);
+    font-family: var(--font-serif);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    box-shadow: 0 10px 20px rgba(58, 36, 22, 0.26);
+    white-space: nowrap;
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.rocketnow-menu-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 26px rgba(58, 36, 22, 0.34);
+}
+
 /* Information Section */
 .info-section {
     background-color: var(--color-white);
@@ -156,9 +194,8 @@ section {
     content: '';
     position: absolute;
     inset: 0;
-    background-image: url('images/story-back.webp');
-    background-size: 120%;
-    background-position: center;
+    background:
+        linear-gradient(rgba(58, 36, 22, 0.74), rgba(58, 36, 22, 0.82));
     filter: blur(4px);
     transform: scale(1.03);
     z-index: 0;
@@ -225,7 +262,8 @@ section {
 
 /* Story Section */
 .story-section {
-    background-image: url('images/story-back.webp');
+    background:
+        linear-gradient(rgba(58, 36, 22, 0.78), rgba(58, 36, 22, 0.86));
     background-attachment: fixed;
     background-size: cover;
     position: relative;
@@ -1387,6 +1425,21 @@ footer {
     .menu-grid-list {
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
+    }
+
+    .menu-title-row {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .menu-title-row .section-title {
+        width: 100%;
+    }
+
+    .rocketnow-menu-link {
+        width: min(280px, 88vw);
+        min-height: 42px;
+        font-size: 0.84rem;
     }
 
     .coffee-label-card {

@@ -290,6 +290,48 @@
             cursor: pointer;
         }
 
+        .floating-beans-link {
+            position: fixed;
+            right: clamp(0.8rem, 2vw, 1.5rem);
+            bottom: clamp(0.9rem, 2vw, 1.5rem);
+            z-index: 980;
+            width: clamp(118px, 14vw, 176px);
+            display: grid;
+            justify-items: center;
+            gap: 0.18rem;
+            color: #F5EBDD;
+            font-family: var(--font-kissa);
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-align: center;
+            text-decoration: none;
+            filter: drop-shadow(0 12px 18px rgba(58, 36, 22, 0.36));
+            transition: transform 0.22s ease, filter 0.22s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .floating-beans-link:hover {
+            transform: translateY(-4px);
+            filter: drop-shadow(0 16px 24px rgba(58, 36, 22, 0.44));
+        }
+
+        .floating-beans-link img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .floating-beans-link span {
+            display: inline-block;
+            padding: 0.42rem 0.7rem 0.5rem;
+            border: 1px solid rgba(176, 138, 74, 0.78);
+            background: linear-gradient(180deg, rgba(139, 30, 30, 0.96), rgba(90, 47, 27, 0.96));
+            box-shadow: 0 8px 18px rgba(58, 36, 22, 0.28);
+            font-size: clamp(0.74rem, 1.4vw, 0.92rem);
+            line-height: 1.25;
+            white-space: nowrap;
+        }
+
         [data-scroll-reveal] {
             opacity: 0;
             transform: translateY(34px);
@@ -404,6 +446,44 @@
             border-bottom-color: rgba(185, 147, 77, 0.78);
             text-shadow: 0 1px 0 rgba(255, 243, 213, 0.75);
             letter-spacing: 0.08em;
+        }
+
+        .menu-title-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .menu-title-row .section-title {
+            width: auto;
+            margin-bottom: 0;
+            min-width: min(360px, 100%);
+        }
+
+        .rocketnow-menu-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.45rem;
+            min-height: 44px;
+            padding: 0.72rem 1rem;
+            border: 1px solid rgba(176, 138, 74, 0.68);
+            background: linear-gradient(180deg, var(--kissaten-green) 0%, var(--kissaten-brown) 100%);
+            color: #F5EBDD;
+            font-family: var(--font-kissa);
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            box-shadow: 0 10px 20px rgba(58, 36, 22, 0.26);
+            white-space: nowrap;
+            transition: transform 0.22s ease, box-shadow 0.22s ease;
+        }
+
+        .rocketnow-menu-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 26px rgba(58, 36, 22, 0.34);
         }
 
         .site-footer {
@@ -922,95 +1002,6 @@
             font-size: 0.95em;
         }
 
-        .sns-order-section {
-            position: relative;
-            overflow: hidden;
-            min-height: 420px;
-            display: flex;
-            align-items: center;
-            background:
-                linear-gradient(rgba(38, 20, 13, 0.6), rgba(29, 15, 10, 0.68)),
-                linear-gradient(90deg, rgba(25, 61, 45, 0.18), transparent 38%, rgba(111, 36, 31, 0.2)),
-                url('images/menu/menu-cafe-background.webp') center / cover no-repeat;
-            color: var(--color-white);
-            font-family: var(--font-kissa);
-            text-align: center;
-        }
-
-        .sns-order-section::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background:
-                linear-gradient(90deg, rgba(255, 248, 229, 0.08), transparent 22%, transparent 78%, rgba(255, 248, 229, 0.08)),
-                radial-gradient(circle at center, transparent 42%, rgba(34, 18, 12, 0.28) 100%);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .sns-order-section .container {
-            position: relative;
-            z-index: 1;
-        }
-
-        .sns-order-section .section-title {
-            color: var(--color-white);
-            text-shadow: none;
-        }
-
-        .sns-footer-actions {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 0.9rem;
-            max-width: 960px;
-            margin: 0 auto 1.3rem;
-        }
-
-        .sns-footer-action {
-            min-width: 220px;
-            min-height: 58px;
-            padding: 0.95rem 1.4rem;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.55rem;
-            border-radius: 0;
-            background: linear-gradient(180deg, var(--kissaten-burgundy) 0%, var(--kissaten-wood) 100%);
-            color: var(--color-white);
-            border: 1px solid rgba(185, 147, 77, 0.58);
-            font-family: var(--font-kissa);
-            font-size: 1rem;
-            font-weight: 700;
-            letter-spacing: 0.06em;
-            box-shadow: 0 8px 18px rgba(64, 34, 15, 0.28);
-            transition: transform 0.24s ease, box-shadow 0.24s ease, background 0.24s ease;
-        }
-
-        .sns-footer-action:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 13px 24px rgba(0, 0, 0, 0.3);
-            background: linear-gradient(180deg, var(--kissaten-green) 0%, var(--kissaten-brown) 100%);
-        }
-
-        .sns-footer-action i {
-            font-size: 1.05rem;
-        }
-
-        .sns-footer-copy {
-            color: var(--color-white);
-            font-size: 0.78rem;
-            line-height: 1.6;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
-        }
-
-        .sns-footer-copy a {
-            color: var(--color-white);
-            font-weight: 700;
-            text-decoration: underline;
-            text-underline-offset: 0.2em;
-        }
-
         /* スペシャル珈琲（商品カード形式） */
         .special-coffee {
             margin-top: 2.5rem;
@@ -1381,8 +1372,8 @@
         .special-coffee-card-img {
             position: relative;
             width: 100%;
-            aspect-ratio: 1 / 1;
-            overflow: hidden;
+            aspect-ratio: 1.14 / 1;
+            overflow: visible;
             background: transparent;
             filter: drop-shadow(0 22px 28px rgba(0, 0, 0, 0.38));
         }
@@ -1395,7 +1386,33 @@
             object-position: center center;
             position: relative;
             z-index: 1;
-            transform: scaleX(1.22) scaleY(1.38);
+            transform: none;
+        }
+
+        .special-coffee-price-label {
+            position: absolute;
+            left: 50%;
+            bottom: clamp(1.1rem, 4.2vw, 2.1rem);
+            transform: translateX(-50%);
+            z-index: 3;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: min(74%, 340px);
+            padding: 0.46rem 0.9rem 0.5rem;
+            border: 1px solid rgba(176, 138, 74, 0.88);
+            background: linear-gradient(180deg, rgba(58, 36, 22, 0.96), rgba(20, 10, 6, 0.96));
+            color: #f5ebdd;
+            font-family: Georgia, 'Times New Roman', var(--font-kissa), serif;
+            font-size: clamp(1.05rem, 3vw, 1.55rem);
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            line-height: 1.1;
+            text-align: center;
+            text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+            white-space: nowrap;
+            pointer-events: none;
         }
 
         .special-coffee-month-mode .special-coffee-carousel-wrap {
@@ -1615,6 +1632,13 @@
                 max-width: none;
             }
 
+            .special-coffee-price-label {
+                bottom: 0.95rem;
+                min-width: 76%;
+                padding: 0.36rem 0.62rem 0.42rem;
+                font-size: clamp(0.92rem, 5vw, 1.18rem);
+            }
+
             .special-coffee-carousel-wrap {
                 max-width: 100%;
             }
@@ -1722,6 +1746,17 @@
 
             .scroll-menu-toggle {
                 display: inline-flex;
+            }
+
+            .floating-beans-link {
+                right: 0.6rem;
+                bottom: 0.65rem;
+                width: 104px;
+            }
+
+            .floating-beans-link span {
+                padding: 0.36rem 0.5rem 0.42rem;
+                font-size: 0.7rem;
             }
 
             .info-card-container {
@@ -1847,16 +1882,21 @@
                 font-size: 1rem;
             }
 
-            .sns-footer-actions {
+            .menu-title-row {
                 flex-direction: column;
-                align-items: stretch;
-                width: min(320px, 92vw);
+                gap: 0.8rem;
             }
 
-            .sns-footer-action {
-                min-width: 0;
+            .menu-title-row .section-title {
                 width: 100%;
             }
+
+            .rocketnow-menu-link {
+                width: min(280px, 88vw);
+                min-height: 42px;
+                font-size: 0.84rem;
+            }
+
         }
 
         @media (max-width: 480px) {
@@ -1869,13 +1909,19 @@
 
 <body>
 
+    <a class="floating-beans-link" href="https://popuracoffee.base.shop/" target="_blank" rel="noopener noreferrer"
+        aria-label="珈琲豆の購入ページを開く">
+        <img src="aikon.png" alt="" aria-hidden="true">
+        <span>珈琲豆の購入</span>
+    </a>
+
     <nav class="scroll-fixed-nav" aria-label="固定ナビゲーション">
         <div class="scroll-fixed-nav-inner">
             <a class="scroll-fixed-logo" href="#">
                 <span class="scroll-fixed-logo-text">ポプラ館 珈琲</span>
                 <img class="scroll-fixed-logo-img" src="images/rogo.webp" alt="ポプラ館 珈琲">
             </a>
-            <button class="scroll-menu-toggle" type="button" aria-label="メニューを開く" aria-expanded="false"
+            <button class="scroll-menu-toggle" type="button" aria-label="お品書きを開く" aria-expanded="false"
                 aria-controls="scroll-fixed-links">
                 <i class="fa-solid fa-bars" aria-hidden="true"></i>
             </button>
@@ -1884,7 +1930,7 @@
                 <a href="#news">お知らせ</a>
                 <a href="#roast">焙煎</a>
                 <a href="#story">物語</a>
-                <a href="#menu">メニュー</a>
+                <a href="#menu">お品書き</a>
             </div>
         </div>
     </nav>
@@ -1988,7 +2034,13 @@
         <!-- 5. Menu Section -->
         <section class="section" id="menu" data-scroll-reveal>
             <div class="container" style="text-align: center;">
-                <h2 class="section-title">メニュー</h2>
+                <div class="menu-title-row">
+                    <h2 class="section-title">お品書き</h2>
+                    <a href="https://customer-web.rocketnow.co.jp/share?storeId=65939&dishId&key=779db14f-e3cc-4093-94e9-91d07b6a9e77"
+                        class="rocketnow-menu-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-solid fa-rocket" aria-hidden="true"></i> ロケットナウ
+                    </a>
+                </div>
 
                 <div class="menu-highlights">
                     <!-- Coffee -->
@@ -2068,12 +2120,16 @@
                                     <img src="images/cupburaziru.webp"
                                         alt="ジャマイカ ブルーマウンテン クライスデールNo.1"
                                         class="special-coffee-product-img" loading="lazy">
+                                    <span class="special-coffee-price-label" aria-hidden="true">Beans ¥3,800
+                                        (税別)</span>
                                 </div>
                             </li>
                             <li class="special-coffee-card" data-coffee-card="panama-geisha">
                                 <div class="special-coffee-card-img">
                                     <img src="images/cuppapuanyuginia.webp" alt="パナマ ゲイシャ ハートマン農園"
                                         class="special-coffee-product-img" loading="lazy">
+                                    <span class="special-coffee-price-label" aria-hidden="true">Beans ¥3,300
+                                        (税別)</span>
                                 </div>
                             </li>
                             <li class="special-coffee-card" data-coffee-card="hawaii-kona">
@@ -2081,6 +2137,8 @@
                                     <img src="images/cuphawai.webp"
                                         alt="ハワイ コナ100 エクストラファンシー ハワイアンクイーン農園"
                                         class="special-coffee-product-img" loading="lazy">
+                                    <span class="special-coffee-price-label" aria-hidden="true">Beans ¥3,300
+                                        (税別)</span>
                                 </div>
                             </li>
                         </ul>
@@ -2091,27 +2149,7 @@
                     </div>
                 </div>
 
-                <a href="menu.html" class="view-menu-btn"><i class="fa-solid fa-utensils" aria-hidden="true"></i>全メニューを見る</a>
-            </div>
-        </section>
-
-        <!-- 6. SNS & Delivery -->
-        <section class="section sns-order-section">
-            <div class="container">
-                <div class="sns-footer-actions">
-                    <a href="https://popuracoffee.base.shop/" class="sns-footer-action" target="_blank"
-                        rel="noopener noreferrer">
-                        <i class="fa-solid fa-cart-shopping"></i> 珈琲豆の購入はこちら
-                    </a>
-                    <a href="https://customer-web.rocketnow.co.jp/share?storeId=65939&dishId&key=779db14f-e3cc-4093-94e9-91d07b6a9e77"
-                        class="sns-footer-action" target="_blank" rel="noopener noreferrer">
-                        <i class="fa-solid fa-rocket"></i> ロケットナウはこちら
-                    </a>
-                </div>
-                <p class="sns-footer-copy">
-                    &copy;2026 Popura-kan Coffee All Rights Reserved.<br>
-                    <a href="#information">店舗情報</a>
-                </p>
+                <a href="menu.html" class="view-menu-btn"><i class="fa-solid fa-utensils" aria-hidden="true"></i>全てのお品書きを見る</a>
             </div>
         </section>
 
@@ -2177,7 +2215,7 @@
                 fixedNav.classList.remove('is-menu-open');
                 if (menuToggle) {
                     menuToggle.setAttribute('aria-expanded', 'false');
-                    menuToggle.setAttribute('aria-label', 'メニューを開く');
+                    menuToggle.setAttribute('aria-label', 'お品書きを開く');
                 }
             }
 
@@ -2221,7 +2259,7 @@
                 menuToggle.addEventListener('click', function () {
                     const isOpen = fixedNav.classList.toggle('is-menu-open');
                     menuToggle.setAttribute('aria-expanded', String(isOpen));
-                    menuToggle.setAttribute('aria-label', isOpen ? 'メニューを閉じる' : 'メニューを開く');
+                    menuToggle.setAttribute('aria-label', isOpen ? 'お品書きを閉じる' : 'お品書きを開く');
                 });
             }
 

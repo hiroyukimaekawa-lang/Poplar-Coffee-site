@@ -670,6 +670,22 @@ section {
     display: none;
 }
 
+.weekly-coffee-note {
+    width: min(760px, 100%);
+    margin: -0.2rem auto 2.3rem;
+    padding: 1.15rem 1.2rem;
+    border-top: 1px solid rgba(230, 210, 163, 0.42);
+    border-bottom: 1px solid rgba(230, 210, 163, 0.26);
+    color: rgba(255, 248, 232, 0.95);
+    font-family: var(--font-serif);
+    font-size: clamp(1rem, 2.4vw, 1.22rem);
+    font-weight: 600;
+    line-height: 1.95;
+    letter-spacing: 0.04em;
+    text-align: center;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.42);
+}
+
 @media (min-width: 769px) {
     #food-section .menu-item-slideshow {
         width: 100%;

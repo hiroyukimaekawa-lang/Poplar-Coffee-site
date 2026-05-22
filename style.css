@@ -1282,8 +1282,7 @@ section {
     }
 
     .coffee-label-slideshow .menu-item-nav {
-        display: inline-flex;
-        top: 50%;
+        display: none;
     }
 
     .coffee-label-slideshow .menu-item-dots {

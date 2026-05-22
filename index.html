@@ -2180,8 +2180,13 @@
             function closeMenu() {
                 fixedNav.classList.remove('is-menu-open');
                 if (menuToggle) {
+                    const menuIcon = menuToggle.querySelector('i');
                     menuToggle.setAttribute('aria-expanded', 'false');
                     menuToggle.setAttribute('aria-label', 'お品書きを開く');
+                    if (menuIcon) {
+                        menuIcon.classList.remove('fa-xmark');
+                        menuIcon.classList.add('fa-bars');
+                    }
                 }
             }
 
@@ -2223,9 +2228,14 @@
 
             if (menuToggle) {
                 menuToggle.addEventListener('click', function () {
+                    const menuIcon = menuToggle.querySelector('i');
                     const isOpen = fixedNav.classList.toggle('is-menu-open');
                     menuToggle.setAttribute('aria-expanded', String(isOpen));
                     menuToggle.setAttribute('aria-label', isOpen ? 'お品書きを閉じる' : 'お品書きを開く');
+                    if (menuIcon) {
+                        menuIcon.classList.toggle('fa-bars', !isOpen);
+                        menuIcon.classList.toggle('fa-xmark', isOpen);
+                    }
                 });
             }
 

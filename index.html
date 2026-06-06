@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ポプラ館 珈琲 | Popura-kan Coffee</title>
     <meta name="description" content="一杯の贅沢、受け継がれる味。ポプラ館 珈琲。">
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;600;700&family=Pirata+One&family=Shippori+Mincho:wght@500;700&family=Yuji+Syuku&family=Zen+Old+Mincho:wght@400;500;700&display=swap"
         rel="stylesheet">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <style>
@@ -1947,6 +1949,7 @@
 
     <main>
 
+        <!-- 🏁【修復完了】お知らせセクション：2重構造バグを綺麗に一本化し、ローカル動画パスに設定し直しました -->
         <section class="section news-section" id="news" data-scroll-reveal>
             <video class="news-bg-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
                 <source src="images/video/baisen-syhort.mp4" type="video/mp4">
@@ -1976,7 +1979,7 @@
             <div class="container">
                 <h2 class="section-title roast-title">こだわりの焙煎</h2>
                 <div class="roast-copy">
-                    <p class="roast-lead">焙煎が、珈琲の味を決める</p>
+                    <p class="roast-lead">焙煎が, 珈琲の味を決める</p>
                     <p class="roast-p">日本の「自家焙煎」を創り上げてきた矜持。</p>
                     <p class="roast-p">日本の珈琲史において、「自家焙煎」という文化を形作ってきたマスターが培ってきた焙煎の技術をお届けします。</p>
                     <p class="roast-p">当店の自慢は、今なお現役で鼓動を続ける「10kg焙煎機の第1号機」。</p>
@@ -2014,6 +2017,7 @@
             </div>
         </section>
 
+        <!-- 🏁【巻き戻し完了】お品書きセクション：CMSと紐付けない、元の美しい静的デザインへ完全復帰しました -->
         <section class="section" id="menu" data-scroll-reveal>
             <div class="container" style="text-align: center;">
                 <div class="menu-title-row">
@@ -2418,85 +2422,6 @@
             nextBtn.addEventListener('click', function () {
                 list.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
             });
-        })();
-
-        // ☕️【NEW】トップページのメニュー（注目お品書き）もmicroCMSと完全自動連動化します！
-        (function () {
-            const SERVICE_DOMAIN = 'popurar-coffee';
-            const API_KEY = '0q3brODIGr85z7wnC2yyqrkcrkTcEr4SUMCQ';
-            const ENDPOINT = 'menu';
-
-            fetch(`https://${SERVICE_DOMAIN}.microcms.io/api/v1/${ENDPOINT}?limit=100`, {
-                headers: {
-                    'X-MICROCMS-API-KEY': API_KEY
-                }
-            })
-                .then((response) => {
-                    if (!response.ok) throw new Error("データの取得に失敗しました");
-                    return response.json();
-                })
-                .then((res) => {
-                    renderTopHighlights(res.contents);
-                })
-                .catch((err) => {
-                    console.error("トップページのメニュー連動に失敗しました:", err);
-                });
-
-            function renderTopHighlights(items) {
-                const highlightsWrap = document.querySelector('.menu-highlights');
-                if (!highlightsWrap) return;
-
-                let coffeeItem = null;
-                let drinkItem = null;
-                let foodItem = null;
-
-                // 「自家焙煎豆」「ドリンク」「フード」の各引き出しから最新の1件ずつを厳選抽出します
-                items.forEach(item => {
-                    if (!item || !item.category || !item.image || !item.image.url) return;
-                    const category = Array.isArray(item.category) ? item.category[0] : item.category;
-
-                    if ((category.includes('coffee') || category.includes('自家焙煎豆')) && !coffeeItem) {
-                        coffeeItem = item;
-                    } else if ((category.includes('drink') || category.includes('ドリンク')) && !drinkItem) {
-                        drinkItem = item;
-                    } else if ((category.includes('food') || category.includes('フード')) && !foodItem) {
-                        foodItem = item;
-                    }
-                });
-
-                // 登録が存在するカテゴリのみを画面に並べます
-                const targetItems = [coffeeItem, drinkItem, foodItem].filter(Boolean);
-
-                if (targetItems.length > 0) {
-                    highlightsWrap.innerHTML = ''; // 古い固定のサンプルの枠を自動消去
-
-                    targetItems.forEach(item => {
-                        const itemName = item.name ? item.name : '';
-                        const itemNote = item.note ? item.note : '';
-
-                        // 金額から文字を除去して、3桁カンマ区切りの円マークへ綺麗に整形します
-                        const cleanPrice = item.price ? String(item.price).replace(/[^\d]/g, '') : '';
-                        let priceText = '';
-                        if (cleanPrice) {
-                            priceText = `¥${Number(cleanPrice).toLocaleString()}`;
-                        } else {
-                            priceText = item.price ? item.price : '';
-                        }
-
-                        const priceHtml = priceText ? `<p style="font-size: 0.9rem; font-weight: 700; color: #8B1E1E; margin-top: 0.5rem;">${priceText}</p>` : '';
-
-                        const cardHtml = `
-                            <div class="highlight-item">
-                                <img src="${item.image.url}?w=600&fm=webp" alt="${itemName}" class="highlight-img">
-                                <h4>${itemName}</h4>
-                                <p style="font-size: 0.85rem; color: #666; margin-top: 0.3rem; line-height: 1.4;">${itemNote}</p>
-                                ${priceHtml}
-                            </div>
-                        `;
-                        highlightsWrap.insertAdjacentHTML('beforeend', cardHtml);
-                    });
-                }
-            }
         })();
     </script>
 

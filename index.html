@@ -6,13 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ポプラ館 珈琲 | Popura-kan Coffee</title>
     <meta name="description" content="一杯の贅沢、受け継がれる味。ポプラ館 珈琲。">
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;600;700&family=Pirata+One&family=Shippori+Mincho:wght@500;700&family=Yuji+Syuku&family=Zen+Old+Mincho:wght@400;500;700&display=swap"
         rel="stylesheet">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <style>
@@ -163,18 +161,12 @@
             font-size: 1.2rem;
             font-weight: 700;
             letter-spacing: 0.12em;
-            /* background-color: rgba(255, 255, 255, 0.9); REMOVED per request */
             color: #F5EBDD;
-            /* Changed to white for better contrast with blur/shadow/dark-overlay */
             padding: 1rem 2rem;
             display: inline-block;
-            /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); REMOVED */
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
-            /* Enhanced readability */
             backdrop-filter: blur(8px);
-            /* Blur effect */
             background-color: rgba(58, 36, 22, 0.62);
-            /* Slight tint for blur to be visible */
             border-radius: 4px;
             border: 1px solid rgba(185, 147, 77, 0.48);
         }
@@ -383,12 +375,12 @@
             z-index: 0;
         }
 
-        main > section {
+        main>section {
             position: relative;
             z-index: 1;
         }
 
-        main > .section:not(.roast-section):not(.story-section-custom):not(.news-section) {
+        main>.section:not(.roast-section):not(.story-section-custom):not(.news-section) {
             background:
                 linear-gradient(90deg, transparent 0, transparent calc(50% - 1px), rgba(58, 33, 24, 0.1) calc(50% - 1px), rgba(58, 33, 24, 0.1) calc(50% + 1px), transparent calc(50% + 1px)),
                 linear-gradient(180deg, rgba(255, 243, 213, 0.48), rgba(213, 186, 139, 0.42));
@@ -425,7 +417,7 @@
             color: var(--color-text);
         }
 
-        main > .section:not(.roast-section):not(.story-section-custom):not(.news-section)::before,
+        main>.section:not(.roast-section):not(.story-section-custom):not(.news-section)::before,
         .site-footer::before {
             content: '';
             display: block;
@@ -437,7 +429,7 @@
             background: linear-gradient(90deg, transparent, rgba(111, 36, 31, 0.36), rgba(185, 147, 77, 0.58), transparent);
         }
 
-        main > .section:first-child::before {
+        main>.section:first-child::before {
             display: none;
         }
 
@@ -1318,6 +1310,7 @@
         }
 
         @keyframes coffeeDrops {
+
             0%,
             16% {
                 opacity: 0;
@@ -1930,7 +1923,6 @@
         </div>
     </nav>
 
-    <!-- 1. Hero Section -->
     <header class="hero-section">
         <img src="images/top.webp" alt="店内風景 1" class="hero-image is-active">
         <img src="images/top2.webp" alt="店内風景 2" class="hero-image">
@@ -1971,8 +1963,8 @@
                         <p class="news-description">
                             日々のお知らせや新メニュー、店内の様子はこちらでも発信しています。
                         </p>
-                        <a class="news-instagram-link" href="https://www.instagram.com/popurakancoffee/"
-                            target="_blank" rel="noopener noreferrer">
+                        <a class="news-instagram-link" href="https://www.instagram.com/popurakancoffee/" target="_blank"
+                            rel="noopener noreferrer">
                             <i class="fa-brands fa-instagram"></i> Instagramを見る
                         </a>
                     </article>
@@ -1994,10 +1986,8 @@
             </div>
         </section>
 
-        <!-- 3 & 4. Master's Passion & Story -->
         <section class="section story-section-custom" id="story">
             <div class="container">
-                <!-- Master's Passion -->
                 <div class="story-block" data-scroll-reveal>
                     <img src="images/story-photo.webp" alt="マスター" class="story-image">
                     <div class="story-content">
@@ -2010,11 +2000,9 @@
                     </div>
                 </div>
 
-                <!-- Our Story -->
                 <div class="story-block" data-scroll-reveal>
                     <img src="images/mill.webp" alt="創業当時" class="story-image">
-                    <!-- Reusing interior for story context -->
-                    <div class="story-content">
+                    <div class="container">
                         <h2 class="section-title"
                             style="text-align: left; margin-left: 0; left: 0; transform: none; border-bottom: 1px solid var(--color-wood); display: inline-block;">
                             歩みとこだわり</h2>
@@ -2026,7 +2014,6 @@
             </div>
         </section>
 
-        <!-- 5. Menu Section -->
         <section class="section" id="menu" data-scroll-reveal>
             <div class="container" style="text-align: center;">
                 <div class="menu-title-row">
@@ -2038,26 +2025,17 @@
                 </div>
 
                 <div class="menu-highlights">
-                    <!-- Coffee -->
                     <div class="highlight-item">
                         <img src="images/menu_coffee.webp" alt="ブレンドコーヒー" class="highlight-img">
                         <h4>オリジナルブレンド</h4>
                         <p>コクと香りのバランスが絶妙な看板ブレンド。</p>
                     </div>
 
-                    <!-- Dessert -->
                     <div class="highlight-item">
                         <img src="images/croissant2.webp" alt="クロワッサンプレート" class="highlight-img">
                         <h4>クロワッサンプレート</h4>
                         <p>バターの香り豊かなクロワッサン。外サク中しっとり。</p>
                     </div>
-
-                    <!-- Snack -->
-                    <!-- <div class="highlight-item">
-                        <img src="images/wafful.webp" alt="ワッフル" class="highlight-img">
-                        <h4>ワッフルサンド</h4>
-                        <p>外はサクッ、中はフワッとした焼きたてワッフル。</p>
-                    </div> -->
                 </div>
 
                 <div class="special-coffee special-coffee-month-mode">
@@ -2112,8 +2090,7 @@
                         <ul class="special-coffee-list" id="special-coffee-list">
                             <li class="special-coffee-card is-active" data-coffee-card="blue-mountain">
                                 <div class="special-coffee-card-img">
-                                    <img src="images/jamaika.png"
-                                        alt="ジャマイカ ブルーマウンテン クライスデールNo.1"
+                                    <img src="images/jamaika.png" alt="ジャマイカ ブルーマウンテン クライスデールNo.1"
                                         class="special-coffee-product-img" loading="lazy">
                                 </div>
                             </li>
@@ -2125,8 +2102,7 @@
                             </li>
                             <li class="special-coffee-card" data-coffee-card="hawaii-kona">
                                 <div class="special-coffee-card-img">
-                                    <img src="images/hawai.png"
-                                        alt="ハワイ コナ100 エクストラファンシー ハワイアンクイーン農園"
+                                    <img src="images/hawai.png" alt="ハワイ コナ100 エクストラファンシー ハワイアンクイーン農園"
                                         class="special-coffee-product-img" loading="lazy">
                                 </div>
                             </li>
@@ -2138,7 +2114,8 @@
                     </div>
                 </div>
 
-                <a href="menu.html" class="view-menu-btn"><i class="fa-solid fa-utensils" aria-hidden="true"></i>全てのお品書きを見る</a>
+                <a href="menu.html" class="view-menu-btn"><i class="fa-solid fa-utensils"
+                        aria-hidden="true"></i>全てのお品書きを見る</a>
                 <p class="menu-weekly-coffee-note">
                     30〜40種類の珈琲豆の中から<br>
                     毎週3種類をランダムにセレクト。<br>
@@ -2160,7 +2137,8 @@
                         <div class="info-item-value">
                             〒243-0032<br>
                             神奈川県厚木市恩名３丁目２４−１４<br>
-                            <a class="info-map-link" href="https://www.google.com/maps/search/?api=1&query=%E3%83%9D%E3%83%97%E3%83%A9%E9%A4%A8%E7%8F%88%E7%90%B2%4035.439441099999996%2C139.35010259999999">Googleマップはこちら</a>
+                            <a class="info-map-link"
+                                href="https://www.google.com/maps/search/?api=1&query=%E3%83%9D%E3%83%97%E3%83%A9%E9%A4%A8%E7%8F%88%E7%90%B2%4035.439441099999996%2C139.35010259999999">Googleマップはこちら</a>
                         </div>
                     </div>
                     <div class="info-item">
@@ -2176,16 +2154,20 @@
                         <div class="info-item-value">土曜日・日曜日</div>
                     </div>
                     <div class="info-map-frame">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3250.620047007835!2d139.35010259999999!3d35.439441099999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6019ab4dba6ef4e5%3A0x64e07a89710004f6!2z44Nd44OX44Op6aSo54-I55Cy!5e0!3m2!1sja!2sus!4v1779260637278!5m2!1sja!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3250.620047007835!2d139.35010259999999!3d35.439441099999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6019ab4dba6ef4e5%3A0x64e07a89710004f6!2z44Nd44OX44Op6aSo54-I55Cy!5e0!3m2!1sja!2sus!4v1779260637278!5m2!1sja!2sus"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
-                    <a class="info-map-open" href="https://www.google.com/maps/search/?api=1&query=%E3%83%9D%E3%83%97%E3%83%A9%E9%A4%A8%E7%8F%88%E7%90%B2%4035.439441099999996%2C139.35010259999999" target="_blank"
-                        rel="noopener noreferrer">
+                    <a class="info-map-open"
+                        href="https://www.google.com/maps/search/?api=1&query=%E3%83%9D%E3%83%97%E3%83%A9%E9%A4%A8%E7%8F%88%E7%90%B2%4035.439441099999996%2C139.35010259999999"
+                        target="_blank" rel="noopener noreferrer">
                         Googleマップで開く <i class="fa-solid fa-arrow-up-right-from-square"></i>
                     </a>
                 </div>
             </div>
         </div>
-        <p class="footer-copy">&copy; 2026 Popura-kan Coffee. All Rights Reserved.</p>
+        <p class="footer-copy">© 2026 Popura-kan Coffee. All Rights Reserved.</p>
     </footer>
 
     <script>
@@ -2436,6 +2418,85 @@
             nextBtn.addEventListener('click', function () {
                 list.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
             });
+        })();
+
+        // ☕️【NEW】トップページのメニュー（注目お品書き）もmicroCMSと完全自動連動化します！
+        (function () {
+            const SERVICE_DOMAIN = 'popurar-coffee';
+            const API_KEY = '0q3brODIGr85z7wnC2yyqrkcrkTcEr4SUMCQ';
+            const ENDPOINT = 'menu';
+
+            fetch(`https://${SERVICE_DOMAIN}.microcms.io/api/v1/${ENDPOINT}?limit=100`, {
+                headers: {
+                    'X-MICROCMS-API-KEY': API_KEY
+                }
+            })
+                .then((response) => {
+                    if (!response.ok) throw new Error("データの取得に失敗しました");
+                    return response.json();
+                })
+                .then((res) => {
+                    renderTopHighlights(res.contents);
+                })
+                .catch((err) => {
+                    console.error("トップページのメニュー連動に失敗しました:", err);
+                });
+
+            function renderTopHighlights(items) {
+                const highlightsWrap = document.querySelector('.menu-highlights');
+                if (!highlightsWrap) return;
+
+                let coffeeItem = null;
+                let drinkItem = null;
+                let foodItem = null;
+
+                // 「自家焙煎豆」「ドリンク」「フード」の各引き出しから最新の1件ずつを厳選抽出します
+                items.forEach(item => {
+                    if (!item || !item.category || !item.image || !item.image.url) return;
+                    const category = Array.isArray(item.category) ? item.category[0] : item.category;
+
+                    if ((category.includes('coffee') || category.includes('自家焙煎豆')) && !coffeeItem) {
+                        coffeeItem = item;
+                    } else if ((category.includes('drink') || category.includes('ドリンク')) && !drinkItem) {
+                        drinkItem = item;
+                    } else if ((category.includes('food') || category.includes('フード')) && !foodItem) {
+                        foodItem = item;
+                    }
+                });
+
+                // 登録が存在するカテゴリのみを画面に並べます
+                const targetItems = [coffeeItem, drinkItem, foodItem].filter(Boolean);
+
+                if (targetItems.length > 0) {
+                    highlightsWrap.innerHTML = ''; // 古い固定のサンプルの枠を自動消去
+
+                    targetItems.forEach(item => {
+                        const itemName = item.name ? item.name : '';
+                        const itemNote = item.note ? item.note : '';
+
+                        // 金額から文字を除去して、3桁カンマ区切りの円マークへ綺麗に整形します
+                        const cleanPrice = item.price ? String(item.price).replace(/[^\d]/g, '') : '';
+                        let priceText = '';
+                        if (cleanPrice) {
+                            priceText = `¥${Number(cleanPrice).toLocaleString()}`;
+                        } else {
+                            priceText = item.price ? item.price : '';
+                        }
+
+                        const priceHtml = priceText ? `<p style="font-size: 0.9rem; font-weight: 700; color: #8B1E1E; margin-top: 0.5rem;">${priceText}</p>` : '';
+
+                        const cardHtml = `
+                            <div class="highlight-item">
+                                <img src="${item.image.url}?w=600&fm=webp" alt="${itemName}" class="highlight-img">
+                                <h4>${itemName}</h4>
+                                <p style="font-size: 0.85rem; color: #666; margin-top: 0.3rem; line-height: 1.4;">${itemNote}</p>
+                                ${priceHtml}
+                            </div>
+                        `;
+                        highlightsWrap.insertAdjacentHTML('beforeend', cardHtml);
+                    });
+                }
+            }
         })();
     </script>
 

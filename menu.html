@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>お品書き | ポプラ館 珈琲</title>
     <meta name="description" content="ポプラ館 珈琲のお品書き一覧。こだわりの自家焙煎豆からデザート、軽食まで。">
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;600;700&family=Shippori+Mincho:wght@500;700&family=Zen+Old+Mincho:wght@400;500;700&display=swap"
         rel="stylesheet">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+
+    <script src="https://unpkg.com/microcms-js-sdk@latest/dist/umd/microcms-js-sdk.js"></script>
 </head>
 
 <body class="menu-page">
@@ -40,52 +40,27 @@
 
         <section class="menu-list-section">
             <div class="container">
-                <!-- Tab Navigation -->
                 <div class="menu-tabs">
                     <button class="tab-btn active" data-target="coffee-section">自家焙煎豆</button>
                     <button class="tab-btn" data-target="food-section">ドリンク・フード</button>
                 </div>
 
-                <!-- Coffee Section -->
                 <div id="coffee-section" class="menu-content active">
                     <h3 class="menu-category-title"><i class="fa-solid fa-mug-hot"></i>自家焙煎豆</h3>
-                    <div class="menu-item-slideshow coffee-label-slideshow" data-menu-slider aria-label="自家焙煎豆の画像スライドショー">
+                    <div class="menu-item-slideshow coffee-label-slideshow" data-menu-slider
+                        aria-label="自家焙煎豆の画像スライドショー">
+
                         <div class="menu-item-slide coffee-label-slide is-active">
                             <img src="menu/original.webp" alt="オリジナルブレンド 焙煎豆 100g">
                         </div>
-                        <div class="menu-item-slide coffee-label-slide">
-                            <img src="menu/mexico.webp" alt="メキシコ アルツーラ・プルマ クルスグランデ農園 焙煎豆 100g">
-                        </div>
-                        <div class="menu-item-slide coffee-label-slide">
-                            <img src="menu/colombia.webp" alt="コロンビア スプレモS18 焙煎豆 100g">
-                        </div>
-                        <div class="menu-item-slide coffee-label-slide">
-                            <img src="menu/brazil.webp" alt="ブラジル サントスNo.2 焙煎豆 100g">
-                        </div>
-                        <div class="menu-item-slide coffee-label-slide">
-                            <img src="menu/yemen.webp" alt="イエメン モカ・マタリ No.9 焙煎豆 100g">
-                        </div>
-                        <div class="menu-item-slide coffee-label-slide">
-                            <img src="menu/papuanewguinea.webp" alt="パプアニューギニア シグリ 焙煎豆 100g">
-                        </div>
-                        <div class="menu-item-slide coffee-label-slide">
-                            <img src="menu/indonesia.webp" alt="インドネシア マンデリンビンダンリマ 焙煎豆 100g">
-                        </div>
+
                         <button type="button" class="menu-item-nav menu-item-prev" aria-label="前の焙煎豆を表示">
                             <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
                         </button>
                         <button type="button" class="menu-item-nav menu-item-next" aria-label="次の焙煎豆を表示">
                             <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
                         </button>
-                        <div class="menu-item-dots" aria-label="焙煎豆スライド切り替え">
-                            <button type="button" class="is-active" aria-label="オリジナルブレンドを表示"></button>
-                            <button type="button" aria-label="メキシコを表示"></button>
-                            <button type="button" aria-label="コロンビアを表示"></button>
-                            <button type="button" aria-label="ブラジルを表示"></button>
-                            <button type="button" aria-label="イエメンを表示"></button>
-                            <button type="button" aria-label="パプアニューギニアを表示"></button>
-                            <button type="button" aria-label="インドネシアを表示"></button>
-                        </div>
+                        <div class="menu-item-dots" aria-label="焙煎豆スライド切り替え"></div>
                     </div>
                     <p class="weekly-coffee-note">
                         30〜40種類の珈琲豆の中から<br>
@@ -95,10 +70,10 @@
                     </p>
                 </div>
 
-                <!-- Food Section -->
                 <div id="food-section" class="menu-content">
                     <h3 class="menu-category-title"><i class="fa-solid fa-mug-hot"></i> ドリンク</h3>
                     <div class="menu-item-slideshow" data-menu-slider aria-label="ドリンクの写真スライドショー">
+
                         <div class="menu-item-slide is-active">
                             <img src="images/menu_coffee.webp" alt="ブレンド珈琲">
                             <div class="menu-item-slide-info">
@@ -106,50 +81,26 @@
                                 <p>店内飲食: ¥800</p>
                             </div>
                         </div>
-                        <div class="menu-item-slide">
-                            <img src="images/ice-coffee.webp" alt="アイスコーヒー">
-                            <div class="menu-item-slide-info">
-                                <h4>アイスコーヒー</h4>
-                                <p>店内飲食: ¥800</p>
-                            </div>
-                        </div>
-                        <div class="menu-item-slide">
-                            <img src="images/lemon_squash.webp" alt="レモンスカッシュ">
-                            <div class="menu-item-slide-info">
-                                <h4>生レモンスカッシュ</h4>
-                                <p>店内飲食: ¥800</p>
-                            </div>
-                        </div>
+
                         <button type="button" class="menu-item-nav menu-item-prev" aria-label="前のお品書きを表示">
                             <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
                         </button>
                         <button type="button" class="menu-item-nav menu-item-next" aria-label="次のお品書きを表示">
                             <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
                         </button>
-                        <div class="menu-item-dots" aria-label="スライド切り替え">
-                            <button type="button" class="is-active" aria-label="ブレンド珈琲を表示"></button>
-                            <button type="button" aria-label="アイスコーヒーを表示"></button>
-                            <button type="button" aria-label="生レモンスカッシュを表示"></button>
-                        </div>
+                        <div class="menu-item-dots" aria-label="スライド切り替え"></div>
                     </div>
                     <div class="menu-grid-list menu-details-grid">
-                        <!-- Regular Menu (Collapsible Text Only) -->
                         <details class="menu-details">
                             <summary class="menu-details-btn">その他のコーヒー</summary>
-                            <ul class="menu-details-list">
-                                <li>メキシコ アルツーラ・プルマ クルスグランデ農園：¥800</li>
-                                <li>コロンビア スプレモS18：¥800</li>
-                                <li>ブラジル サントスNo.2：¥800</li>
-                                <li>イエメンモカマタリNo.9：¥900</li>
-                                <li>パプアニューギニア シグリ：¥1,000</li>
-                                <li>マンデリンビンダンリマ：¥1,000</li>
-                            </ul>
+                            <ul class="menu-details-list"></ul>
                             <p class="menu-details-note">※その他のコーヒーについては店内掲示のものを確認ください。</p>
                         </details>
                     </div>
 
                     <h3 class="menu-category-title"><i class="fa-solid fa-utensils"></i> フード & デザート</h3>
                     <div class="menu-item-slideshow" data-menu-slider aria-label="フードとデザートの写真スライドショー">
+
                         <div class="menu-item-slide is-active">
                             <img src="images/croissant4.webp" alt="クロワッサンプレート">
                             <div class="menu-item-slide-info">
@@ -157,63 +108,14 @@
                                 <p>店内飲食: ¥600</p>
                             </div>
                         </div>
-                        <div class="menu-item-slide">
-                            <img src="images/toast.webp" alt="トースト">
-                            <div class="menu-item-slide-info">
-                                <h4>トースト<span>（モーニングサービス）</span></h4>
-                                <p>店内飲食: ¥400</p>
-                            </div>
-                        </div>
-                        <div class="menu-item-slide">
-                            <img src="images/wafful.webp" alt="ワッフル">
-                            <div class="menu-item-slide-info">
-                                <h4>ワッフル</h4>
-                                <p>店内飲食: ¥800</p>
-                            </div>
-                        </div>
-                        <div class="menu-item-slide">
-                            <img src="./images/pudding.webp" alt="自家製プリン">
-                            <div class="menu-item-slide-info">
-                                <h4>自家製プリン</h4>
-                                <p>店内飲食: ¥300</p>
-                            </div>
-                        </div>
-                        <div class="menu-item-slide">
-                            <img src="./images/coffee-zelly.webp" alt="珈琲ゼリー">
-                            <div class="menu-item-slide-info">
-                                <h4>珈琲ゼリー</h4>
-                                <p>店内飲食: ¥600</p>
-                            </div>
-                        </div>
-                        <div class="menu-item-slide">
-                            <img src="images/coffee-zenzai1.webp" alt="珈琲ぜんざい">
-                            <div class="menu-item-slide-info">
-                                <h4>珈琲ぜんざい</h4>
-                                <p>店内飲食: ¥800</p>
-                            </div>
-                        </div>
-                        <div class="menu-item-slide">
-                            <img src="images/pancake_no_mark.webp" alt="パンケーキ">
-                            <div class="menu-item-slide-info">
-                                <h4>パンケーキ</h4>
-                                <p>店内飲食: ¥2,500</p>
-                            </div>
-                        </div>
+
                         <button type="button" class="menu-item-nav menu-item-prev" aria-label="前のお品書きを表示">
                             <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
                         </button>
                         <button type="button" class="menu-item-nav menu-item-next" aria-label="次のお品書きを表示">
                             <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
                         </button>
-                        <div class="menu-item-dots" aria-label="スライド切り替え">
-                            <button type="button" class="is-active" aria-label="クロワッサンプレートを表示"></button>
-                            <button type="button" aria-label="トーストを表示"></button>
-                            <button type="button" aria-label="ワッフルを表示"></button>
-                            <button type="button" aria-label="自家製プリンを表示"></button>
-                            <button type="button" aria-label="珈琲ゼリーを表示"></button>
-                            <button type="button" aria-label="珈琲ぜんざいを表示"></button>
-                            <button type="button" aria-label="パンケーキを表示"></button>
-                        </div>
+                        <div class="menu-item-dots" aria-label="スライド切り替え"></div>
                     </div>
                 </div>
 
@@ -229,99 +131,256 @@
             <p>&copy; 2026 Popura-kan Coffee. All Rights Reserved.</p>
         </div>
     </footer>
+    <style>
+        @media (min-width: 769px) {
+            #food-section .menu-item-slide img {
+                height: 290px !important;
+                /* 👈 写真の縦幅を220pxから290pxに広げました */
+                object-fit: cover !important;
+            }
+        }
+    </style>
+
+    <style>
+        @media (min-width: 769px) {
+            #food-section .menu-item-slide img {
+                height: 290px !important;
+                object-fit: cover !important;
+            }
+        }
+    </style>
+
+    <style>
+        @media (min-width: 769px) {
+            #food-section .menu-item-slide img {
+                height: 290px !important;
+                object-fit: cover !important;
+            }
+        }
+    </style>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // --- 1. タブ切り替え機能（元の動作を維持） ---
             const tabs = document.querySelectorAll('.tab-btn');
             const contents = document.querySelectorAll('.menu-content');
-            const menuSliders = document.querySelectorAll('[data-menu-slider]');
 
             tabs.forEach(tab => {
                 tab.addEventListener('click', () => {
                     const target = tab.getAttribute('data-target');
-
-                    // Remove active class from all tabs
                     tabs.forEach(t => t.classList.remove('active'));
-                    // Add active class to clicked tab
                     tab.classList.add('active');
-
-                    // Hide all sections
                     contents.forEach(c => c.classList.remove('active'));
-                    // Show target section
                     document.getElementById(target).classList.add('active');
                 });
             });
 
-            menuSliders.forEach(slider => {
-                const slides = slider.querySelectorAll('.menu-item-slide');
-                const dots = slider.querySelectorAll('.menu-item-dots button');
-                const prev = slider.querySelector('.menu-item-prev');
-                const next = slider.querySelector('.menu-item-next');
-                let slideIndex = 0;
-                let swipeStartX = 0;
-                let swipeStartY = 0;
-                let isSwiping = false;
+            // --- 2. データの取得と反映（標準通信方式） ---
+            const SERVICE_DOMAIN = 'popurar-coffee';
+            const API_KEY = '0q3brODIGr85z7wnC2yyqrkcrkTcEr4SUMCQ';
+            const ENDPOINT = 'menu';
 
-                function showSlide(index) {
-                    if (!slides.length) return;
-                    slideIndex = (index + slides.length) % slides.length;
-                    slides.forEach((slide, currentIndex) => {
-                        slide.classList.toggle('is-active', currentIndex === slideIndex);
-                    });
-                    dots.forEach((dot, currentIndex) => {
-                        dot.classList.toggle('is-active', currentIndex === slideIndex);
-                    });
+            fetch(`https://${SERVICE_DOMAIN}.microcms.io/api/v1/${ENDPOINT}?limit=100`, {
+                headers: {
+                    'X-MICROCMS-API-KEY': API_KEY
                 }
+            })
+                .then((response) => {
+                    if (!response.ok) throw new Error("データの取得に失敗しました");
+                    return response.json();
+                })
+                .then((res) => {
+                    console.log("★microCMSから届いたデータの件数:", res.contents.length);
+                    renderMenu(res.contents);
+                    initSliders(); // データ挿入後にスライドギミックを有効化
+                })
+                .catch((err) => {
+                    console.error("microCMSからのデータ取得に失敗しました:", err);
+                });
 
-                dots.forEach((dot, dotIndex) => {
-                    dot.addEventListener('click', () => {
-                        showSlide(dotIndex);
+            // --- 3. 元のHTML構造・デザインを完全に維持してデータを挿入する関数 ---
+            function renderMenu(items) {
+                const coffeeSlider = document.querySelector('#coffee-section [data-menu-slider]');
+                const coffeeDots = coffeeSlider.querySelector('.menu-item-dots');
+                const coffeePrevBtn = coffeeSlider.querySelector('.menu-item-prev');
+
+                const foodSliders = document.querySelectorAll('#food-section [data-menu-slider]');
+                const drinkSlider = foodSliders[0];
+                const drinkDots = drinkSlider.querySelector('.menu-item-dots');
+                const drinkPrevBtn = drinkSlider.querySelector('.menu-item-prev');
+
+                const foodSlider = foodSliders[1];
+                const foodDots = foodSlider.querySelector('.menu-item-dots');
+                const foodPrevBtn = foodSlider.querySelector('.menu-item-prev');
+
+                const otherCoffeeList = document.querySelector('#food-section .menu-details-list');
+
+                // 既存の静的HTMLサンプルを消去
+                if (coffeeSlider) coffeeSlider.querySelectorAll('.menu-item-slide').forEach(el => el.remove());
+                if (coffeeDots) coffeeDots.innerHTML = '';
+                if (drinkSlider) drinkSlider.querySelectorAll('.menu-item-slide').forEach(el => el.remove());
+                if (drinkDots) drinkDots.innerHTML = '';
+                if (foodSlider) foodSlider.querySelectorAll('.menu-item-slide').forEach(el => el.remove());
+                if (foodDots) foodDots.innerHTML = '';
+                if (otherCoffeeList) otherCoffeeList.innerHTML = '';
+
+                let counts = { coffee: 0, drink: 0, food: 0 };
+
+                items.forEach(item => {
+                    // 🛡️【安全装置】データやカテゴリ自体がないものは自動スキップ
+                    if (!item || !item.category) {
+                        return;
+                    }
+
+                    const itemName = item.name ? item.name : '';
+                    const noteText = item.note ? `<span>${item.note}</span>` : '';
+
+                    const cleanPrice = item.price ? String(item.price).replace(/[^\d]/g, '') : '';
+                    let priceText = '';
+                    if (cleanPrice) {
+                        priceText = `¥${Number(cleanPrice).toLocaleString()}`;
+                    } else {
+                        priceText = item.price ? item.price : '';
+                    }
+
+                    // カテゴリを文字列に変換
+                    const category = Array.isArray(item.category) ? item.category[0] : item.category;
+
+                    // 💡【最重要修正】判定の順番を入れ替えました。
+                    // 「other-coffee」には「coffee」という文字が含まれてしまうため、先に「その他」を最優先で確定させて処理を終了させます。
+                    if (category.includes('other') || category.includes('その他')) {
+                        if (otherCoffeeList) {
+                            otherCoffeeList.insertAdjacentHTML('beforeend', `<li style="font-size: clamp(1rem, 1.4vw, 1.15rem) !important; font-weight: 600; color: var(--color-text); padding: 0.4rem 0; border-bottom: 1px dashed rgba(58,36,22,0.15); list-style: none; text-align: left;">${itemName}：${priceText}</li>`);
+                        }
+                        return; // その他のコーヒーはここで安全に処理を抜けて次のデータへ進む
+                    }
+
+                    // 💡これ以降のカテゴリ（豆、ドリンク、フード）は画像表示が必須なため、画像がないデータはここで安全に弾きます
+                    if (!item.image || !item.image.url) {
+                        return;
+                    }
+
+                    if (category.includes('coffee') || category.includes('自家焙煎豆')) {
+                        const isActive = counts.coffee === 0 ? 'is-active' : '';
+                        const slideHtml = `
+                            <div class="menu-item-slide coffee-label-slide ${isActive}" style="display: flex !important; flex-direction: column; overflow: visible; background: transparent; border: none; box-shadow: none; height: 100%; padding: 0;">
+                                <div style="flex: 1 1 auto; display: flex; align-items: flex-end; justify-content: center; background: transparent; min-height: 0; padding: 0; margin-bottom: 12px;">
+                                    <img src="${item.image.url}?w=600&fm=webp" alt="${itemName} ${item.note || ''}" style="max-width: 100%; max-height: 100%; object-fit: contain; border: 0; display: block;">
+                                </div>
+                                <div class="menu-item-slide-info" style="padding: 1rem 0.5rem; height: 92px; min-height: 92px; display: flex !important; flex-direction: column; justify-content: center; align-items: center; text-align: center; flex-shrink: 0; background: linear-gradient(180deg, rgba(245, 235, 221, 0.98), rgba(245, 235, 221, 0.9)); border: 1px solid rgba(185, 147, 77, 0.46); border-radius: 4px; box-shadow: 0 8px 22px rgba(0, 0, 0, 0.24); margin-top: auto;">
+                                    <h4 style="font-size: clamp(1.05rem, 1.4vw, 1.35rem); line-height: 1.3; width: 100%; font-weight: 700; color: var(--color-wood);">${itemName}</h4>
+                                    <p style="font-size: clamp(0.92rem, 1.2vw, 1.08rem); margin-top: 0.3rem; width: 100%; font-weight: 700; color: var(--color-text);">店頭販売: ${priceText}</p>
+                                </div>
+                            </div>`;
+                        if (coffeePrevBtn) coffeePrevBtn.insertAdjacentHTML('beforebegin', slideHtml);
+                        if (coffeeDots) coffeeDots.innerHTML += `<button type="button" class="${isActive}" aria-label="${itemName}を表示"></button>`;
+                        counts.coffee++;
+                    }
+                    else if (category.includes('drink') || category.includes('ドリンク')) {
+                        const isActive = counts.drink === 0 ? 'is-active' : '';
+                        const slideHtml = `
+                            <div class="menu-item-slide ${isActive}">
+                                <img src="${item.image.url}?w=600&fm=webp" alt="${itemName}">
+                                <div class="menu-item-slide-info">
+                                    <h4>${itemName}${noteText}</h4>
+                                    <p>店内飲食: ${priceText}</p>
+                                </div>
+                            </div>`;
+                        if (drinkPrevBtn) drinkPrevBtn.insertAdjacentHTML('beforebegin', slideHtml);
+                        if (drinkDots) drinkDots.innerHTML += `<button type="button" class="${isActive}" aria-label="${itemName}を表示"></button>`;
+                        counts.drink++;
+                    }
+                    else if (category.includes('food') || category.includes('フード')) {
+                        const isActive = counts.food === 0 ? 'is-active' : '';
+                        const slideHtml = `
+                            <div class="menu-item-slide ${isActive}">
+                                <img src="${item.image.url}?w=600&fm=webp" alt="${itemName}">
+                                <div class="menu-item-slide-info">
+                                    <h4>${itemName}${noteText}</h4>
+                                    <p>店内飲食: ${priceText}</p>
+                                </div>
+                            </div>`;
+                        if (foodPrevBtn) foodPrevBtn.insertAdjacentHTML('beforebegin', slideHtml);
+                        if (foodDots) foodDots.innerHTML += `<button type="button" class="${isActive}" aria-label="${itemName}を表示"></button>`;
+                        counts.food++;
+                    }
+                });
+            }
+
+            // --- 4. スライドショーの動作ロジック（元のコードをそのまま維持） ---
+            function initSliders() {
+                const menuSliders = document.querySelectorAll('[data-menu-slider]');
+                menuSliders.forEach(slider => {
+                    const slides = slider.querySelectorAll('.menu-item-slide');
+                    const dots = slider.querySelectorAll('.menu-item-dots button');
+                    const prev = slider.querySelector('.menu-item-prev');
+                    const next = slider.querySelector('.menu-item-next');
+                    let slideIndex = 0;
+                    let swipeStartX = 0;
+                    let swipeStartY = 0;
+                    let isSwiping = false;
+
+                    function showSlide(index) {
+                        if (!slides.length) return;
+                        slideIndex = (index + slides.length) % slides.length;
+                        slides.forEach((slide, currentIndex) => {
+                            slide.classList.toggle('is-active', currentIndex === slideIndex);
+                        });
+                        dots.forEach((dot, currentIndex) => {
+                            dot.classList.toggle('is-active', currentIndex === slideIndex);
+                        });
+                    }
+
+                    dots.forEach((dot, dotIndex) => {
+                        dot.addEventListener('click', () => {
+                            showSlide(dotIndex);
+                        });
+                    });
+
+                    if (prev) {
+                        prev.addEventListener('click', () => {
+                            showSlide(slideIndex - 1);
+                        });
+                    }
+
+                    if (next) {
+                        next.addEventListener('click', () => {
+                            showSlide(slideIndex + 1);
+                        });
+                    }
+
+                    function handleSwipeEnd(endX, endY) {
+                        const diffX = endX - swipeStartX;
+                        const diffY = endY - swipeStartY;
+
+                        if (Math.abs(diffX) < 42 || Math.abs(diffX) < Math.abs(diffY) * 1.2) return;
+                        showSlide(diffX < 0 ? slideIndex + 1 : slideIndex - 1);
+                    }
+
+                    slider.addEventListener('pointerdown', (event) => {
+                        if (event.target.closest('button')) return;
+                        swipeStartX = event.clientX;
+                        swipeStartY = event.clientY;
+                        isSwiping = true;
+                        slider.setPointerCapture?.(event.pointerId);
+                    });
+
+                    slider.addEventListener('pointerup', (event) => {
+                        if (!isSwiping) return;
+                        isSwiping = false;
+                        handleSwipeEnd(event.clientX, event.clientY);
+                        slider.releasePointerCapture?.(event.pointerId);
+                    });
+
+                    slider.addEventListener('pointercancel', () => {
+                        isSwiping = false;
+                    });
+
+                    slider.addEventListener('dragstart', (event) => {
+                        event.preventDefault();
                     });
                 });
-
-                if (prev) {
-                    prev.addEventListener('click', () => {
-                        showSlide(slideIndex - 1);
-                    });
-                }
-
-                if (next) {
-                    next.addEventListener('click', () => {
-                        showSlide(slideIndex + 1);
-                    });
-                }
-
-                function handleSwipeEnd(endX, endY) {
-                    const diffX = endX - swipeStartX;
-                    const diffY = endY - swipeStartY;
-
-                    if (Math.abs(diffX) < 42 || Math.abs(diffX) < Math.abs(diffY) * 1.2) return;
-                    showSlide(diffX < 0 ? slideIndex + 1 : slideIndex - 1);
-                }
-
-                slider.addEventListener('pointerdown', (event) => {
-                    if (event.target.closest('button')) return;
-                    swipeStartX = event.clientX;
-                    swipeStartY = event.clientY;
-                    isSwiping = true;
-                    slider.setPointerCapture?.(event.pointerId);
-                });
-
-                slider.addEventListener('pointerup', (event) => {
-                    if (!isSwiping) return;
-                    isSwiping = false;
-                    handleSwipeEnd(event.clientX, event.clientY);
-                    slider.releasePointerCapture?.(event.pointerId);
-                });
-
-                slider.addEventListener('pointercancel', () => {
-                    isSwiping = false;
-                });
-
-                slider.addEventListener('dragstart', (event) => {
-                    event.preventDefault();
-                });
-            });
+            }
         });
     </script>
 </body>
